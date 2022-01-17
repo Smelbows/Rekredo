@@ -22,5 +22,5 @@ app.use(express.json())
 // Start the server
 app.listen(port, () => {
   // eslint-disable-next-line
-  console.log(`Server running on http://localhost:${port}`)
+  console.log(`Server running on https://localhost:${port}`)
 })

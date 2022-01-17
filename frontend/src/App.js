@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { combineReducers, createStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { user } from "../src/reducers/user";
 
-export default App;
+import Start from "./pages/Start";
+
+import "./App.css";
+
+const reducer = combineReducers({
+    user: user.reducer,
+});
+
+const store = configureStore({ reducer });
+
+// To change from configure store to create when we want to add local storage
+// const persistedStateJSON = localStorage.getItem("nameReduxState");
+// let persistedState = {};
+
+// if (persistedStateJSON) {
+//   persistedState = JSON.parse(persistedStateJSON);
+// }
+
+// store.subscribe(() => {
+//   localStorage.setItem("nameReduxState", JSON.stringify(store.getState()));
+// });
+
+export const App = () => {
+    return (
+        <Provider store={store}>
+            <Router>
+                <Routes>
+                    <Route index path="/" element={<Start />} />
+                </Routes>
+            </Router>
+        </Provider>
+    );
+};
+
+
