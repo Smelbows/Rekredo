@@ -1,5 +1,23 @@
 import express from 'express'
+import mongoose from 'mongoose'
 
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/rekredo'
+mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.Promise = Promise
+
+// Defines the port the app will run on. Defaults to 8080, but can be
+// overridden when starting the server. For example:
+//
+//   PORT=9000 npm start
+const port = process.env.PORT || 8080
 const app = express()
 
-app.listen(8080, () => console.log('app listening on port 8080! YAY!'))
+// Add middlewares to enable cors and json body parsing
+app.use(cors())
+app.use(express.json())
+
+// Start the server
+app.listen(port, () => {
+  // eslint-disable-next-line
+  console.log(`Server running on http://localhost:${port}`)
+})
