@@ -1,5 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import cors from "cors";
+import crypto from "crypto";
+import bcrypt from "bcrypt";
 
 const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/rekredo'
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
