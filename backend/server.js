@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import crypto from 'crypto';
 import bcrypt from 'bcrypt';
+import multer from 'multer';
+// import bodyparser from 'bodyparser';
 
 const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/rekredo';
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -18,6 +20,7 @@ const app = express();
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
+// app.use(bodyparser.json());
 
 //schemas
 const UserSchema = new mongoose.Schema({
@@ -60,8 +63,29 @@ const ProductSchema = new mongoose.Schema({
   },
 });
 
+const ImageSchema = new mongoose.Schema({
+  name: String,
+  desc: String,
+  img: {
+    data: Buffer,
+    contentType: String,
+  },
+});
+
 const User = mongoose.model('User', UserSchema);
 const Product = mongoose.model('Product', ProductSchema);
+const Image = mongoose.model('Image', ImageSchema);
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now());
+  },
+});
+
+const upload = multer({ storage: storage });
 
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header('Authorization');
