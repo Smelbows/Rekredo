@@ -61,6 +61,17 @@ const ProductSchema = new mongoose.Schema({
   tags: {
     type: Array,
   },
+  owner: {
+    type: String,
+  },
+  status: AvailabilitySchema,
+});
+
+const AvailabilitySchema = new mongoose.Schema({
+  status: {
+    type: String,
+  },
+  availability: { type: Boolean },
 });
 
 const ImageSchema = new mongoose.Schema({
