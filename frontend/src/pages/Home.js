@@ -1,4 +1,4 @@
-// import react from "react";
+import react from 'react';
 
 const Home = () => {
   return <div>Hello everyone, this is the home page</div>;
