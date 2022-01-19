@@ -3,4 +3,9 @@
 [build]
   base = "frontend/"
   publish = "build/"
-  command = "npm run build"
+  command = "npm start"
+  
+[[redirects]]  
+from = “/*”  
+to = “/index.html”  
+status = 200
