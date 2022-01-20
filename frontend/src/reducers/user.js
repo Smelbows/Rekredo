@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui';
 
 const BASE_URL = 'http://localhost:8080';
 
@@ -28,7 +29,7 @@ export const user = createSlice({
 
 export const userSignUpOrLogIn = (username, password, mode) => {
   return (dispatch) => {
-    //   dispatch(ui.actions.setLoading(true));
+    dispatch(ui.actions.setLoading(true));
 
     fetch(BASE_URL + mode, {
       method: 'POST',
@@ -46,8 +47,8 @@ export const userSignUpOrLogIn = (username, password, mode) => {
           dispatch(user.actions.setError(json));
           dispatch(user.actions.setUserToLoggedOut());
         }
-      });
+      })
 
-    // .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
   };
 };

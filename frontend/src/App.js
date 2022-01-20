@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { user } from '../src/reducers/user';
+import { products } from '../src/reducers/products';
+import { ui } from 'reducers/ui';
+
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Faq from './pages/Faq';
@@ -19,6 +22,8 @@ import './App.css';
 
 const reducer = combineReducers({
   user: user.reducer,
+  products: products.reducer,
+  ui: ui.reducer
 });
 
 const store = configureStore({ reducer });
@@ -40,15 +45,15 @@ export const App = () => {
     <Provider store={store}>
       <Router>
         <Routes>
-          <Route index path="/" element={<Home />} />
-          <Route index path="/log-in" element={<Login />} />
-          <Route index path="/register" element={<Register />} />
-          <Route index path="/account" element={<Account />} />
-          <Route index path="/products" element={<Products />} />
-          <Route index path="/products/:propid" element={<PropDetails />} />
-          <Route index path="/faq" element={<Faq />} />
-          <Route index path="/contact" element={<Contact />} />
-          <Route index path="/checkout" element={<Checkout />} />
+          <Route index path='/' element={<Home />} />
+          <Route index path='/log-in' element={<Login />} />
+          <Route index path='/register' element={<Register />} />
+          <Route index path='/account' element={<Account />} />
+          <Route index path='/products' element={<Products />} />
+          <Route index path='/products/:propid' element={<PropDetails />} />
+          <Route index path='/faq' element={<Faq />} />
+          <Route index path='/contact' element={<Contact />} />
+          <Route index path='/checkout' element={<Checkout />} />
         </Routes>
       </Router>
     </Provider>
