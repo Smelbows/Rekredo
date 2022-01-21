@@ -23,6 +23,7 @@ const Products = () => {
               <p>{item.name}</p>
               <p>{item.description}</p>
               <p>{item.category}</p>
+              <p>{item.tags}</p>
               <img src={item.image?.imageUrl} alt='website' />
             </Card>
           ))

@@ -33,9 +33,7 @@ export const uploadImage = (formData) => {
     fetch(BASE_URL + '/image-upload', { method: 'POST', body: formData })
       .then((res) => res.json())
       .then((json) => {
-        console.log('the whole json', json);
         if (json.success) {
-          console.log(json);
           dispatch(upload.actions.setImage(json));
           dispatch(upload.actions.setImageError(null));
         } else {
@@ -59,7 +57,6 @@ export const uploadProduct = (name, description, category, tags, image) => {
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
-          console.log(json);
           dispatch(upload.actions.setProduct(json));
           dispatch(upload.actions.setProductError(null));
         } else {

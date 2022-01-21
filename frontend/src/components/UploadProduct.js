@@ -6,16 +6,16 @@ import { uploadProduct } from 'reducers/upload';
 export const UploadProduct = () => {
   const dispatch = useDispatch();
   const image = useSelector((state) => state.upload.image);
-  console.log('the image from slice', image);
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState('');
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(uploadProduct(name, description, category, tags, image));
+    const allTags = tags?.split(',');
+    dispatch(uploadProduct(name, description, category, allTags, image));
   };
 
   return (
