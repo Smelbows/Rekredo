@@ -10,14 +10,9 @@ const Products = () => {
   const allProducts = useSelector((state) => state.products.productList);
   const loading = useSelector((state) => state.ui.loading);
 
-  // const getProducts = () => {
-  //   dispatch(showProduct());
-  // };
-
   useEffect(() => {
-    // getProducts();
     dispatch(showProduct());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Section>
@@ -28,6 +23,7 @@ const Products = () => {
               <p>{item.name}</p>
               <p>{item.description}</p>
               <p>{item.category}</p>
+              <img src={item.image?.imageUrl} alt='website' />
             </Card>
           ))
         : null}

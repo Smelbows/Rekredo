@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import listEndpoints from 'express-list-endpoints';
 import cors from 'cors';
 // import crypto from 'crypto';
 import bcrypt from 'bcrypt';
@@ -69,8 +70,12 @@ const authenticateUser = async (req, res, next) => {
   }
 };
 
-app.get('/', (req, res) => {
-  res.send('Homepage');
+app.get('/', async (req, res) => {
+  try {
+    res.json(listEndpoints(app));
+  } catch (err) {
+    res.status(404).send({ success: false, error: 'Not found' });
+  }
 });
 
 app.get('/account', authenticateUser);
@@ -115,7 +120,13 @@ app.post('/register', async (req, res) => {
       success: true
     });
   } catch (error) {
-    res.status(400).json({ response: error, success: false });
+    if (error.code === 11000) {
+      res
+        .status(401)
+        .json({ success: false, error: 'That username is already taken' });
+    } else {
+      catchError(res, error, 'Something went wrong');
+    }
   }
 });
 
@@ -144,7 +155,7 @@ app.post('/log-in', async (req, res) => {
 });
 
 app.post('/product-upload', async (req, res) => {
-  const { name, description, category, tags, imageId } = req.body;
+  const { name, description, category, tags, image } = req.body;
   try {
     if (!name) {
       throw 'Your product has to have a name';
@@ -159,17 +170,19 @@ app.post('/product-upload', async (req, res) => {
       throw 'please add tags as an array';
     }
 
-    const image = Image.findById(imageId);
+    // const image = Image.findById(imageId);
 
     const newProduct = await new Product({
       name,
       description,
       category,
       tags,
-      image: image._Id
+      image
     }).save();
 
-    await newProduct.populate('image');
+    console.log(newProduct);
+
+    // await newProduct.populate('image');
     res.status(201).json({
       response: {
         productId: newProduct._id,
@@ -187,12 +200,26 @@ app.post('/product-upload', async (req, res) => {
 });
 
 app.post('/image-upload', parser.single('image'), async (req, res) => {
+  //   try {
+  //     const image = await new Image({
+  //       name: req.body.name,
+  //       imageUrl: req.file.path,
+  //       imageId: req.file.filename
+  //     }).save();
+  //     res.json(image);
+  //   } catch (err) {
+  //     res.status(400).json({ errors: err.errors });
+  //   }
+  // });
+
   try {
     const image = await new Image({
       name: req.body.name,
       imageUrl: req.file.path,
       imageId: req.file.filename
     }).save();
+
+    // const product = await Product.findOne({ name: product.name });
     res.json(image);
   } catch (err) {
     res.status(400).json({ errors: err.errors });

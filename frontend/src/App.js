@@ -7,6 +7,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { user } from '../src/reducers/user';
 import { products } from '../src/reducers/products';
 import { ui } from 'reducers/ui';
+import { upload } from 'reducers/upload';
 
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -23,7 +24,8 @@ import './App.css';
 const reducer = combineReducers({
   user: user.reducer,
   products: products.reducer,
-  ui: ui.reducer
+  ui: ui.reducer,
+  upload: upload.reducer
 });
 
 const store = configureStore({ reducer });

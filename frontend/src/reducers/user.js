@@ -21,8 +21,6 @@ export const user = createSlice({
     setUserToLoggedOut: (store) => {
       store.username = null;
       store.accessToken = null;
-      store.securityLevel = 1;
-      store.riddle = null;
     }
   }
 });

@@ -14,7 +14,9 @@ export const Card = styled.div`
 `;
 
 export const Section = styled.section`
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   border-radius: 1px;
   padding: 0.5rem 0;
   margin: 0.5rem 1rem;
