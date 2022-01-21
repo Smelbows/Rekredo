@@ -6,7 +6,7 @@ import { uploadProduct } from 'reducers/upload';
 export const UploadProduct = () => {
   const dispatch = useDispatch();
   const image = useSelector((state) => state.upload.image);
-  console.log(image);
+  console.log('the image from slice', image);
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');

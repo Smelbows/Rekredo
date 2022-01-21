@@ -8,14 +8,18 @@ export const upload = createSlice({
   initialState: {
     image: null,
     product: null,
-    error: null
+    imageError: null,
+    productError: null
   },
   reducers: {
     setImage: (store, action) => {
       store.image = action.payload.response;
     },
-    setError: (store, action) => {
-      store.error = action.payload;
+    setImageError: (store, action) => {
+      store.imageError = action.payload;
+    },
+    setProductError: (store, action) => {
+      store.productError = action.payload;
     },
     setProduct: (store, action) => {
       store.product = action.payload.response;
@@ -29,12 +33,13 @@ export const uploadImage = (formData) => {
     fetch(BASE_URL + '/image-upload', { method: 'POST', body: formData })
       .then((res) => res.json())
       .then((json) => {
+        console.log('the whole json', json);
         if (json.success) {
           console.log(json);
           dispatch(upload.actions.setImage(json));
-          dispatch(upload.actions.setError(null));
+          dispatch(upload.actions.setImageError(null));
         } else {
-          dispatch(upload.actions.setError(json));
+          dispatch(upload.actions.setImageError(json));
         }
       })
       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
@@ -56,9 +61,9 @@ export const uploadProduct = (name, description, category, tags, image) => {
         if (json.success) {
           console.log(json);
           dispatch(upload.actions.setProduct(json));
-          dispatch(upload.actions.setError(null));
+          dispatch(upload.actions.setProductError(null));
         } else {
-          dispatch(upload.actions.setError(json));
+          dispatch(upload.actions.setProductError(json));
         }
       })
       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));

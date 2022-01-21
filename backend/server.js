@@ -220,7 +220,7 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
     }).save();
 
     // const product = await Product.findOne({ name: product.name });
-    res.json(image);
+    res.json({ response: image, success: true });
   } catch (err) {
     res.status(400).json({ errors: err.errors });
   }
