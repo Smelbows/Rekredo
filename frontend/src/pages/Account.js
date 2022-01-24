@@ -6,17 +6,7 @@ import { Button, PropButton } from '../components/Buttons';
 import { UploadImage } from '../components/UploadImage';
 import { UploadProduct } from 'components/UploadProduct';
 
-const ProfileCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-radius: 3px;
-  padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
-  width: 20rem;
-  background: grey;
-  color: white;
-  border: 2px solid green;
-`;
+import { ProfileCard } from '../components/Card';
 
 const Account = () => {
   const navigate = useNavigate();
