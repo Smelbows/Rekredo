@@ -19,13 +19,16 @@ import Products from './pages/Products';
 import Checkout from './pages/Checkout';
 import PropDetails from './pages/PropDetails';
 
+import Nav from 'components/Nav';
+import Footer from 'components/Footer';
+
 import './App.css';
 
 const reducer = combineReducers({
   user: user.reducer,
   products: products.reducer,
   ui: ui.reducer,
-  upload: upload.reducer
+  upload: upload.reducer,
 });
 
 const store = configureStore({ reducer });
@@ -46,17 +49,19 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Router>
+        <Nav />
         <Routes>
-          <Route index path='/' element={<Home />} />
-          <Route index path='/log-in' element={<Login />} />
-          <Route index path='/register' element={<Register />} />
-          <Route index path='/account' element={<Account />} />
-          <Route index path='/products' element={<Products />} />
-          <Route index path='/products/:propid' element={<PropDetails />} />
-          <Route index path='/faq' element={<Faq />} />
-          <Route index path='/contact' element={<Contact />} />
-          <Route index path='/checkout' element={<Checkout />} />
+          <Route index path="/" element={<Home />} />
+          <Route index path="/log-in" element={<Login />} />
+          <Route index path="/register" element={<Register />} />
+          <Route index path="/account" element={<Account />} />
+          <Route index path="/products" element={<Products />} />
+          <Route index path="/products/:propid" element={<PropDetails />} />
+          <Route index path="/faq" element={<Faq />} />
+          <Route index path="/contact" element={<Contact />} />
+          <Route index path="/checkout" element={<Checkout />} />
         </Routes>
+        <Footer />
       </Router>
     </Provider>
   );

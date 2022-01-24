@@ -1,5 +1,3 @@
-import Nav from '../components/Nav';
-
 import React, { useState } from 'react';
 
 const FORM_ENDPOINT = ''; // TODO - fill on the later step
@@ -23,7 +21,6 @@ const Contact = () => {
 
   return (
     <>
-      <Nav />
       <form
         action={FORM_ENDPOINT}
         onSubmit={handleSubmit}

@@ -9,31 +9,37 @@ export const UploadImage = () => {
 
   const [name, setName] = useState('');
 
+  const clearForm = () => {
+    setName('');
+    fileInput.current.value = '';
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('image', fileInput.current.files[0]);
     formData.append('name', name);
-
-    dispatch(uploadImage(formData));
+    dispatch(uploadImage(formData, clearForm));
+    // clearForm();
   };
+
   return (
     <form onSubmit={handleFormSubmit}>
       <label>
         Prop Image
-        <input type='file' ref={fileInput} />
+        <input type="file" ref={fileInput} />
       </label>
 
       <label>
         Prop name
         <input
-          type='text'
+          type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </label>
 
-      <button type='submit'>Upload</button>
+      <button type="submit">Upload</button>
     </form>
   );
 };

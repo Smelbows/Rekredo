@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userSignUpOrLogIn } from '../reducers/user';
 
-import Nav from '../components/Nav';
-
 const Login = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +26,6 @@ const Login = () => {
 
   return (
     <>
-      <Nav />
       <div>
         <form onSubmit={onUserSubmit} className="signin-form">
           <h1>Log in</h1>

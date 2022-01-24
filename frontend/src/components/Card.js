@@ -30,4 +30,7 @@ export const BigSection = styled.section`
   margin: 0.5rem 1rem;
   width: 90vw;
   background: lightgrey;
+  & > .background {
+    width: 100%;
+  }
 `;

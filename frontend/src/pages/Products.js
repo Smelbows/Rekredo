@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showProduct } from 'reducers/products';
 
 import { Card, Section } from '../components/Card';
-import Nav from '../components/Nav';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -17,7 +16,6 @@ const Products = () => {
 
   return (
     <>
-      <Nav />
       <Section>
         <h1>Products</h1>
         {!loading

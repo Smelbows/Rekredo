@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { SmallButton } from './Buttons';
 
@@ -29,14 +29,19 @@ export const Logo = styled.h1`
   font-family: 'Montserrat', sans-serif;
 `;
 
-export const Pages = styled.a`
+export const Pages = styled(NavLink)`
+  text-decoration: none;
   display: flex;
   font-size: 1rem;
   padding: 0.5em;
+  color: grey;
+  &.${(props) => props.activeClassName} {
+    color: red;
+  }
 `;
 
 const Nav = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <Header>
       <HeaderSection>
@@ -46,11 +51,19 @@ const Nav = () => {
         <Logo>REKREDO</Logo>
       </HeaderSection>
       <HeaderSection>
-        <Pages onClick={() => navigate('/Account')}>Profile</Pages>
+        <Pages activeClassName="any" to="/account">
+          Profile
+        </Pages>
+        <Pages to="/faq">FAQ</Pages>
+        <Pages to="/products">Products</Pages>
+        <Pages to="/contact">Contact</Pages>
+        <Pages to="/">Home</Pages>
+
+        {/* <Pages onClick={() => navigate('/Account')}>Profile</Pages>
         <Pages onClick={() => navigate('/Faq')}>FAQ</Pages>
         <Pages onClick={() => navigate('/Products')}>Products</Pages>
         <Pages onClick={() => navigate('/Contact')}>Contact</Pages>
-        <Pages onClick={() => navigate('/')}>Home</Pages>
+        <Pages onClick={() => navigate('/')}>Home</Pages> */}
       </HeaderSection>
     </Header>
   );

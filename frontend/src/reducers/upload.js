@@ -29,7 +29,7 @@ export const upload = createSlice({
   },
 });
 
-export const uploadImage = (formData) => {
+export const uploadImage = (formData, clearForm) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch(BASE_URL + '/image-upload', { method: 'POST', body: formData })
@@ -42,11 +42,19 @@ export const uploadImage = (formData) => {
           dispatch(upload.actions.setImageError(json));
         }
       })
-      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+      .then(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
+      .finally(clearForm());
   };
 };
 
-export const uploadProduct = (name, description, category, tags, image) => {
+export const uploadProduct = (
+  name,
+  description,
+  category,
+  tags,
+  image,
+  clearForm
+) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch(BASE_URL + '/product-upload', {
@@ -65,6 +73,7 @@ export const uploadProduct = (name, description, category, tags, image) => {
           dispatch(upload.actions.setProductError(json));
         }
       })
-      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+      .then(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
+      .finally(clearForm());
   };
 };

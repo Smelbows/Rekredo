@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 
-import Nav from '../components/Nav';
-
 import { Button, PropButton } from '../components/Buttons';
 import { UploadImage } from '../components/UploadImage';
 import { UploadProduct } from 'components/UploadProduct';
@@ -24,7 +22,6 @@ const Account = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Nav />
       <ProfileCard>
         <Button onClick={() => navigate('/')}>
           <Link to="/home">Visit your home</Link>Hello
