@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
-const BASE_URL = 'http://localhost:8080';
+import { BASE_URL } from '../utils/config';
+console.log(BASE_URL);
+// const BASE_URL = 'http://localhost:8080';
 
 export const upload = createSlice({
   name: 'upload',
@@ -9,7 +11,7 @@ export const upload = createSlice({
     image: null,
     product: null,
     imageError: null,
-    productError: null
+    productError: null,
   },
   reducers: {
     setImage: (store, action) => {
@@ -23,8 +25,8 @@ export const upload = createSlice({
     },
     setProduct: (store, action) => {
       store.product = action.payload.response;
-    }
-  }
+    },
+  },
 });
 
 export const uploadImage = (formData) => {
@@ -50,9 +52,9 @@ export const uploadProduct = (name, description, category, tags, image) => {
     fetch(BASE_URL + '/product-upload', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, description, category, tags, image })
+      body: JSON.stringify({ name, description, category, tags, image }),
     })
       .then((res) => res.json())
       .then((json) => {

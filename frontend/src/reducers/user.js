@@ -1,14 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
-const BASE_URL = 'http://localhost:8080';
+import { BASE_URL } from '../utils/config';
+console.log(BASE_URL);
+// const BASE_URL = 'http://localhost:8080';
 
 export const user = createSlice({
   name: 'user',
   initialState: {
     username: null,
     accessToken: null,
-    error: null
+    error: null,
   },
   reducers: {
     setUser: (store, action) => {
@@ -21,8 +23,8 @@ export const user = createSlice({
     setUserToLoggedOut: (store) => {
       store.username = null;
       store.accessToken = null;
-    }
-  }
+    },
+  },
 });
 
 export const userSignUpOrLogIn = (username, password, mode) => {
@@ -32,9 +34,9 @@ export const userSignUpOrLogIn = (username, password, mode) => {
     fetch(BASE_URL + mode, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({ username, password }),
     })
       .then((res) => res.json())
       .then((json) => {
