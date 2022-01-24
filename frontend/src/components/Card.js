@@ -23,3 +23,11 @@ export const Section = styled.section`
   width: 100vw;
   background: lightgrey;
 `;
+
+export const BigSection = styled.section`
+  display: flex;
+  padding: 0.5rem 0;
+  margin: 0.5rem 1rem;
+  width: 90vw;
+  background: lightgrey;
+`;

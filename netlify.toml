@@ -4,6 +4,7 @@
   base = "frontend/"
   publish = "build/"
   command = "npm run build"
+  REACT_APP_API_URL = "https://rekredo.herokuapp.com"
 
   [[redirects]]
     from = "/*"

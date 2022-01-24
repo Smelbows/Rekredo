@@ -13,13 +13,15 @@ export const Button = styled.button`
 
 export const SmallButton = styled.a`
   display: inline-block;
-  border-radius: 3px;
+  border-radius: 3px 30%;
   padding: 0.5rem 0;
   margin: 0.5rem 1rem;
-  width: 11rem;
+  width: 5rem;
   background: transparent;
-  color: white;
-  border: 2px solid white;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 1px 1px 1px 1px black;
+  text-align: center;
 `;
 
 export const PropButton = styled.button`

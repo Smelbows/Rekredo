@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showProduct } from 'reducers/products';
 
 import { Card, Section } from '../components/Card';
+import Nav from '../components/Nav';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -15,20 +16,23 @@ const Products = () => {
   }, [dispatch]);
 
   return (
-    <Section>
-      <h1>Products</h1>
-      {!loading
-        ? allProducts?.map((item) => (
-            <Card key={item._id}>
-              <p>{item.name}</p>
-              <p>{item.description}</p>
-              <p>{item.category}</p>
-              <p>{item.tags}</p>
-              <img src={item.image?.imageUrl} alt='website' />
-            </Card>
-          ))
-        : null}
-    </Section>
+    <>
+      <Nav />
+      <Section>
+        <h1>Products</h1>
+        {!loading
+          ? allProducts?.map((item) => (
+              <Card key={item._id}>
+                <p>{item.name}</p>
+                <p>{item.description}</p>
+                <p>{item.category}</p>
+                <p>{item.tags}</p>
+                <img src={item.image?.imageUrl} alt="website" />
+              </Card>
+            ))
+          : null}
+      </Section>
+    </>
   );
 };
 

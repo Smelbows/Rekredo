@@ -41,7 +41,7 @@ const cloudinary = cloudinaryFramework.v2;
 cloudinary.config({
   cloud_name: 'rekredo',
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 const storage = new CloudinaryStorage({
@@ -49,8 +49,8 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'props',
     allowedFormats: ['jpg', 'png', 'JPG', 'jpeg'],
-    transformation: [{ width: 500, height: 500, crop: 'limit' }]
-  }
+    transformation: [{ width: 500, height: 500, crop: 'limit' }],
+  },
 });
 const parser = multer({ storage });
 
@@ -108,16 +108,16 @@ app.post('/register', async (req, res) => {
     const newUser = await new User({
       username,
       password: bcrypt.hashSync(password, salt),
-      accountType
+      accountType,
     }).save();
 
     res.status(201).json({
       response: {
         userId: newUser._id,
         username: newUser.username,
-        accessToken: newUser.accessToken
+        accessToken: newUser.accessToken,
       },
-      success: true
+      success: true,
     });
   } catch (error) {
     if (error.code === 11000) {
@@ -139,14 +139,14 @@ app.post('/log-in', async (req, res) => {
         response: {
           userId: user._id,
           username: user.username,
-          accessToken: user.accessToken
+          accessToken: user.accessToken,
         },
-        success: true
+        success: true,
       });
     } else {
       res.status(404).json({
         response: 'Username or password does not match',
-        success: false
+        success: false,
       });
     }
   } catch (error) {
@@ -177,7 +177,7 @@ app.post('/product-upload', async (req, res) => {
       description,
       category,
       tags,
-      image
+      image,
     }).save();
 
     console.log(newProduct);
@@ -190,9 +190,9 @@ app.post('/product-upload', async (req, res) => {
         description: newProduct.description,
         category: newProduct.category,
         tags: newProduct.tags,
-        image: newProduct.image
+        image: newProduct.image,
       },
-      success: true
+      success: true,
     });
   } catch (error) {
     res.status(404).json({ response: error, success: false });
@@ -216,7 +216,7 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
     const image = await new Image({
       name: req.body.name,
       imageUrl: req.file.path,
-      imageId: req.file.filename
+      imageId: req.file.filename,
     }).save();
 
     // const product = await Product.findOne({ name: product.name });

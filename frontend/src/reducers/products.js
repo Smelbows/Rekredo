@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
-const BASE_URL = 'http://localhost:8080';
+import { BASE_URL } from '../utils/config';
+console.log(BASE_URL);
+// const BASE_URL = 'http://localhost:8080';
 
 export const products = createSlice({
   name: 'products',
   initialState: {
     productList: null,
-    error: null
+    error: null,
   },
   reducers: {
     setAvailability: (store, action) => {},
@@ -16,8 +18,8 @@ export const products = createSlice({
     },
     setError: (store, action) => {
       store.error = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const showProduct = () => {

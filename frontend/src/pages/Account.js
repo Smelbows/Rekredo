@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 
+import Nav from '../components/Nav';
+
 import { Button, PropButton } from '../components/Buttons';
 import { UploadImage } from '../components/UploadImage';
 import { UploadProduct } from 'components/UploadProduct';
@@ -21,15 +23,18 @@ const ProfileCard = styled.div`
 const Account = () => {
   const navigate = useNavigate();
   return (
-    <ProfileCard>
-      <Button onClick={() => navigate('/')}>
-        <Link to='/home'>Visit your home</Link>Hello
-      </Button>
-      <PropButton propBtnColor='yellow'> rekredo</PropButton>
-      Account
-      <UploadImage />
-      <UploadProduct />
-    </ProfileCard>
+    <>
+      <Nav />
+      <ProfileCard>
+        <Button onClick={() => navigate('/')}>
+          <Link to="/home">Visit your home</Link>Hello
+        </Button>
+        <PropButton propBtnColor="yellow"> rekredo</PropButton>
+        Account
+        <UploadImage />
+        <UploadProduct />
+      </ProfileCard>
+    </>
   );
 };
 

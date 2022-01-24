@@ -1,9 +1,12 @@
-// import react from 'react'
-
 import React from 'react';
+import Nav from '../components/Nav';
 
 const Checkout = () => {
-  return <div></div>;
+  return (
+    <>
+      <Nav /> <div></div>;
+    </>
+  );
 };
 
 export default Checkout;
