@@ -100,6 +100,20 @@ app.get('/products', async (req, res) => {
   }
 });
 
+app.get('/products/id/:id', async (req, res) => {
+  const { propid } = req.params;
+
+  try {
+    const oneProduct = await Product.find((product) => productId === +id);
+    if (!oneProduct) {
+      throw 'product library empty are not available';
+    }
+    res.status(200).json({ response: oneProduct, success: true });
+  } catch (error) {
+    res.status(400).json({ response: error, success: false });
+  }
+});
+
 app.post('/register/personal', async (req, res) => {
   const { username, password, email } = req.body;
 
