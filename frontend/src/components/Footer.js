@@ -20,10 +20,9 @@ const Footer = () => {
   return (
     <FooterContainer>
       <HeaderSection>
-      <NavLink to="/">Go home</NavLink>
-      <P>Hi this is a footer</P>
+        <NavLink to="/">Go home</NavLink>
+        <p>Hi this is a footer</p>
       </HeaderSection>
- 
     </FooterContainer>
   );
 };
