@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { showProduct } from 'reducers/products';
 import styled from 'styled-components';
-import { Card, Section, ProductCard } from '../styledElements/Card';
+import { Section, ProductCard } from '../styledElements/Card';
 import { H1, P } from '../styledElements/Texts';
 import { SmallButton } from 'styledElements/Buttons';
 
@@ -15,7 +15,6 @@ export const ProductText = styled.div`
   border-radius: 3px;
   justify-content: space-evenly;
 `;
-
 
 const Products = () => {
   const navigate = useNavigate();
@@ -35,14 +34,16 @@ const Products = () => {
           ? allProducts?.map((item) => (
               <ProductCard key={item._id}>
                 <ProductText>
-                <P>{item.name}</P>
-                <P>{item.description}</P>
-                <P>{item.category}</P>
-                <P>{item.tags}</P>
+                  <P>{item.name}</P>
+                  <P>{item.description}</P>
+                  <P>{item.category}</P>
+                  <P>{item.tags}</P>
                 </ProductText>
                 <img src={item.image?.imageUrl} alt="website" />
-                <SmallButton onClick={() => navigate(`/products/${item._id}`)}>Prop details</SmallButton>
-                </ProductCard>
+                <SmallButton onClick={() => navigate(`/products/${item._id}`)}>
+                  Prop details
+                </SmallButton>
+              </ProductCard>
             ))
           : null}
       </Section>

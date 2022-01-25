@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { uploadImage } from 'reducers/upload';
@@ -7,13 +7,10 @@ export const UploadImage = () => {
   const dispatch = useDispatch();
   const fileInput = useRef('');
 
-  const [name, setName] = useState('');
-
   const image = useSelector((state) => state.upload.image);
   const productSuccess = useSelector((state) => state.upload.productSuccess);
 
   const clearForm = () => {
-    setName('');
     fileInput.current.value = '';
   };
 

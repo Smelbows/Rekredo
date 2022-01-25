@@ -1,6 +1,6 @@
 import React from 'react';
 // import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { Button, PropButton } from '../styledElements/Buttons';
 import { UploadImage } from '../components/UploadImage';
@@ -13,9 +13,7 @@ const Account = () => {
   return (
     <>
       <ProfileCard>
-        <Button onClick={() => navigate('/')}>
-          Hello
-        </Button>
+        <Button onClick={() => navigate('/')}>Hello</Button>
         <PropButton propBtnColor="yellow"> rekredo</PropButton>
         Account
         <UploadImage />
