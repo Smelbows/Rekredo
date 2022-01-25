@@ -6,8 +6,8 @@ import { uploadProduct } from 'reducers/upload';
 export const UploadProduct = () => {
   const dispatch = useDispatch();
   const image = useSelector((state) => state.upload.image);
-  const imageError = useSelector((state) => state.upload.productError);
   const productError = useSelector((state) => state.upload.imageError);
+  const product = useSelector((state) => state.upload.product);
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -87,6 +87,7 @@ export const UploadProduct = () => {
         </button>
       </form>
       {productError && <h1>{productError}</h1>}
+      {product && <p>Thank you, your product has been uploaded.</p>}
     </>
   );
 };

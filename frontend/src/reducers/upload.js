@@ -23,9 +23,12 @@ export const upload = createSlice({
     },
     setProductError: (store, action) => {
       store.productError = action.payload;
-      store.productSuccess = action.payload.success;
+      if (action.payload) {
+        store.productSuccess = false;
+      }
     },
     setProduct: (store, action) => {
+      console.log('setProduct', action.payload);
       store.product = action.payload.response;
       store.productSuccess = action.payload.success;
     },
@@ -73,8 +76,9 @@ export const uploadProduct = (
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
-          dispatch(upload.actions.setProduct(json));
+          console.log('success', json);
           dispatch(upload.actions.setProductError(null));
+          dispatch(upload.actions.setProduct(json));
           dispatch(upload.actions.clearImageState());
           clearForm();
         } else {
