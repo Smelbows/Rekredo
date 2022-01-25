@@ -41,7 +41,7 @@ export const UploadImage = () => {
         </label>
         <button type="submit">Upload</button>
       </form>
-      {image && <img src={image.imageUrl}></img>}
+      {image && <img src={image.imageUrl} alt="your product"></img>}
     </>
   );
 };
