@@ -27,7 +27,7 @@ export const UploadImage = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('image', fileInput.current.files[0]);
-    formData.append('name', name);
+    // formData.append('name', name);
     dispatch(uploadImage(formData));
     // clearForm();
   };

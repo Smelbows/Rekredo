@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { showProduct } from 'reducers/products';
 
-import { Card, Section } from '../components/Card';
+import { Card, Section, ProductCard } from '../styledElements/Card';
+import { H1, P } from '../styledElements/Texts';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -17,16 +18,16 @@ const Products = () => {
   return (
     <>
       <Section>
-        <h1>Products</h1>
+        <H1>Products</H1>
         {!loading
           ? allProducts?.map((item) => (
-              <Card key={item._id}>
-                <p>{item.name}</p>
-                <p>{item.description}</p>
-                <p>{item.category}</p>
-                <p>{item.tags}</p>
+              <ProductCard key={item._id}>
+                <P>{item.name}</P>
+                <P>{item.description}</P>
+                <P>{item.category}</P>
+                <P>{item.tags}</P>
                 <img src={item.image?.imageUrl} alt="website" />
-              </Card>
+              </ProductCard>
             ))
           : null}
       </Section>

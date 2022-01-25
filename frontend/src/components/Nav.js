@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-import { SmallButton } from './Buttons';
+import { SmallButton } from '../styledElements/Buttons';
 
 // font-family: 'Lora', serif;
 // font-family: 'Montserrat', sans-serif;
@@ -19,6 +19,7 @@ export const HeaderSection = styled.div`
   display: flex;
   align-items: center;
   margin: 0.5em;
+  padding-right: 1em;
   font-family: 'Lora', serif;
 `;
 
@@ -31,21 +32,23 @@ export const Logo = styled.h1`
 
 export const Pages = styled(NavLink)`
   text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   font-size: 1rem;
   padding: 0.5em;
-  color: grey;
+  color: black;
   &.${(props) => props.activeClassName} {
-    color: red;
+    color: grey;
   }
 `;
 
 const Nav = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <Header>
       <HeaderSection>
-        <SmallButton>Register</SmallButton>
+        <SmallButton onClick={() => navigate('/register')}>Register</SmallButton>
+        <SmallButton onClick={() => navigate('/log-in')}>Log in</SmallButton>
       </HeaderSection>
       <HeaderSection>
         <Logo>REKREDO</Logo>

@@ -3,14 +3,24 @@ import styled from 'styled-components';
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-
   border-radius: 3px;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   margin: 0.5rem 1rem;
   width: 11rem;
   background: grey;
   color: darkblue;
-  border: 2px solid red;
+`;
+
+export const ProductCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  padding: 0.5rem;
+  margin: 0.5rem 1rem;
+  min-height: 100px;
+  width: 200px;
+  background: grey;
+  color: black;
 `;
 
 export const ProfileCard = styled.div`
@@ -31,8 +41,8 @@ export const Section = styled.section`
   flex-wrap: wrap;
   border-radius: 1px;
   padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
   width: 100vw;
+  min-height: 10em;
   background: lightgrey;
 `;
 

@@ -2,11 +2,11 @@ import React from 'react';
 // import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { Button, PropButton } from '../components/Buttons';
+import { Button, PropButton } from '../styledElements/Buttons';
 import { UploadImage } from '../components/UploadImage';
 import { UploadProduct } from 'components/UploadProduct';
 
-import { ProfileCard } from '../components/Card';
+import { ProfileCard } from '../styledElements/Card';
 
 const Account = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Account = () => {
     <>
       <ProfileCard>
         <Button onClick={() => navigate('/')}>
-          <Link to="/home">Visit your home</Link>Hello
+          Hello
         </Button>
         <PropButton propBtnColor="yellow"> rekredo</PropButton>
         Account

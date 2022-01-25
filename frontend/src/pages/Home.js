@@ -2,7 +2,7 @@ import React from 'react';
 
 import Background from '../images/Background.jpg';
 
-import { BigSection } from '../components/Card';
+import { BigSection } from '../styledElements/Card';
 
 const Home = () => {
   return (

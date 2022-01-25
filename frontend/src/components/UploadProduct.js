@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { uploadProduct } from 'reducers/upload';
+import { PropButton } from '../styledElements/Buttons';
 
 export const UploadProduct = () => {
   const dispatch = useDispatch();
@@ -36,7 +38,7 @@ export const UploadProduct = () => {
     //   );
     //}
   };
-
+  const navigate = useNavigate();
   return (
     <>
       <form onSubmit={image !== null ? handleFormSubmit : null}>
@@ -88,6 +90,8 @@ export const UploadProduct = () => {
       </form>
       {productError && <h1>{productError}</h1>}
       {product && <p>Thank you, your product has been uploaded.</p>}
+      {product && <PropButton onClick={() => navigate('/products')}>
+        Go to your account page</PropButton>}
     </>
   );
 };
