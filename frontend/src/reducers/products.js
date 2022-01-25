@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
 import { BASE_URL } from '../utils/config';
-console.log(BASE_URL);
+// console.log(BASE_URL);
 // const BASE_URL = 'http://localhost:8080';
 
 export const products = createSlice({
@@ -33,7 +33,8 @@ export const showProduct = () => {
           dispatch(products.actions.setProducts(json));
           dispatch(products.actions.setError(null));
         } else {
-          dispatch(products.actions.setError(json));
+          dispatch(products.actions.setError(json.response));
+          console.log(json.response);
         }
       })
       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));

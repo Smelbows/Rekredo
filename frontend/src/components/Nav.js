@@ -51,9 +51,7 @@ const Nav = () => {
         <Logo>REKREDO</Logo>
       </HeaderSection>
       <HeaderSection>
-        <Pages activeClassName="any" to="/account">
-          Profile
-        </Pages>
+        <Pages to="/account">Profile</Pages>
         <Pages to="/faq">FAQ</Pages>
         <Pages to="/products">Products</Pages>
         <Pages to="/contact">Contact</Pages>

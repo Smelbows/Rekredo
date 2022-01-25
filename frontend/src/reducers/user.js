@@ -9,12 +9,23 @@ export const user = createSlice({
   name: 'user',
   initialState: {
     username: null,
+    email: null,
+    location: null,
+    vatNumber: null,
     accessToken: null,
     error: null,
   },
   reducers: {
-    setUser: (store, action) => {
+    setPersonalUser: (store, action) => {
       store.username = action.payload.response.username;
+      store.email = action.payload.response.email;
+      store.accessToken = action.payload.response.accessToken;
+    },
+    setBusinessUser: (store, action) => {
+      store.username = action.payload.response.username;
+      store.email = action.payload.response.email;
+      store.location = action.payload.response.location;
+      store.vatNumber = action.payload.response.vatNumber;
       store.accessToken = action.payload.response.accessToken;
     },
     setError: (store, action) => {
@@ -27,7 +38,7 @@ export const user = createSlice({
   },
 });
 
-export const userSignUpOrLogIn = (username, password, mode) => {
+export const personalUserLogin = (username, password, mode) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
 
@@ -41,10 +52,70 @@ export const userSignUpOrLogIn = (username, password, mode) => {
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
-          dispatch(user.actions.setUser(json));
+          dispatch(user.actions.setPersonalUser(json));
           dispatch(user.actions.setError(null));
         } else {
-          dispatch(user.actions.setError(json));
+          dispatch(user.actions.setError(json.response));
+          console.log(json.response);
+          dispatch(user.actions.setUserToLoggedOut());
+        }
+      })
+
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+  };
+};
+
+export const personalUserRegister = (username, password, email, mode) => {
+  return (dispatch) => {
+    dispatch(ui.actions.setLoading(true));
+
+    fetch(BASE_URL + mode, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password, email }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success) {
+          dispatch(user.actions.setPersonalUser(json));
+          dispatch(user.actions.setError(null));
+        } else {
+          dispatch(user.actions.setError(json.response));
+          dispatch(user.actions.setUserToLoggedOut());
+        }
+      })
+
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+  };
+};
+
+export const businessUserRegister = (
+  username,
+  password,
+  email,
+  vatNumber,
+  location,
+  mode
+) => {
+  return (dispatch) => {
+    dispatch(ui.actions.setLoading(true));
+
+    fetch(BASE_URL + mode, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password, email, vatNumber, location }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success) {
+          dispatch(user.actions.setBusinessUser(json));
+          dispatch(user.actions.setError(null));
+        } else {
+          dispatch(user.actions.setError(json.response));
           dispatch(user.actions.setUserToLoggedOut());
         }
       })

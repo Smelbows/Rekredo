@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { userSignUpOrLogIn } from '../reducers/user';
+import { personalUserLogin } from '../reducers/user';
 
 const Login = () => {
   const [name, setName] = useState('');
@@ -12,6 +12,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const token = useSelector((state) => state.user.accessToken);
+  const error = useSelector((state) => state.user.error);
 
   useEffect(() => {
     if (token) {
@@ -21,7 +22,7 @@ const Login = () => {
 
   const onUserSubmit = (event) => {
     event.preventDefault();
-    dispatch(userSignUpOrLogIn(name, password, mode));
+    dispatch(personalUserLogin(name, password, mode));
   };
 
   return (
@@ -29,6 +30,7 @@ const Login = () => {
       <div>
         <form onSubmit={onUserSubmit} className="signin-form">
           <h1>Log in</h1>
+          {error && <h1>{error}</h1>}
           <input
             type="text"
             placeholder="username"

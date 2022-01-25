@@ -1,62 +1,87 @@
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 
-const UserSchema = new mongoose.Schema({
+const PersonalSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
-  accountType: {
+  email: {
     type: String,
-    enum: ['Business', 'Personal'],
-    required: true
+    required: true,
   },
   accessToken: {
     type: String,
-    default: () => crypto.randomBytes(128).toString('hex')
-  }
+    default: () => crypto.randomBytes(128).toString('hex'),
+  },
+});
+
+const BusinessSchema = new mongoose.Schema({
+  businessName: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  businessEmail: {
+    type: String,
+    required: true,
+  },
+  location: {
+    type: String,
+  },
+  vatNumber: {
+    type: Number,
+  },
+  accessToken: {
+    type: String,
+    default: () => crypto.randomBytes(128).toString('hex'),
+  },
 });
 
 const ImageSchema = new mongoose.Schema({
   name: {
-    type: String
+    type: String,
     // required: true
   },
   imageUrl: {
-    type: String
+    type: String,
     // required: true
   },
   imageId: {
-    type: String
-  }
+    type: String,
+  },
 });
 
 const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   category: {
     type: String,
     required: true,
-    enum: ['Instrument', 'Vehicle', 'Clothing', 'Electronics', 'Art', 'Toys']
+    enum: ['Instrument', 'Vehicle', 'Clothing', 'Electronics', 'Art', 'Toys'],
   },
   tags: {
-    type: Array
+    type: Array,
   },
   owner: {
-    type: String
+    type: String,
   },
-  image: ImageSchema
+  image: ImageSchema,
   //   image: {
   // 	 type: mongoose.SchemaTypes.ObjectId,
   // 		ref: 'Image'
@@ -64,83 +89,9 @@ const ProductSchema = new mongoose.Schema({
   // status: AvailabilitySchema,
 });
 
-// // const AvailabilitySchema = new mongoose.Schema({
-// //   status: {
-// //     type: String,
-// //   },
-// //   availability: { type: Boolean },
-// // });
+const PersonalUser = mongoose.model('PersonalUser', PersonalSchema);
+const BusinessUser = mongoose.model('BusinessUser', BusinessSchema);
 
-// const User = mongoose.model('User', {
-//   username: {
-//     type: String,
-//     unique: true,
-//     required: true
-//   },
-//   password: {
-//     type: String,
-//     required: true
-//   },
-//   accountType: {
-//     type: String,
-//     enum: ['Business', 'Personal'],
-//     required: true
-//   },
-//   accessToken: {
-//     type: String,
-//     default: () => crypto.randomBytes(128).toString('hex')
-//   }
-// });
-
-// const Product = mongoose.model('Product', {
-//   name: {
-//     type: String,
-//     required: true
-//   },
-//   description: {
-//     type: String,
-//     required: true
-//   },
-//   category: {
-//     type: String,
-//     required: true,
-//     enum: ['Instrument', 'Vehicle', 'Clothing', 'Electronics', 'Art', 'Toys']
-//   },
-//   tags: {
-//     type: Array
-//   },
-//   owner: {
-//     type: String
-//   },
-//   image: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'Image'
-//   }
-//   // status: AvailabilitySchema,
-// });
-
-// const Image = mongoose.model('Image', {
-//   name: {
-//     type: String,
-//     required: true
-//   },
-//   imageUrl: {
-//     type: String,
-//     required: true
-//   },
-//   imageId: {
-//     type: String
-//   }
-// });
-
-// // const AvailabilitySchema = new mongoose.Schema({
-// //   status: {
-// //     type: String,
-// //   },
-// //   availability: { type: Boolean },
-// // });
-
-const User = mongoose.model('User', UserSchema);
 const Product = mongoose.model('Product', ProductSchema);
 const Image = mongoose.model('Image', ImageSchema);
-module.exports = { User, Product, Image };
+module.exports = { PersonalUser, BusinessUser, Product, Image };

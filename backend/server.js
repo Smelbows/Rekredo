@@ -12,7 +12,12 @@ import cloudinaryFramework from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
 // importing models
-const { User, Product, Image } = require('./models/models.js');
+const {
+  PersonalUser,
+  BusinessUser,
+  Product,
+  Image,
+} = require('./models/models.js');
 
 // for MongoDB connection
 const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/rekredo';
@@ -95,8 +100,8 @@ app.get('/products', async (req, res) => {
   }
 });
 
-app.post('/register', async (req, res) => {
-  const { username, password, accountType } = req.body;
+app.post('/register/personal', async (req, res) => {
+  const { username, password, email } = req.body;
 
   try {
     const salt = bcrypt.genSaltSync();
@@ -105,16 +110,17 @@ app.post('/register', async (req, res) => {
       throw 'Password must be at least 5 characters long';
     }
 
-    const newUser = await new User({
+    const newUser = await new PersonalUser({
       username,
       password: bcrypt.hashSync(password, salt),
-      accountType,
+      email,
     }).save();
 
     res.status(201).json({
       response: {
         userId: newUser._id,
         username: newUser.username,
+        email: newUser.email,
         accessToken: newUser.accessToken,
       },
       success: true,
@@ -125,15 +131,66 @@ app.post('/register', async (req, res) => {
         .status(401)
         .json({ success: false, error: 'That username is already taken' });
     } else {
-      catchError(res, error, 'Something went wrong');
+      res.status(400).json({ response: error, success: false });
     }
   }
 });
 
+app.post('/register/business', async (req, res) => {
+  const { username, password, email, location, vatNumber } = req.body;
+
+  try {
+    const salt = bcrypt.genSaltSync();
+
+    if (password.length < 5) {
+      throw 'Password must be at least 5 characters long';
+    }
+
+    const newUser = await new BusinessUser({
+      businessName: username,
+      password: bcrypt.hashSync(password, salt),
+      businessEmail: email,
+      location,
+      vatNumber,
+    }).save();
+
+    res.status(201).json({
+      response: {
+        userId: newUser._id,
+        username: newUser.businessName,
+        email: newUser.businessEmail,
+        location: newUser.location,
+        vatNumber: newUser.vatNumber,
+        accessToken: newUser.accessToken,
+      },
+      success: true,
+    });
+  } catch (error) {
+    if (error.code === 11000) {
+      res
+        .status(401)
+        .json({ success: false, error: 'That username is already taken' });
+    } else {
+      res.status(400).json({ response: error, success: false });
+    }
+  }
+});
+
+const findUser = async (username) => {
+  const user = await PersonalUser.findOne({ username });
+  if (user) {
+    return user;
+  } else {
+    return await BusinessUser.findOne({ username });
+  }
+};
+
 app.post('/log-in', async (req, res) => {
   const { username, password } = req.body;
+
   try {
-    const user = await User.findOne({ username });
+    const user = await findUser(username);
+
     if (user && bcrypt.compareSync(password, user.password)) {
       res.status(200).json({
         response: {
@@ -222,7 +279,7 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
     // const product = await Product.findOne({ name: product.name });
     res.json({ response: image, success: true });
   } catch (err) {
-    res.status(400).json({ errors: err.errors });
+    res.status(400).json({ response: error, success: false });
   }
 });
 

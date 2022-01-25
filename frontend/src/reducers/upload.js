@@ -39,7 +39,7 @@ export const uploadImage = (formData, clearForm) => {
           dispatch(upload.actions.setImage(json));
           dispatch(upload.actions.setImageError(null));
         } else {
-          dispatch(upload.actions.setImageError(json));
+          dispatch(upload.actions.setImageError(json.response));
         }
       })
       .then(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
@@ -70,7 +70,7 @@ export const uploadProduct = (
           dispatch(upload.actions.setProduct(json));
           dispatch(upload.actions.setProductError(null));
         } else {
-          dispatch(upload.actions.setProductError(json));
+          dispatch(upload.actions.setProductError(json.response));
         }
       })
       .then(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
