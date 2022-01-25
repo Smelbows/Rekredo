@@ -6,8 +6,8 @@ import { uploadProduct } from 'reducers/upload';
 export const UploadProduct = () => {
   const dispatch = useDispatch();
   const image = useSelector((state) => state.upload.image);
-  const error = useSelector((state) => state.upload.productError);
-  console.log(error);
+  const imageError = useSelector((state) => state.upload.productError);
+  const productError = useSelector((state) => state.upload.imageError);
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -28,12 +28,18 @@ export const UploadProduct = () => {
     dispatch(
       uploadProduct(name, description, category, allTags, image, clearForm)
     );
-    // clearForm();
+    // if (image == null) {
+    //   e.preventDefault();
+    //   const allTags = tags?.split(',');
+    //   dispatch(
+    //     uploadProduct(name, description, category, allTags, image, clearForm)
+    //   );
+    //}
   };
 
   return (
     <>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={image !== null ? handleFormSubmit : null}>
         <label>
           Prop name
           <input
@@ -64,6 +70,7 @@ export const UploadProduct = () => {
             <option value="Clothing">Clothing</option>
             <option value="Toys">Toys</option>
             <option value="Electronics">Electronics</option>
+            <option value="Environment">Environment</option>
           </select>
         </label>
         <label>
@@ -75,9 +82,11 @@ export const UploadProduct = () => {
           />
         </label>
 
-        <button type="submit">Upload</button>
+        <button disabled={!image} type="submit">
+          Upload
+        </button>
       </form>
-      {error && <h1>{error}</h1>}
+      {productError && <h1>{productError}</h1>}
     </>
   );
 };

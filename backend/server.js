@@ -271,7 +271,6 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
 
   try {
     const image = await new Image({
-      name: req.body.name,
       imageUrl: req.file.path,
       imageId: req.file.filename,
     }).save();

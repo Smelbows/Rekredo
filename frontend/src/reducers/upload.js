@@ -10,6 +10,7 @@ export const upload = createSlice({
   initialState: {
     image: null,
     product: null,
+    productSuccess: false,
     imageError: null,
     productError: null,
   },
@@ -22,14 +23,19 @@ export const upload = createSlice({
     },
     setProductError: (store, action) => {
       store.productError = action.payload;
+      store.productSuccess = action.payload.success;
     },
     setProduct: (store, action) => {
       store.product = action.payload.response;
+      store.productSuccess = action.payload.success;
+    },
+    clearImageState: (store) => {
+      store.image = null;
     },
   },
 });
 
-export const uploadImage = (formData, clearForm) => {
+export const uploadImage = (formData) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch(BASE_URL + '/image-upload', { method: 'POST', body: formData })
@@ -42,8 +48,8 @@ export const uploadImage = (formData, clearForm) => {
           dispatch(upload.actions.setImageError(json.response));
         }
       })
-      .then(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
-      .finally(clearForm());
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+    // (clearForm());
   };
 };
 
@@ -69,11 +75,13 @@ export const uploadProduct = (
         if (json.success) {
           dispatch(upload.actions.setProduct(json));
           dispatch(upload.actions.setProductError(null));
+          dispatch(upload.actions.clearImageState());
+          clearForm();
         } else {
           dispatch(upload.actions.setProductError(json.response));
         }
       })
-      .then(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
-      .finally(clearForm());
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+    // .(clearForm());
   };
 };
