@@ -85,7 +85,7 @@ export const UploadProduct = () => {
         </label>
 
         <button disabled={!image} type="submit">
-          Upload
+          Upload Product
         </button>
       </form>
       {productError && <h1>{productError}</h1>}

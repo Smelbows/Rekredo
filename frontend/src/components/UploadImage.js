@@ -39,7 +39,7 @@ export const UploadImage = () => {
           Prop Image
           <input type="file" ref={fileInput} required />
         </label>
-        <button type="submit">Upload</button>
+        <button type="submit">Upload Image</button>
       </form>
       {image && <img src={image.imageUrl} alt="your product"></img>}
     </>

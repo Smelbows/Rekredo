@@ -1,9 +1,17 @@
-// import react from 'react'
-
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { BigSection } from 'styledElements/Card';
 
 const PropDetails = () => {
-  return <div></div>;
+  const {propid} = useParams()
+
+  return <> 
+  <BigSection>
+
+
+
+  </BigSection>;
+  </>
 };
 
 export default PropDetails;

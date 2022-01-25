@@ -14,6 +14,7 @@ export const Card = styled.div`
 export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   border-radius: 3px;
   padding: 0.5rem;
   margin: 0.5rem 1rem;
@@ -49,8 +50,8 @@ export const Section = styled.section`
 export const BigSection = styled.section`
   display: flex;
   padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
-  width: 90vw;
+  width: 100vw;
+  height: 20em;
   background: lightgrey;
   & > .background {
     width: 100%;

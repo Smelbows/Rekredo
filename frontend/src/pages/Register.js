@@ -37,6 +37,7 @@ const Register = () => {
 
   return (
     <>
+    <h1>Register</h1>
       <div>
         <label htmlFor="personal">Personal</label>
         <input
@@ -57,7 +58,6 @@ const Register = () => {
       </div>
       <div>
         <form onSubmit={onUserSubmit} className="signin-form">
-          <h1>Register</h1>
           {error && <h1>{error}</h1>}
           <input
             type="text"

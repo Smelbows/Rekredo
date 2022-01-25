@@ -22,6 +22,6 @@ export const H3 = styled.h3`
 export const P = styled.p`
   font-family: 'Montserrat', sans-serif;
   color: white;
-  line-height: 1px;
+  margin: 5px;
   border: 1px dotted solid;
 `;
