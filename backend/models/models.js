@@ -77,11 +77,11 @@ const ProductSchema = new mongoose.Schema({
   owner: {
     type: String,
   },
-  image: ImageSchema,
-  //   image: {
-  // 	 type: mongoose.SchemaTypes.ObjectId,
-  // 		ref: 'Image'
-  //   }
+  // image: ImageSchema,
+    image: {
+  	 type: mongoose.Schema.Types.ObjectId,
+  		ref: 'Image'
+    }
   // status: AvailabilitySchema,
 });
 
