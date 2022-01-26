@@ -15,6 +15,10 @@ export const Button = styled.button`
     color: green;
     border: none;
   }
+    :hover {
+    box-shadow: 0 0 10px blue;
+    cursor: pointer;
+  }
 `;
 
 export const SmallButton = styled.button`

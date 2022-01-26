@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { personalUserRegister, businessUserRegister } from '../reducers/user';
@@ -18,11 +18,11 @@ const Register = () => {
   const error = useSelector((state) => state.user.error);
   console.log(error);
 
-  useEffect(() => {
-    if (token) {
-      navigate('/account');
-    }
-  }, [token, navigate]);
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate('/account');
+  //   }
+  // }, [token, navigate]);
 
   const onUserSubmit = (event) => {
     event.preventDefault();

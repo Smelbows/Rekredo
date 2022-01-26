@@ -33,6 +33,9 @@ export const user = createSlice({
       store.username = null;
       store.accessToken = null;
     },
+    setDeleteAccessToken: (store) => {
+      store.accessToken = null
+    },
   },
 });
 
