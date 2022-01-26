@@ -5,8 +5,10 @@ import { useSelector } from 'react-redux';
 
 const PropDetails = () => {
   const products = useSelector(state => state.products.productList)
+  //real value of the slug
   const {propid} = useParams()
 
+  //match prop._id from db
   const prop = products.find(prop => prop._id === propid)
   console.log(prop)
 

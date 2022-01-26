@@ -107,11 +107,11 @@ app.get('/products', async (req, res) => {
   }
 });
 
-app.get('/products/id/:id', async (req, res) => {
-  const { propid } = req.params;
+// find one product in the database by id
+app.get('/products/:id', async (req, res) => {
 
   try {
-    const oneProduct = await Product.find((product) => productId === +id);
+    const oneProduct = await Product.findById(req.params.id);
     if (!oneProduct) {
       throw 'product library empty are not available';
     }
@@ -121,6 +121,7 @@ app.get('/products/id/:id', async (req, res) => {
   }
 });
 
+// register a personal user
 app.post('/register/personal', async (req, res) => {
   const { username, password, email } = req.body;
 
@@ -157,6 +158,7 @@ app.post('/register/personal', async (req, res) => {
   }
 });
 
+// register a business user
 app.post('/register/business', async (req, res) => {
   const { username, password, email, location, vatNumber } = req.body;
 
@@ -197,6 +199,7 @@ app.post('/register/business', async (req, res) => {
   }
 });
 
+// 
 const findUser = async (username) => {
   const user = await PersonalUser.findOne({ username });
   if (user) {
