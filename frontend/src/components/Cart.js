@@ -10,7 +10,7 @@ import { SmallButton } from 'styledElements/Buttons';
 const Cart = () => {  
   const dispatch = useDispatch();
   const myCart = useSelector((state) => state.products.cart);
-
+console.log(myCart)
 const onDeleteItem = (product) => {  
   dispatch(products.actions.deleteFromCart(product))
   }

@@ -5,8 +5,8 @@ import { products } from 'reducers/products';
 
 import { showProduct } from 'reducers/products';
 import styled from 'styled-components';
-import { Section, ProductCard } from '../styledElements/Card';
-import { H1, P, ProductText } from '../styledElements/Texts';
+import { Section, ProductCard, HeaderSection } from '../styledElements/Card';
+import { H1, H3, P, ProductText } from '../styledElements/Texts';
 import { Button, SmallButton } from 'styledElements/Buttons';
 
 const Products = () => {
@@ -14,22 +14,28 @@ const Products = () => {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products.productList);
   const loading = useSelector((state) => state.ui.loading);
-  const itemsInCart = useSelector((state) => state.products.cart);
-  // console.log(itemsInCart)
+  const cart = useSelector((state) => state.products.cart);
 
-  console.log(itemsInCart, 'cart items');
   useEffect(() => {
     dispatch(showProduct());
   }, [dispatch]);
 
   const onAddToCart = (product) => {
+    console.log('adding item');
     dispatch(products.actions.setCart(product));
+  };
+
+  const itemIsInCart = (item) => {
+    return cart.filter((prop) => prop._id === item._id).length > 0;
   };
 
   return (
     <>
+      <HeaderSection>
+        <H1>Props collection</H1>
+        <H3>Choose unique assortment uploaded from people all over Europe</H3>
+      </HeaderSection>
       <Section>
-        <H1>Products</H1>
         {!loading
           ? allProducts?.map((item) => (
               <ProductCard key={item._id}>
@@ -43,13 +49,16 @@ const Products = () => {
                 <SmallButton onClick={() => navigate(`/products/${item._id}`)}>
                   Prop details
                 </SmallButton>
-                <Button
-                  onClick={() => onAddToCart(item)}
-                  disabled={itemsInCart.includes(item)}
-                >
-                  Add to cart
-                </Button>
-                {itemsInCart.includes(item) && <P>Item added in cart</P>}
+                {itemIsInCart(item) ? (
+                  <P>Item in cart</P>
+                ) : (
+                  <Button
+                    onClick={() => onAddToCart(item)}
+                    disabled={itemIsInCart(item)}
+                  >
+                    Add to cart
+                  </Button>
+                )}
               </ProductCard>
             ))
           : null}

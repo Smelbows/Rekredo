@@ -49,6 +49,7 @@ export const Section = styled.section`
 
 export const BigSection = styled.section`
   display: flex;
+  flex-direction: column;
   padding: 0.5rem 0;
   width: 100vw;
   height: 20em;
@@ -56,4 +57,14 @@ export const BigSection = styled.section`
   & > .background {
     width: 100%;
   }
+`;
+
+export const HeaderSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0.1em;
+  padding-right: 1em;
+  font-family: 'Lora', serif;
 `;

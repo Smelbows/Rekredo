@@ -10,6 +10,11 @@ export const Button = styled.button`
   background: transparent;
   color: white;
   border: 2px solid white;
+  :disabled {
+    opacity: 0.8;
+    color: green;
+    border: none;
+  }
 `;
 
 export const SmallButton = styled.button`

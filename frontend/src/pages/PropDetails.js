@@ -17,7 +17,7 @@ const PropDetails = () => {
       <BigSection>
         <Link to="/products">Back to all props</Link>
         <p>{prop.name}</p>
-        <img src={prop.image.imageUrl} alt={prop.name}></img>
+        <img src={prop.image?.imageUrl} alt={prop.name}></img>
       </BigSection>
       ;
     </>

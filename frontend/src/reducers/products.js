@@ -21,7 +21,12 @@ export const products = createSlice({
       store.error = action.payload;
     },
     setCart: (store, action) => {
-      store.cart.push(action.payload);
+      const itemNotInCart =
+        store.cart.filter((item) => item._id === action.payload._id).length ===
+        0;
+      if (itemNotInCart) {
+        store.cart.push(action.payload);
+      }
     },
     deleteFromCart: (store, action) => {
       const itemsToSave = store.cart.filter(
@@ -39,7 +44,6 @@ export const showProduct = () => {
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
-          console.log(json);
           dispatch(products.actions.setProducts(json));
           dispatch(products.actions.setError(null));
         } else {

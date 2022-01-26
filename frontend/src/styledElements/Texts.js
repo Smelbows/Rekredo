@@ -2,11 +2,9 @@ import styled from 'styled-components';
 
 export const H1 = styled.h1`
   font-family: 'Montserrat', sans-serif;
-  color: white;
-  border: 1px dotted solid;
-  
+  color: black;
+  border: 1px dotted black;
 `;
-
 export const H2 = styled.h2`
   font-family: 'Montserrat', sans-serif;
   color: white;
@@ -15,7 +13,7 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
   font-family: 'Montserrat', sans-serif;
-  color: white;
+  color: black;
   border: 1px dotted solid;
 `;
 
