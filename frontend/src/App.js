@@ -1,7 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { combineReducers, createStore } from "@reduxjs/toolkit";
+import { applyMiddleware, combineReducers, createStore } from "@reduxjs/toolkit";
+import thunk from 'redux-thunk';
 // import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { user } from '../src/reducers/user';
@@ -34,14 +35,16 @@ const reducer = combineReducers({
 // const store = configureStore({ reducer });
 
 // To change from configure store to create when we want to add local storage
+
 const persistedStateJSON = localStorage.getItem("RekredoReduxState");
+
 let persistedState = {};
 
 if (persistedStateJSON) {
   persistedState = JSON.parse(persistedStateJSON);
 }
 
-const store = createStore(reducer, persistedState)
+const store = createStore(reducer, persistedState, applyMiddleware(thunk))
 
 store.subscribe(() => {
   localStorage.setItem("RekredoReduxState", JSON.stringify(store.getState()));
