@@ -59,11 +59,21 @@ const storage = new CloudinaryStorage({
 });
 const parser = multer({ storage });
 
+
 // authenticating  a user
+const findUserByToken = async (accessToken) => {
+  const user = await PersonalUser.findOne({ accessToken });
+  if (user) {
+    return user;
+  } else {
+    const user = await BusinessUser.findOne({ accessToken });
+    return user;
+  }
+};
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header('Authorization');
   try {
-    const user = await User.findOne({ accessToken });
+    const user = await findUserByToken(accessToken);
     if (user) {
       req.user = user;
       next();
@@ -83,11 +93,13 @@ app.get('/', async (req, res) => {
   }
 });
 
+// get account details after authentication
 app.get('/account', authenticateUser);
 app.get('/account', (req, res) => {
   res.send('this is your account page');
 });
 
+// get all products in the database
 app.get('/products', async (req, res) => {
   try {
     const allProducts = await Product.find({}).populate('image');
@@ -199,16 +211,21 @@ app.post('/register/business', async (req, res) => {
   }
 });
 
-// 
+// find a user by their username in one of two different collections, either business or personal
 const findUser = async (username) => {
-  const user = await PersonalUser.findOne({ username });
-  if (user) {
-    return user;
-  } else {
-    return await BusinessUser.findOne({ username });
-  }
+  
+    const user = await PersonalUser.findOne({ username });
+    if (user) {
+      return user;
+    } else {
+      const user = await BusinessUser.findOne({ businessName: username });
+      return user;
+    }
+  
+
 };
 
+// log-in user
 app.post('/log-in', async (req, res) => {
   const { username, password } = req.body;
 
@@ -235,6 +252,7 @@ app.post('/log-in', async (req, res) => {
   }
 });
 
+// upload a product
 app.post('/product-upload', async (req, res) => {
   const { name, description, category, tags, image } = req.body;
   console.log(image, "image recieved in backend in product upload")
@@ -282,6 +300,7 @@ app.post('/product-upload', async (req, res) => {
   }
 });
 
+// upload image for product
 app.post('/image-upload', parser.single('image'), async (req, res) => {
   //   try {
   //     const image = await new Image({

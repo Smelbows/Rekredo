@@ -1,13 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { combineReducers, createStore } from "@reduxjs/toolkit";
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, createStore } from "@reduxjs/toolkit";
+// import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { user } from '../src/reducers/user';
 import { products } from '../src/reducers/products';
-import { ui } from 'reducers/ui';
-import { upload } from 'reducers/upload';
+import { ui } from '../src/reducers/ui';
+import { upload } from '../src/reducers/upload';
 
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -31,19 +31,23 @@ const reducer = combineReducers({
   upload: upload.reducer,
 });
 
-const store = configureStore({ reducer });
+// const store = configureStore({ reducer });
 
 // To change from configure store to create when we want to add local storage
-// const persistedStateJSON = localStorage.getItem("nameReduxState");
-// let persistedState = {};
+const persistedStateJSON = localStorage.getItem("RekredoReduxState");
+let persistedState = {};
 
-// if (persistedStateJSON) {
-//   persistedState = JSON.parse(persistedStateJSON);
-// }
+if (persistedStateJSON) {
+  persistedState = JSON.parse(persistedStateJSON);
+}
 
-// store.subscribe(() => {
-//   localStorage.setItem("nameReduxState", JSON.stringify(store.getState()));
-// });
+const store = createStore(reducer, persistedState)
+
+store.subscribe(() => {
+  localStorage.setItem("RekredoReduxState", JSON.stringify(store.getState()));
+});
+
+
 
 export const App = () => {
   return (

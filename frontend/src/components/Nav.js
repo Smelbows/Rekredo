@@ -58,6 +58,7 @@ const Nav = () => {
         <Pages to="/faq">FAQ</Pages>
         <Pages to="/products">Products</Pages>
         <Pages to="/contact">Contact</Pages>
+        <Pages to="/Checkout">Checkout</Pages>
         <Pages to="/">Home</Pages>
 
         {/* <Pages onClick={() => navigate('/Account')}>Profile</Pages>

@@ -10,6 +10,7 @@ export const products = createSlice({
   initialState: {
     productList: null,
     error: null,
+    cart: [], 
   },
   reducers: {
     setAvailability: (store, action) => {},
@@ -19,8 +20,11 @@ export const products = createSlice({
     setError: (store, action) => {
       store.error = action.payload;
     },
+    setCart: (store, action) => {
+      store.cart.push(action.payload)
+    }
   },
-});
+})
 
 export const showProduct = () => {
   return (dispatch) => {

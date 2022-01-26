@@ -25,3 +25,11 @@ export const P = styled.p`
   margin: 5px;
   border: 1px dotted solid;
 `;
+
+export const ProductText = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 3px;
+  justify-content: space-evenly;
+`;
