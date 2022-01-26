@@ -7,22 +7,24 @@ import { showProduct } from 'reducers/products';
 import styled from 'styled-components';
 import { Section, ProductCard } from '../styledElements/Card';
 import { H1, P, ProductText } from '../styledElements/Texts';
-import { SmallButton } from 'styledElements/Buttons';
-
+import { Button, SmallButton } from 'styledElements/Buttons';
 
 const Products = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products.productList);
   const loading = useSelector((state) => state.ui.loading);
+  const itemsInCart = useSelector((state) => state.products.cart);
+  // console.log(itemsInCart)
 
+  console.log(itemsInCart, 'cart items');
   useEffect(() => {
     dispatch(showProduct());
   }, [dispatch]);
 
   const onAddToCart = (product) => {
-    dispatch(products.actions.setCart(product))
-  }
+    dispatch(products.actions.setCart(product));
+  };
 
   return (
     <>
@@ -41,9 +43,13 @@ const Products = () => {
                 <SmallButton onClick={() => navigate(`/products/${item._id}`)}>
                   Prop details
                 </SmallButton>
-                <SmallButton onClick={() => onAddToCart(item)}>
+                <Button
+                  onClick={() => onAddToCart(item)}
+                  disabled={itemsInCart.includes(item)}
+                >
                   Add to cart
-                </SmallButton>
+                </Button>
+                {itemsInCart.includes(item) && <P>Item added in cart</P>}
               </ProductCard>
             ))
           : null}

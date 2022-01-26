@@ -10,7 +10,7 @@ export const products = createSlice({
   initialState: {
     productList: null,
     error: null,
-    cart: [], 
+    cart: [],
   },
   reducers: {
     setAvailability: (store, action) => {},
@@ -21,10 +21,16 @@ export const products = createSlice({
       store.error = action.payload;
     },
     setCart: (store, action) => {
-      store.cart.push(action.payload)
-    }
+      store.cart.push(action.payload);
+    },
+    deleteFromCart: (store, action) => {
+      const itemsToSave = store.cart.filter(
+        (item) => item._id !== action.payload._id
+      );
+      store.cart = itemsToSave;
+    },
   },
-})
+});
 
 export const showProduct = () => {
   return (dispatch) => {

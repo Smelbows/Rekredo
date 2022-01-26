@@ -12,7 +12,7 @@ export const Button = styled.button`
   border: 2px solid white;
 `;
 
-export const SmallButton = styled.a`
+export const SmallButton = styled.button`
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
   border-radius: 3px 10%;
