@@ -90,10 +90,17 @@ app.get('/account', (req, res) => {
 
 app.get('/products', async (req, res) => {
   try {
-    const allProducts = await Product.find({});
+    const allProducts = await Product.find({}).populate('image');
+
     if (!allProducts) {
       throw 'product library empty are not available';
     }
+
+    // const populated = await allProducts.map(element => {
+    // element.populate('image')
+    // return element
+    // });
+
     res.status(200).json({ response: allProducts, success: true });
   } catch (error) {
     res.status(400).json({ response: error, success: false });
@@ -227,6 +234,7 @@ app.post('/log-in', async (req, res) => {
 
 app.post('/product-upload', async (req, res) => {
   const { name, description, category, tags, image } = req.body;
+  console.log(image, "image recieved in backend in product upload")
   try {
     if (!name) {
       throw 'Your product has to have a name';
@@ -248,12 +256,13 @@ app.post('/product-upload', async (req, res) => {
       description,
       category,
       tags,
-      image,
+      image: image._id
     }).save();
 
-    console.log(newProduct);
-
-    // await newProduct.populate('image');
+    // console.log(newProduct, "new product line 262, testing using _id");
+    // const findingNewProduct = await Product.findById(newProduct._id)
+    // console.log(findingNewProduct, "finding after creating")
+    await newProduct.populate('image');
     res.status(201).json({
       response: {
         productId: newProduct._id,
@@ -288,6 +297,8 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
       imageUrl: req.file.path,
       imageId: req.file.filename,
     }).save();
+
+    console.log("new image on 300", image)
 
     // const product = await Product.findOne({ name: product.name });
     res.json({ response: image, success: true });
