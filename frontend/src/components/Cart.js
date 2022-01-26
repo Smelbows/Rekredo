@@ -6,14 +6,12 @@ import { ProductCard } from '../styledElements/Card';
 import { H1, P, ProductText } from '../styledElements/Texts';
 import { SmallButton } from 'styledElements/Buttons';
 
-
-const Cart = () => {  
+const Cart = () => {
   const dispatch = useDispatch();
   const myCart = useSelector((state) => state.products.cart);
-console.log(myCart)
-const onDeleteItem = (product) => {  
-  dispatch(products.actions.deleteFromCart(product))
-  }
+  const onDeleteItem = (product) => {
+    dispatch(products.actions.deleteFromCart(product));
+  };
 
   return (
     <>
@@ -26,7 +24,7 @@ const onDeleteItem = (product) => {
             <P>{item.tags}</P>
           </ProductText>
           <img src={item.image?.imageUrl} alt="website" />
-          <SmallButton onClick={() => onDeleteItem(item)}>Delete</SmallButton> 
+          <SmallButton onClick={() => onDeleteItem(item)}>Delete</SmallButton>
         </ProductCard>
       ))}
     </>

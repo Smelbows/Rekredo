@@ -21,7 +21,6 @@ const Products = () => {
   }, [dispatch]);
 
   const onAddToCart = (product) => {
-    console.log('adding item');
     dispatch(products.actions.setCart(product));
   };
 

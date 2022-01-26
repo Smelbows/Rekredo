@@ -11,6 +11,8 @@ import dotenv from 'dotenv';
 import cloudinaryFramework from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
+import { getProducts } from './productsEndPoints.js';
+
 // importing models
 const {
   PersonalUser,
@@ -59,7 +61,6 @@ const storage = new CloudinaryStorage({
 });
 const parser = multer({ storage });
 
-
 // authenticating  a user
 const findUserByToken = async (accessToken) => {
   const user = await PersonalUser.findOne({ accessToken });
@@ -99,29 +100,10 @@ app.get('/account', (req, res) => {
   res.send('this is your account page');
 });
 
-// get all products in the database
-app.get('/products', async (req, res) => {
-  try {
-    const allProducts = await Product.find({}).populate('image');
-
-    if (!allProducts) {
-      throw 'product library empty are not available';
-    }
-
-    // const populated = await allProducts.map(element => {
-    // element.populate('image')
-    // return element
-    // });
-
-    res.status(200).json({ response: allProducts, success: true });
-  } catch (error) {
-    res.status(400).json({ response: error, success: false });
-  }
-});
+app.get('/products', getProducts);
 
 // find one product in the database by id
 app.get('/products/:id', async (req, res) => {
-
   try {
     const oneProduct = await Product.findById(req.params.id);
     if (!oneProduct) {
@@ -213,16 +195,13 @@ app.post('/register/business', async (req, res) => {
 
 // find a user by their username in one of two different collections, either business or personal
 const findUser = async (username) => {
-  
-    const user = await PersonalUser.findOne({ username });
-    if (user) {
-      return user;
-    } else {
-      const user = await BusinessUser.findOne({ businessName: username });
-      return user;
-    }
-  
-
+  const user = await PersonalUser.findOne({ username });
+  if (user) {
+    return user;
+  } else {
+    const user = await BusinessUser.findOne({ businessName: username });
+    return user;
+  }
 };
 
 // log-in user
@@ -255,7 +234,7 @@ app.post('/log-in', async (req, res) => {
 // upload a product
 app.post('/product-upload', async (req, res) => {
   const { name, description, category, tags, image } = req.body;
-  console.log(image, "image recieved in backend in product upload")
+  console.log(image, 'image recieved in backend in product upload');
   try {
     if (!name) {
       throw 'Your product has to have a name';
@@ -270,20 +249,16 @@ app.post('/product-upload', async (req, res) => {
       throw 'please add tags as an array';
     }
 
-    // const image = Image.findById(imageId);
-
     const newProduct = await new Product({
       name,
       description,
       category,
       tags,
-      image: image._id
+      image: image._id,
     }).save();
 
-    // console.log(newProduct, "new product line 262, testing using _id");
-    // const findingNewProduct = await Product.findById(newProduct._id)
-    // console.log(findingNewProduct, "finding after creating")
     await newProduct.populate('image');
+
     res.status(201).json({
       response: {
         productId: newProduct._id,
@@ -302,25 +277,13 @@ app.post('/product-upload', async (req, res) => {
 
 // upload image for product
 app.post('/image-upload', parser.single('image'), async (req, res) => {
-  //   try {
-  //     const image = await new Image({
-  //       name: req.body.name,
-  //       imageUrl: req.file.path,
-  //       imageId: req.file.filename
-  //     }).save();
-  //     res.json(image);
-  //   } catch (err) {
-  //     res.status(400).json({ errors: err.errors });
-  //   }
-  // });
-
   try {
     const image = await new Image({
       imageUrl: req.file.path,
       imageId: req.file.filename,
     }).save();
 
-    console.log("new image on 300", image)
+    console.log('new image on 300', image);
 
     // const product = await Product.findOne({ name: product.name });
     res.json({ response: image, success: true });
