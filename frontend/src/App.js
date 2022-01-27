@@ -47,7 +47,9 @@ if (persistedStateJSON) {
 const store = createStore(reducer, persistedState, applyMiddleware(thunk))
 
 store.subscribe(() => {
-  localStorage.setItem("RekredoReduxState", JSON.stringify(store.getState()));
+  const state = store.getState();
+  const stateToPersist = {user: state.user}
+  localStorage.setItem("RekredoReduxState", JSON.stringify(stateToPersist));
 });
 
 
