@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { ui } from './ui';
 
 import { BASE_URL } from '../utils/config';
@@ -32,9 +33,9 @@ export const user = createSlice({
     setUserToLoggedOut: (store) => {
       store.username = null;
       store.accessToken = null;
-    },
-    setDeleteAccessToken: (store) => {
-      store.accessToken = null
+      store.email = null;
+      store.location = null;
+      store.vatNumber = null;
     },
   },
 });

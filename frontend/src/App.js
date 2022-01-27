@@ -1,7 +1,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { applyMiddleware, combineReducers, createStore } from "@reduxjs/toolkit";
+import {
+  applyMiddleware,
+  combineReducers,
+  createStore,
+} from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 // import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
@@ -36,7 +40,7 @@ const reducer = combineReducers({
 
 // To change from configure store to create when we want to add local storage
 
-const persistedStateJSON = localStorage.getItem("RekredoReduxState");
+const persistedStateJSON = localStorage.getItem('RekredoReduxState');
 
 let persistedState = {};
 
@@ -44,15 +48,14 @@ if (persistedStateJSON) {
   persistedState = JSON.parse(persistedStateJSON);
 }
 
-const store = createStore(reducer, persistedState, applyMiddleware(thunk))
+const store = createStore(reducer, persistedState, applyMiddleware(thunk));
 
 store.subscribe(() => {
   const state = store.getState();
-  const stateToPersist = {user: state.user}
-  localStorage.setItem("RekredoReduxState", JSON.stringify(stateToPersist));
+  console.log(state);
+  const stateToPersist = { user: state.user, cart: state.products.cart };
+  localStorage.setItem('RekredoReduxState', JSON.stringify(stateToPersist));
 });
-
-
 
 export const App = () => {
   return (

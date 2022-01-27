@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { HeaderSection } from './Nav';
-import { Button } from '../styledElements/Buttons'
-import { useSelector, useDispatch} from 'react-redux';
-import {user} from 'reducers/user';
-
+import { Button } from '../styledElements/Buttons';
+import { useSelector, useDispatch } from 'react-redux';
+import { user } from 'reducers/user';
+import { products } from 'reducers/products';
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -20,17 +20,15 @@ const FooterContainer = styled.footer`
   position: absolute;
 `;
 
-
-
 const Footer = () => {
   const dispatch = useDispatch();
-const navigate = useNavigate();
-const accessToken = useSelector((store) => store.user.accessToken);
+  const navigate = useNavigate();
+  const accessToken = useSelector((store) => store.user.accessToken);
 
-const onRemoveToken = () => {
-  dispatch(user.actions.setDeleteAccessToken());
-};
-
+  const onLogOut = () => {
+    dispatch(user.actions.setUserToLoggedOut());
+    dispatch(products.actions.emptyCart());
+  };
 
   return (
     <FooterContainer>
@@ -38,7 +36,7 @@ const onRemoveToken = () => {
         <NavLink to="/">Go home</NavLink>
         <p>Hi this is a footer</p>
       </HeaderSection>
-      <Button onClick={onRemoveToken}>Log Out</Button> 
+      <Button onClick={onLogOut}>Log Out</Button>
     </FooterContainer>
   );
 };

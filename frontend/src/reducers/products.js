@@ -26,12 +26,15 @@ export const products = createSlice({
         store.cart.push(action.payload);
       }
     },
-    deleteFromCart: (store, action) => {
+    deleteOneFromCart: (store, action) => {
       const itemsToSave = store.cart.filter(
         (item) => item._id !== action.payload._id
       );
       store.cart = itemsToSave;
     },
+    emptyCart: (store, action) => {
+      store.cart = []
+    }
   },
 });
 
