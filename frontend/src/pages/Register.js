@@ -11,11 +11,12 @@ const Register = () => {
   const [vatNumber, setVatNumber] = useState();
   const [mode, setMode] = useState('/register/personal');
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const token = useSelector((state) => state.user.accessToken);
+  // const token = useSelector((state) => state.user.accessToken);
   const error = useSelector((state) => state.user.error);
+  // console.log(error)
 
   // useEffect(() => {
   //   if (token) {
@@ -36,8 +37,11 @@ const Register = () => {
 
   return (
     <>
-    <h1>Register</h1>
-    <div><p>already have an account?</p><Link to='/log-in'>sign in here</Link></div>
+      <h1>Register</h1>
+      <div>
+        <p>already have an account?</p>
+        <Link to="/log-in">sign in here</Link>
+      </div>
       <div>
         <label htmlFor="personal">Personal</label>
         <input

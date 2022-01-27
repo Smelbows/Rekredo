@@ -24,6 +24,7 @@ import Account from './pages/Account';
 import Products from './pages/Products';
 import Checkout from './pages/Checkout';
 import PropDetails from './pages/PropDetails';
+import CookieConsent from 'react-cookie-consent';
 
 import Nav from 'components/Nav';
 import Footer from 'components/Footer';
@@ -35,7 +36,7 @@ const reducer = combineReducers({
   products: products.reducer,
   ui: ui.reducer,
   upload: upload.reducer,
-  cart: cart.reducer
+  cart: cart.reducer,
 });
 
 // const store = configureStore({ reducer });
@@ -74,6 +75,9 @@ export const App = () => {
           <Route index path="/contact" element={<Contact />} />
           <Route index path="/checkout" element={<Checkout />} />
         </Routes>
+        <CookieConsent>
+          This website uses cookies to enhance the user experience.
+        </CookieConsent>
         <Footer />
       </Router>
     </Provider>

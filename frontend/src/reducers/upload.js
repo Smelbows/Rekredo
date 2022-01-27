@@ -82,6 +82,7 @@ export const uploadProduct = (
           dispatch(upload.actions.clearImageState());
           clearForm();
         } else {
+          console.log('fail', json)
           dispatch(upload.actions.setProductError(json.response));
         }
       })

@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { HeaderSection } from './Nav';
 // import { Button } from '../styledElements/Buttons';
 // import { useSelector, useDispatch } from 'react-redux';
-// import { user } from 'reducers/user';
-// import { cart } from 'reducers/cart';
 import { Logout } from '../components/Logout';
 
 const FooterContainer = styled.footer`
@@ -22,10 +20,6 @@ const FooterContainer = styled.footer`
 `;
 
 const Footer = () => {
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const accessToken = useSelector((store) => store.user.accessToken);
-
   return (
     <FooterContainer>
       <HeaderSection>

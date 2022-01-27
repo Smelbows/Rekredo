@@ -36,6 +36,7 @@ export const user = createSlice({
       store.email = null;
       store.location = null;
       store.vatNumber = null;
+      store.error = null;
     },
   },
 });

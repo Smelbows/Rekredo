@@ -32,9 +32,7 @@ export const registerPersonalUser = async (req, res) => {
     });
   } catch (error) {
     if (error.code === 11000) {
-      res
-        .status(401)
-        .json({ success: false, error: 'That username is already taken' });
+      res.status(401).json({ success: false, response: error });
     } else {
       res.status(400).json({ response: error, success: false });
     }
@@ -72,9 +70,7 @@ export const registerBusinessUser = async (req, res) => {
     });
   } catch (error) {
     if (error.code === 11000) {
-      res
-        .status(401)
-        .json({ success: false, error: 'That username is already taken' });
+      res.status(401).json({ success: false, response: error });
     } else {
       res.status(400).json({ response: error, success: false });
     }
