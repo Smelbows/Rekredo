@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { P } from 'styledElements/Texts';
+import { Form, StyledInput, FormBox } from 'styledElements/Form';
+import { SmallButton } from 'styledElements/Buttons';
+import { Main } from 'styledElements/Main'
 import { personalUserRegister, businessUserRegister } from '../reducers/user';
 
 const Register = () => {
@@ -48,55 +51,57 @@ const Register = () => {
   };
 
   return (
-    <>
+    <Main>
       {token ? (
         <p>
           You're currently logged in as ..., please log out to register a new
           account
         </p>
       ) : (
-        <>
+        <FormBox>
           <h1>Register</h1>
           <div>
             <p>already have an account?</p>
             <Link to="/log-in">sign in here</Link>
           </div>
           <div>
-            <label htmlFor="personal">Personal</label>
-            <input
-              id="personal"
-              type="radio"
-              checked={mode === '/register/personal'}
-              onChange={() => setMode('/register/personal')}
-            />
-          </div>
-          <div>
-            <label htmlFor="business">Business</label>
-            <input
-              id="business"
-              type="radio"
-              checked={mode === '/register/business'}
-              onChange={() => setMode('/register/business')}
-            />
+            <div>
+              <label htmlFor="personal">Personal</label>
+              <StyledInput
+                id="personal"
+                type="radio"
+                checked={mode === '/register/personal'}
+                onChange={() => setMode('/register/personal')}
+              />
+            </div>
+            <div>
+              <label htmlFor="business">Business</label>
+              <StyledInput
+                id="business"
+                type="radio"
+                checked={mode === '/register/business'}
+                onChange={() => setMode('/register/business')}
+              />
+            </div>
           </div>
           <div>
             {error && <h1>{checkError()}</h1>}
-            <form onSubmit={onUserSubmit} className="signin-form">
-              <input
+            <Form onSubmit={onUserSubmit} className="signin-form">
+              <StyledInput
                 type="text"
                 placeholder="username"
                 className="input-field"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
               />
-              <input
+              <StyledInput
                 type="password"
                 placeholder="password"
                 className="input-field"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <input
+              <StyledInput
                 type="email"
                 placeholder="emailadress"
                 className="input-field"
@@ -104,7 +109,7 @@ const Register = () => {
                 onChange={(event) => setEmail(event.target.value)}
               />
               {mode === '/register/business' && (
-                <input
+                <StyledInput
                   type="number"
                   placeholder="VAT"
                   className="input-field"
@@ -113,7 +118,7 @@ const Register = () => {
                 />
               )}
               {mode === '/register/business' && (
-                <input
+                <StyledInput
                   type="text"
                   placeholder="Location"
                   className="input-field"
@@ -122,14 +127,14 @@ const Register = () => {
                 />
               )}
 
-              <button className="submit-button" type="submit">
+              <SmallButton className="submit-button" type="submit">
                 Register
-              </button>
-            </form>
+              </SmallButton>
+            </Form>
           </div>
-        </>
+        </FormBox>
       )}
-    </>
+    </Main>
   );
 };
 
