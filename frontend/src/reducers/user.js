@@ -36,7 +36,7 @@ export const user = createSlice({
       store.email = null;
       store.location = null;
       store.vatNumber = null;
-      store.error = null;
+      // store.error = null;
     },
   },
 });
@@ -60,7 +60,7 @@ export const personalUserLogin = (username, password, mode) => {
         } else {
           dispatch(user.actions.setError(json.response));
           console.log(json.response);
-          dispatch(user.actions.setUserToLoggedOut());
+          dispatch(user.actions.setUserToLoggedOut())
         }
       })
 

@@ -43,7 +43,7 @@ export const registerPersonalUser = async (req, res) => {
   } catch (error) {
     console.log(error, 'personaluser error');
     if (error.code === 11000) {
-      res.status(401).json({ success: false, response: error });
+      res.status(401).json({ success: false, response: "usename already exists" });
     } else {
       res.status(400).json({ response: error, success: false });
     }

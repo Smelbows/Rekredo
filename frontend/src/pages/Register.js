@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { P } from 'styledElements/Texts';
 import { personalUserRegister, businessUserRegister } from '../reducers/user';
 
 const Register = () => {
@@ -10,13 +11,14 @@ const Register = () => {
   const [location, setLocation] = useState('');
   const [vatNumber, setVatNumber] = useState(0);
   const [mode, setMode] = useState('/register/personal');
+  const [registered, setRegistered] = useState(false);
 
   // const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // const token = useSelector((state) => state.user.accessToken);
+  const token = useSelector((state) => state.user.accessToken);
   const error = useSelector((state) => state.user.error);
-  // console.log(error)
 
   const checkError = () => {
     if (typeof error === 'string') {
@@ -25,6 +27,13 @@ const Register = () => {
       return 'There was an error in the back end';
     }
   };
+
+  // checks if a user is logged in, naviagtes them away, but only if they have registered first.
+  useEffect(() => {
+    if (registered && token) {
+      navigate('/account');
+    }
+  }, [registered, token, navigate]);
 
   const onUserSubmit = (event) => {
     event.preventDefault();
@@ -35,81 +44,91 @@ const Register = () => {
         businessUserRegister(name, password, email, vatNumber, location, mode)
       );
     }
+    setRegistered(true);
   };
 
   return (
     <>
-      <h1>Register</h1>
-      <div>
-        <p>already have an account?</p>
-        <Link to="/log-in">sign in here</Link>
-      </div>
-      <div>
-        <label htmlFor="personal">Personal</label>
-        <input
-          id="personal"
-          type="radio"
-          checked={mode === '/register/personal'}
-          onChange={() => setMode('/register/personal')}
-        />
-      </div>
-      <div>
-        <label htmlFor="business">Business</label>
-        <input
-          id="business"
-          type="radio"
-          checked={mode === '/register/business'}
-          onChange={() => setMode('/register/business')}
-        />
-      </div>
-      <div>
-        <form onSubmit={onUserSubmit} className="signin-form">
-          {error && <h1>{checkError()}</h1>}
-          <input
-            type="text"
-            placeholder="username"
-            className="input-field"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="password"
-            className="input-field"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="emailadress"
-            className="input-field"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          {mode === '/register/business' && (
+      {token ? (
+        <p>
+          You're currently logged in as ..., please log out to register a new
+          account
+        </p>
+      ) : (
+        <>
+          <h1>Register</h1>
+          <div>
+            <p>already have an account?</p>
+            <Link to="/log-in">sign in here</Link>
+          </div>
+          <div>
+            <label htmlFor="personal">Personal</label>
             <input
-              type="number"
-              placeholder="VAT"
-              className="input-field"
-              value={vatNumber}
-              onChange={(event) => setVatNumber(event.target.value)}
+              id="personal"
+              type="radio"
+              checked={mode === '/register/personal'}
+              onChange={() => setMode('/register/personal')}
             />
-          )}
-          {mode === '/register/business' && (
+          </div>
+          <div>
+            <label htmlFor="business">Business</label>
             <input
-              type="text"
-              placeholder="Location"
-              className="input-field"
-              value={location}
-              onChange={(event) => setLocation(event.target.value)}
+              id="business"
+              type="radio"
+              checked={mode === '/register/business'}
+              onChange={() => setMode('/register/business')}
             />
-          )}
+          </div>
+          <div>
+            {error && <h1>{checkError()}</h1>}
+            <form onSubmit={onUserSubmit} className="signin-form">
+              <input
+                type="text"
+                placeholder="username"
+                className="input-field"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="password"
+                className="input-field"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <input
+                type="email"
+                placeholder="emailadress"
+                className="input-field"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              {mode === '/register/business' && (
+                <input
+                  type="number"
+                  placeholder="VAT"
+                  className="input-field"
+                  value={vatNumber}
+                  onChange={(event) => setVatNumber(event.target.value)}
+                />
+              )}
+              {mode === '/register/business' && (
+                <input
+                  type="text"
+                  placeholder="Location"
+                  className="input-field"
+                  value={location}
+                  onChange={(event) => setLocation(event.target.value)}
+                />
+              )}
 
-          <button className="submit-button" type="submit">
-            Register
-          </button>
-        </form>
-      </div>
+              <button className="submit-button" type="submit">
+                Register
+              </button>
+            </form>
+          </div>
+        </>
+      )}
     </>
   );
 };
