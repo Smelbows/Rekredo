@@ -7,7 +7,7 @@ import  PersonalProfile  from '../components/PersonalProfile';
 import  BusinessProfile  from '../components/BusinessProfile';
 
 import { Button, PropButton } from '../styledElements/Buttons';
-import { ProfileCard } from '../styledElements/Card';
+import { StyledProfileCard } from '../styledElements/Card';
 
 const Account = () => {
   const navigate = useNavigate();
@@ -28,13 +28,13 @@ const Account = () => {
 
   return (
     <>
-      <ProfileCard>
+      <StyledProfileCard>
         <Button onClick={() => navigate('/contact')}>
           need help? click here
         </Button>
         <PropButton propBtnColor="yellow"> This is a propbutton</PropButton>
         Account
-      </ProfileCard>
+      </StyledProfileCard>
       {accountType() === 'personal' && <PersonalProfile />}
       {accountType() === 'business' && <BusinessProfile />}
     </>

@@ -24,7 +24,7 @@ export const ProductCard = styled.div`
   color: black;
 `;
 
-export const ProfileCard = styled.div`
+export const StyledProfileCard = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 3px;

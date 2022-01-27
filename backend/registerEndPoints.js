@@ -15,6 +15,10 @@ export const registerPersonalUser = async (req, res) => {
       throw 'Password must be at least 5 characters long';
     }
 
+    if (!email) {
+      throw 'Please enter an email';
+    }
+
     const newUser = await new PersonalUser({
       username,
       password: bcrypt.hashSync(password, salt),

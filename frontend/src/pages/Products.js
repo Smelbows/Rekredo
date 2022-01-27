@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { products } from '../reducers/products';
+// import { products } from '../reducers/products';
 import { cart } from '../reducers/cart';
 
 import { showProduct } from 'reducers/products';

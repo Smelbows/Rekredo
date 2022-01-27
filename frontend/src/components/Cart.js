@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { cart } from '../reducers/cart';
 
 import { ProductCard } from '../styledElements/Card';
-import { H1, P, ProductText } from '../styledElements/Texts';
+import { P, ProductText } from '../styledElements/Texts';
 import { SmallButton } from 'styledElements/Buttons';
 
 const Cart = () => {

@@ -48,6 +48,7 @@ export const uploadImage = (formData) => {
           dispatch(upload.actions.setImage(json));
           dispatch(upload.actions.setImageError(null));
         } else {
+          console.log('fail', json)
           dispatch(upload.actions.setImageError(json.response));
         }
       })
