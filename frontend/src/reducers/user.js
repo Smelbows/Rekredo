@@ -95,7 +95,7 @@ export const personalUserRegister = (username, password, email, mode) => {
 };
 
 export const businessUserRegister = (
-  username,
+  businessName,
   password,
   email,
   vatNumber,
@@ -110,7 +110,13 @@ export const businessUserRegister = (
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password, email, vatNumber, location }),
+      body: JSON.stringify({
+        businessName,
+        password,
+        email,
+        vatNumber,
+        location,
+      }),
     })
       .then((res) => res.json())
       .then((json) => {

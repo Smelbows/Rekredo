@@ -8,7 +8,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [location, setLocation] = useState('');
-  const [vatNumber, setVatNumber] = useState();
+  const [vatNumber, setVatNumber] = useState(0);
   const [mode, setMode] = useState('/register/personal');
 
   // const navigate = useNavigate();
@@ -18,11 +18,13 @@ const Register = () => {
   const error = useSelector((state) => state.user.error);
   // console.log(error)
 
-  // useEffect(() => {
-  //   if (token) {
-  //     navigate('/account');
-  //   }
-  // }, [token, navigate]);
+  const checkError = () => {
+    if (typeof error === 'string') {
+      return error;
+    } else {
+      return 'There was an error in the back end';
+    }
+  };
 
   const onUserSubmit = (event) => {
     event.preventDefault();
@@ -62,7 +64,7 @@ const Register = () => {
       </div>
       <div>
         <form onSubmit={onUserSubmit} className="signin-form">
-          {error && <h1>{error}</h1>}
+          {error && <h1>{checkError()}</h1>}
           <input
             type="text"
             placeholder="username"
