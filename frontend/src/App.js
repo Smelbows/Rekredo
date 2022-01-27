@@ -13,6 +13,7 @@ import { user } from '../src/reducers/user';
 import { products } from '../src/reducers/products';
 import { ui } from '../src/reducers/ui';
 import { upload } from '../src/reducers/upload';
+import { cart } from 'reducers/cart';
 
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -34,6 +35,7 @@ const reducer = combineReducers({
   products: products.reducer,
   ui: ui.reducer,
   upload: upload.reducer,
+  cart: cart.reducer
 });
 
 // const store = configureStore({ reducer });
@@ -52,8 +54,7 @@ const store = createStore(reducer, persistedState, applyMiddleware(thunk));
 
 store.subscribe(() => {
   const state = store.getState();
-  console.log(state);
-  const stateToPersist = { user: state.user, cart: state.products.cart };
+  const stateToPersist = { user: state.user, cart: state.cart };
   localStorage.setItem('RekredoReduxState', JSON.stringify(stateToPersist));
 });
 

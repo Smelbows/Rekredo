@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { products } from '../reducers/products';
+import { cart } from '../reducers/cart';
 
 import { ProductCard } from '../styledElements/Card';
 import { H1, P, ProductText } from '../styledElements/Texts';
@@ -8,9 +8,9 @@ import { SmallButton } from 'styledElements/Buttons';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const myCart = useSelector((state) => state.products.cart);
+  const myCart = useSelector((state) => state.cart.cart);
   const onDeleteItem = (product) => {
-    dispatch(products.actions.deleteOneFromCart(product));
+    dispatch(cart.actions.deleteOneFromCart(product));
   };
 
   return (

@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { HeaderSection } from './Nav';
-import { Button } from '../styledElements/Buttons';
-import { useSelector, useDispatch } from 'react-redux';
-import { user } from 'reducers/user';
-import { products } from 'reducers/products';
+// import { Button } from '../styledElements/Buttons';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { user } from 'reducers/user';
+// import { cart } from 'reducers/cart';
+import { Logout } from '../components/Logout';
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -21,14 +22,9 @@ const FooterContainer = styled.footer`
 `;
 
 const Footer = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const accessToken = useSelector((store) => store.user.accessToken);
-
-  const onLogOut = () => {
-    dispatch(user.actions.setUserToLoggedOut());
-    dispatch(products.actions.emptyCart());
-  };
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const accessToken = useSelector((store) => store.user.accessToken);
 
   return (
     <FooterContainer>
@@ -36,7 +32,7 @@ const Footer = () => {
         <NavLink to="/">Go home</NavLink>
         <p>Hi this is a footer</p>
       </HeaderSection>
-      <Button onClick={onLogOut}>Log Out</Button>
+      <Logout />
     </FooterContainer>
   );
 };

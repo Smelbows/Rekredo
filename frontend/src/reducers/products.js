@@ -8,7 +8,6 @@ export const products = createSlice({
   initialState: {
     productList: null,
     error: null,
-    cart: [],
   },
   reducers: {
     setAvailability: (store, action) => {},
