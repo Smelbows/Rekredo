@@ -11,20 +11,20 @@ export const cart = createSlice({
   reducers: {
     setCart: (store, action) => {
       const itemNotInCart =
-        store.cart.filter((item) => item._id === action.payload._id).length ===
-        0;
+        store.cartList.filter((item) => item._id === action.payload._id)
+          .length === 0;
       if (itemNotInCart) {
-        store.cart.push(action.payload);
+        store.cartList.push(action.payload);
       }
     },
     deleteOneFromCart: (store, action) => {
-      const itemsToSave = store.cart.filter(
+      const itemsToSave = store.cartList.filter(
         (item) => item._id !== action.payload._id
       );
-      store.cart = itemsToSave;
+      store.cartList = itemsToSave;
     },
-    // emptyCart: (store, action) => {
-    //   store.cart = []
-    // }
+    emptyCart: (store, action) => {
+      store.cartList = []
+    }
   },
 });

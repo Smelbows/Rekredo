@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { personalUserLogin } from '../reducers/user';
 
 const Login = () => {
@@ -30,6 +30,7 @@ const Login = () => {
       <div>
         <form onSubmit={onUserSubmit} className="signin-form">
           <h1>Log in</h1>
+          <div><p>don't have an account?</p><Link to='/register'>register here</Link></div>
           {error && <h1>{error}</h1>}
           <input
             type="text"

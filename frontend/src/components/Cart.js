@@ -8,7 +8,7 @@ import { SmallButton } from 'styledElements/Buttons';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const myCart = useSelector((state) => state.cart.cart);
+  const myCart = useSelector((state) => state.cart.cartList);
   const onDeleteItem = (product) => {
     dispatch(cart.actions.deleteOneFromCart(product));
   };

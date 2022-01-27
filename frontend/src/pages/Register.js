@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { personalUserRegister, businessUserRegister } from '../reducers/user';
 
 const Register = () => {
@@ -16,7 +16,6 @@ const Register = () => {
 
   const token = useSelector((state) => state.user.accessToken);
   const error = useSelector((state) => state.user.error);
-  console.log(error);
 
   // useEffect(() => {
   //   if (token) {
@@ -38,6 +37,7 @@ const Register = () => {
   return (
     <>
     <h1>Register</h1>
+    <div><p>already have an account?</p><Link to='/log-in'>sign in here</Link></div>
       <div>
         <label htmlFor="personal">Personal</label>
         <input
