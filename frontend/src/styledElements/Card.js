@@ -46,6 +46,10 @@ export const Main = styled.section`
   /* min-height: 10em; */
   background: lightgrey;
   padding-bottom: 10rem;
+
+  @media (min-width: 768px) {
+    padding-bottom: 15rem;
+  }
 `;
 
 export const BigSection = styled.section`
@@ -65,7 +69,8 @@ export const HeaderSection = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  margin: 0.1em;
-  padding-right: 1em;
+  margin: 0 auto;
+  width: 100vw;
+  background-color: white;
   font-family: 'Lora', serif;
 `;

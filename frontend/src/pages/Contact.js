@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Main } from '../styledElements/Card';
+
 const FORM_ENDPOINT = ''; // TODO - fill on the later step
 
 const Contact = () => {
@@ -20,7 +22,7 @@ const Contact = () => {
   }
 
   return (
-    <>
+    <Main>
       <form
         action={FORM_ENDPOINT}
         onSubmit={handleSubmit}
@@ -40,7 +42,7 @@ const Contact = () => {
           <button type="submit"> Send a message </button>
         </div>
       </form>
-    </>
+    </Main>
   );
 };
 

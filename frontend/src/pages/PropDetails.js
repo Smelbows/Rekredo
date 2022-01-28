@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { BigSection } from 'styledElements/Card';
+import { BigSection, Main } from 'styledElements/Card';
 import { useSelector } from 'react-redux';
 
 const PropDetails = () => {
@@ -13,14 +13,14 @@ const PropDetails = () => {
   console.log(prop);
 
   return (
-    <>
+    <Main>
       <BigSection>
         <Link to="/products">Back to all props</Link>
         <p>{prop.name}</p>
         <img src={prop.image?.imageUrl} alt={prop.name}></img>
       </BigSection>
       ;
-    </>
+    </Main>
   );
 };
 
