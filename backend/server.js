@@ -9,10 +9,11 @@ import dotenv from 'dotenv';
 import cloudinaryFramework from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
+// importing endpoints
 import { getProductById, getProducts } from './productsEndPoints.js';
 import {
   registerBusinessUser,
-  registerPersonalUser,
+  registerPersonalUser
 } from './registerEndPoints.js';
 import { authenticateUser } from './authentication.js';
 import { loginUser } from './loginEndPoints.js';
@@ -23,7 +24,7 @@ const {
   PersonalUser,
   BusinessUser,
   Product,
-  Image,
+  Image
 } = require('./models/models.js');
 
 // for MongoDB connection
@@ -54,7 +55,7 @@ const cloudinary = cloudinaryFramework.v2;
 cloudinary.config({
   cloud_name: 'rekredo',
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
 const storage = new CloudinaryStorage({
@@ -62,8 +63,8 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'props',
     allowedFormats: ['jpg', 'png', 'JPG', 'jpeg'],
-    transformation: [{ width: 500, height: 500, crop: 'limit' }],
-  },
+    transformation: [{ width: 500, height: 500, crop: 'limit' }]
+  }
 });
 const parser = multer({ storage });
 
@@ -75,12 +76,11 @@ app.get('/', async (req, res) => {
   }
 });
 
-// get account details after authentication
+// endpoints
 app.get('/account', authenticateUser);
 app.get('/account', (req, res) => {
   res.send('this is your account page');
 });
-
 app.get('/products', getProducts);
 app.get('/products/:id', getProductById);
 app.post('/register/personal', registerPersonalUser);
@@ -88,11 +88,12 @@ app.post('/register/business', registerBusinessUser);
 app.post('/log-in', loginUser);
 app.post('/product-upload', productUpload);
 
+// image endpoint currently in server.js, try to take out if poss
 app.post('/image-upload', parser.single('image'), async (req, res) => {
   try {
     const image = await new Image({
       imageUrl: req.file.path,
-      imageId: req.file.filename,
+      imageId: req.file.filename
     }).save();
 
     res.json({ response: image, success: true });

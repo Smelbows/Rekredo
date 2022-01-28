@@ -23,7 +23,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <HeaderSection>
-        <NavLink to="/">Go home</NavLink>
+        <NavLink to='/'>Go home</NavLink>
         <p>Hi this is a footer</p>
       </HeaderSection>
       <Logout />
