@@ -15,7 +15,6 @@ const Header = styled.div`
   width: 100vw;
   border: 1px solid black;
   justify-content: space-around;
-
 `;
 export const HeaderSection = styled.div`
   display: flex;
@@ -81,16 +80,16 @@ const Nav = () => {
   return (
     <Header>
       <HeaderLogo>
-        <LogoImg className='logo' src={Logo} alt='logo' />
+        <LogoImg className="logo" src={Logo} alt="logo" />
       </HeaderLogo>
       <HeaderSection>
         <NavSection>
-          <Pages to='/account'>Profile</Pages>
-          <Pages to='/faq'>FAQ</Pages>
-          <Pages to='/products'>Products</Pages>
-          <Pages to='/contact'>Contact</Pages>
-          <Pages to='/checkout'>Checkout</Pages>
-          <Pages to='/'>Home</Pages>
+          <Pages to="/account">Profile</Pages>
+          <Pages to="/faq">FAQ</Pages>
+          <Pages to="/products">Products</Pages>
+          <Pages to="/contact">Contact</Pages>
+          <Pages to="/checkout">Checkout</Pages>
+          <Pages to="/">Home</Pages>
         </NavSection>
         <NavButton>
           <SmallButton onClick={() => navigate('/register')}>

@@ -19,13 +19,12 @@ const Login = () => {
   const error = useSelector((state) => state.user.error);
 
   const checkError = () => {
-    if (typeof error === "string") {
+    if (typeof error === 'string') {
       return error;
     } else {
-      return "There was an error in the back end";
+      return 'There was an error in the back end';
     }
   };
-
 
   useEffect(() => {
     if (token) {
@@ -43,7 +42,10 @@ const Login = () => {
       <FormBox>
         <Form onSubmit={onUserSubmit} className="signin-form">
           <h1>Log in</h1>
-          <div><p>don't have an account?</p><Link to='/register'>register here</Link></div>
+          <div>
+            <p>don't have an account?</p>
+            <Link to="/register">register here</Link>
+          </div>
           {error && <h1>{checkError()}</h1>}
           <StyledInput
             type="text"

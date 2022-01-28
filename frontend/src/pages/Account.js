@@ -3,8 +3,9 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import  PersonalProfile  from '../components/PersonalProfile';
-import  BusinessProfile  from '../components/BusinessProfile';
+import PersonalProfile from '../components/PersonalProfile';
+import BusinessProfile from '../components/BusinessProfile';
+import ProfileCard from 'components/ProfileCard';
 
 import { Button, PropButton } from '../styledElements/Buttons';
 import { StyledProfileCard } from '../styledElements/Card';
@@ -30,15 +31,9 @@ const Account = () => {
   return (
     <Main>
       <BigSection>
-      <StyledProfileCard>
-        <Button onClick={() => navigate('/contact')}>
-          need help? click here
-        </Button>
-        <PropButton propBtnColor="yellow"> This is a propbutton</PropButton>
-        Account
-      </StyledProfileCard>
-      {accountType() === 'personal' && <PersonalProfile />}
-      {accountType() === 'business' && <BusinessProfile />}
+        <ProfileCard />
+        {accountType() === 'personal' && <PersonalProfile />}
+        {accountType() === 'business' && <BusinessProfile />}
       </BigSection>
     </Main>
   );

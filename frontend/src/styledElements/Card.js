@@ -51,9 +51,8 @@ export const Main = styled.section`
   box-sizing: border-box;
   padding-bottom: 10px;
 
-
   @media (min-width: 768px) {
-     padding-bottom: 15rem;
+    padding-bottom: 15rem;
   }
 `;
 

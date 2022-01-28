@@ -26,7 +26,6 @@ import Checkout from './pages/Checkout';
 import PropDetails from './pages/PropDetails';
 import CookieConsent from 'react-cookie-consent';
 
-
 import Nav from 'components/Nav';
 import Footer from 'components/Footer';
 
