@@ -61,24 +61,24 @@ const Register = () => {
         <FormBox>
           <h1>Register</h1>
           <div>
-            <p>already have an account?</p>
-            <Link to="/log-in">sign in here</Link>
+            <P>already have an account?</P>
+            <Link to='/log-in'>sign in here</Link>
           </div>
           <div>
             <div>
-              <label htmlFor="personal">Personal</label>
+              <label htmlFor='personal'>Personal</label>
               <StyledInput
-                id="personal"
-                type="radio"
+                id='personal'
+                type='radio'
                 checked={mode === '/register/personal'}
                 onChange={() => setMode('/register/personal')}
               />
             </div>
             <div>
-              <label htmlFor="business">Business</label>
+              <label htmlFor='business'>Business</label>
               <StyledInput
-                id="business"
-                type="radio"
+                id='business'
+                type='radio'
                 checked={mode === '/register/business'}
                 onChange={() => setMode('/register/business')}
               />
@@ -86,48 +86,48 @@ const Register = () => {
           </div>
           <div>
             {error && <h1>{checkError()}</h1>}
-            <Form onSubmit={onUserSubmit} className="signin-form">
+            <Form onSubmit={onUserSubmit} className='signin-form'>
               <StyledInput
-                type="text"
-                placeholder="username"
-                className="input-field"
+                type='text'
+                placeholder='username'
+                className='input-field'
                 value={name}
                 onChange={(event) => setName(event.target.value)}
               />
               <StyledInput
-                type="password"
-                placeholder="password"
-                className="input-field"
+                type='password'
+                placeholder='password'
+                className='input-field'
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
               <StyledInput
-                type="email"
-                placeholder="emailadress"
-                className="input-field"
+                type='email'
+                placeholder='emailadress'
+                className='input-field'
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
               {mode === '/register/business' && (
                 <StyledInput
-                  type="number"
-                  placeholder="VAT"
-                  className="input-field"
+                  type='number'
+                  placeholder='VAT'
+                  className='input-field'
                   value={vatNumber}
                   onChange={(event) => setVatNumber(event.target.value)}
                 />
               )}
               {mode === '/register/business' && (
                 <StyledInput
-                  type="text"
-                  placeholder="Location"
-                  className="input-field"
+                  type='text'
+                  placeholder='Location'
+                  className='input-field'
                   value={location}
                   onChange={(event) => setLocation(event.target.value)}
                 />
               )}
 
-              <SmallButton className="submit-button" type="submit">
+              <SmallButton className='submit-button' type='submit'>
                 Register
               </SmallButton>
             </Form>

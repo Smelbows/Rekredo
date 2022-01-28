@@ -9,6 +9,7 @@ import { Card } from 'styledElements/Card';
 const PersonalProfile = () => {
   return (
     <Card>
+      <H1> Im here</H1>
       <UploadImage />
       <UploadProduct />
     </Card>

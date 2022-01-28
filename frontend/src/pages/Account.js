@@ -7,8 +7,8 @@ import PersonalProfile from '../components/PersonalProfile';
 import BusinessProfile from '../components/BusinessProfile';
 import ProfileCard from 'components/ProfileCard';
 
-import { Button, PropButton } from '../styledElements/Buttons';
-import { StyledProfileCard } from '../styledElements/Card';
+// import { Button, PropButton } from '../styledElements/Buttons';
+// import { StyledProfileCard } from '../styledElements/Card';
 import { Main, BigSection } from '../styledElements/Card';
 
 const Account = () => {

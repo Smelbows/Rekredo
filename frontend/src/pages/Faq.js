@@ -1,4 +1,4 @@
-import react from 'react';
+// import react from 'react';
 import { Main } from '../styledElements/Card';
 
 const Faq = () => {
