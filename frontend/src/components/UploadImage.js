@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { uploadImage } from 'reducers/upload';
+import { FormBox, Form } from 'styledElements/Form';
+import { Button } from 'styledElements/Buttons';
 
 export const UploadImage = () => {
   const dispatch = useDispatch();
@@ -30,15 +32,15 @@ export const UploadImage = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleFormSubmit}>
+    <FormBox>
+      <Form onSubmit={handleFormSubmit}>
         <label>
           Prop Image
           <input type="file" ref={fileInput} required />
         </label>
-        <button type="submit">Upload Image</button>
-      </form>
+        <Button type="submit">Upload Image</Button>
+      </Form>
       {image && <img src={image.imageUrl} alt="your product"></img>}
-    </>
+    </FormBox>
   );
 };

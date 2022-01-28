@@ -8,7 +8,7 @@ import  BusinessProfile  from '../components/BusinessProfile';
 
 import { Button, PropButton } from '../styledElements/Buttons';
 import { StyledProfileCard } from '../styledElements/Card';
-import { Main } from '../styledElements/Card';
+import { Main, BigSection } from '../styledElements/Card';
 
 const Account = () => {
   const navigate = useNavigate();
@@ -29,6 +29,7 @@ const Account = () => {
 
   return (
     <Main>
+      <BigSection>
       <StyledProfileCard>
         <Button onClick={() => navigate('/contact')}>
           need help? click here
@@ -38,6 +39,7 @@ const Account = () => {
       </StyledProfileCard>
       {accountType() === 'personal' && <PersonalProfile />}
       {accountType() === 'business' && <BusinessProfile />}
+      </BigSection>
     </Main>
   );
 };

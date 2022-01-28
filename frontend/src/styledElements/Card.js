@@ -4,11 +4,12 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 3px;
-  padding: 0.5rem;
-  margin: 0.5rem 1rem;
-  width: 11rem;
-  background: grey;
-  color: darkblue;
+  padding: 1em;
+  margin: 1rem 1rem;
+  background: green;
+  color: white;
+  border: 2px solid red;
+  justify-content: space-evenly;
 `;
 
 export const ProductCard = styled.div`
@@ -21,6 +22,7 @@ export const ProductCard = styled.div`
   min-height: 100px;
   width: 200px;
   background: grey;
+  border: 1px solid black;
   color: black;
 `;
 
@@ -31,7 +33,7 @@ export const StyledProfileCard = styled.div`
   padding: 0.5rem 0;
   margin: 0.5rem 1rem;
   width: 20rem;
-  background: grey;
+  background: red;
   color: white;
   border: 2px solid green;
 `;
@@ -39,26 +41,28 @@ export const StyledProfileCard = styled.div`
 export const Main = styled.section`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
-  border-radius: 1px;
-  padding: 0.5rem 0;
-  width: 100vw;
+  /* padding: 0.5rem 0; */
   /* min-height: 10em; */
-  background: lightgrey;
-  padding-bottom: 10rem;
+  width: 100vw;
+  background: grey;
+  min-height: 70vh;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+
 
   @media (min-width: 768px) {
-    padding-bottom: 15rem;
+     padding-bottom: 15rem;
   }
 `;
 
 export const BigSection = styled.section`
   display: flex;
-  flex-direction: column;
-  padding: 0.5rem 0;
+  padding: 0.5em 0;
   width: 100vw;
   height: 20em;
-  background: lightgrey;
+  background: blue;
   & > .background {
     width: 100%;
   }

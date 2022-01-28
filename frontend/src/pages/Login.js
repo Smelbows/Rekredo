@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { personalUserLogin } from '../reducers/user';
 
-import { FormBox, Form } from 'styledElements/Form';
+import { FormBox, StyledInput, Form } from 'styledElements/Form';
 import { Main } from '../styledElements/Card';
+import { SmallButton } from 'styledElements/Buttons';
 
 const Login = () => {
   const [name, setName] = useState('');
@@ -44,14 +45,14 @@ const Login = () => {
           <h1>Log in</h1>
           <div><p>don't have an account?</p><Link to='/register'>register here</Link></div>
           {error && <h1>{checkError()}</h1>}
-          <input
+          <StyledInput
             type="text"
             placeholder="username"
             className="input-field"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
-          <input
+          <StyledInput
             type="password"
             placeholder="password"
             className="input-field"
@@ -59,9 +60,9 @@ const Login = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
 
-          <button className="submit-button" type="submit">
+          <SmallButton className="submit-button" type="submit">
             Sign in
-          </button>
+          </SmallButton>
         </Form>
       </FormBox>
     </Main>

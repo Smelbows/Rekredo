@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { uploadProduct } from 'reducers/upload';
-import { PropButton } from '../styledElements/Buttons';
+import { PropButton, Button } from '../styledElements/Buttons';
+import { FormBox, Form, StyledInput } from 'styledElements/Form';
 
 export const UploadProduct = () => {
   const dispatch = useDispatch();
   const image = useSelector((state) => state.upload.image);
   const productError = useSelector((state) => state.upload.imageError);
   const product = useSelector((state) => state.upload.product);
-  console.log(productError)
+  console.log(productError);
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -41,11 +42,11 @@ export const UploadProduct = () => {
   };
   const navigate = useNavigate();
   return (
-    <>
-      <form onSubmit={image !== null ? handleFormSubmit : null}>
+    <FormBox>
+      <Form onSubmit={image !== null ? handleFormSubmit : null}>
         <label>
           Prop name
-          <input
+          <StyledInput
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -53,7 +54,7 @@ export const UploadProduct = () => {
         </label>
         <label>
           Prop description
-          <input
+          <StyledInput
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -78,21 +79,24 @@ export const UploadProduct = () => {
         </label>
         <label>
           Prop tags
-          <input
+          <StyledInput
             type="text"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
           />
         </label>
 
-        <button disabled={!image} type="submit">
+        <Button disabled={!image} type="submit">
           Upload Product
-        </button>
-      </form>
+        </Button>
+      </Form>
       {productError && <h1>{productError}</h1>}
       {product && <p>Thank you, your product has been uploaded.</p>}
-      {product && <PropButton onClick={() => navigate('/products')}>
-        Go to your account page</PropButton>}
-    </>
+      {product && (
+        <PropButton onClick={() => navigate('/products')}>
+          Go to your account page
+        </PropButton>
+      )}
+    </FormBox>
   );
 };

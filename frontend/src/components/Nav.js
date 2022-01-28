@@ -15,6 +15,7 @@ const Header = styled.div`
   width: 100vw;
   border: 1px solid black;
   justify-content: space-around;
+
 `;
 export const HeaderSection = styled.div`
   display: flex;

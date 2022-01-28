@@ -4,14 +4,14 @@ import { UploadImage } from '../components/UploadImage';
 import { UploadProduct } from 'components/UploadProduct';
 // import { Card } from 'styledElements/Card';
 import {H1} from '../styledElements/Texts';
+import { Card } from 'styledElements/Card';
 
 const PersonalProfile = () => {
   return (
-    <>
-    <H1>Personal</H1>
+    <Card>
       <UploadImage />
       <UploadProduct />
-    </>
+    </Card>
   );
 };
 
