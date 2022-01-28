@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { personalUserLogin } from '../reducers/user';
 
 import { FormBox, Form } from 'styledElements/Form';
-import {Main} from 'styledElements/Main'
+import { Main } from '../styledElements/Card';
 
 const Login = () => {
   const [name, setName] = useState('');

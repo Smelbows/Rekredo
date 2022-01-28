@@ -17,6 +17,7 @@ const FooterContainer = styled.footer`
   border: 1px solid black;
   justify-content: center;
   position: absolute;
+  bottom: 0;
 `;
 
 const Footer = () => {

@@ -6,7 +6,7 @@ import { cart } from '../reducers/cart';
 
 import { showProduct } from 'reducers/products';
 // import styled from 'styled-components';
-import { Section, ProductCard, HeaderSection } from '../styledElements/Card';
+import { Main, ProductCard, HeaderSection } from '../styledElements/Card';
 import { H1, H3, P, ProductText } from '../styledElements/Texts';
 import { Button, SmallButton } from 'styledElements/Buttons';
 
@@ -35,7 +35,7 @@ const Products = () => {
         <H1>Props collection</H1>
         <H3>Choose unique assortment uploaded from people all over Europe</H3>
       </HeaderSection>
-      <Section>
+      <Main>
         {!loading
           ? allProducts?.map((item) => (
               <ProductCard key={item._id}>
@@ -62,7 +62,7 @@ const Products = () => {
               </ProductCard>
             ))
           : <h1>loading</h1>}
-      </Section>
+      </Main>
     </>
   );
 };

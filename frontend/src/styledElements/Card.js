@@ -36,15 +36,16 @@ export const StyledProfileCard = styled.div`
   border: 2px solid green;
 `;
 
-export const Section = styled.section`
+export const Main = styled.section`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   border-radius: 1px;
   padding: 0.5rem 0;
   width: 100vw;
-  min-height: 10em;
+  /* min-height: 10em; */
   background: lightgrey;
+  padding-bottom: 10rem;
 `;
 
 export const BigSection = styled.section`

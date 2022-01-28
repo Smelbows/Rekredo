@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { P } from 'styledElements/Texts';
 import { Form, StyledInput, FormBox } from 'styledElements/Form';
 import { SmallButton } from 'styledElements/Buttons';
-import { Main } from 'styledElements/Main'
+import { Main } from '../styledElements/Card';
 import { personalUserRegister, businessUserRegister } from '../reducers/user';
 
 const Register = () => {
