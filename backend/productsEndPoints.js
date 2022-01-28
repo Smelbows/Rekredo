@@ -2,7 +2,7 @@ const {
   PersonalUser,
   BusinessUser,
   Product,
-  Image,
+  Image
 } = require('./models/models.js');
 
 export const getProducts = async (req, res) => {
