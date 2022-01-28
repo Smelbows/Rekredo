@@ -10,9 +10,18 @@ export const Button = styled.button`
   background: transparent;
   color: white;
   border: 2px solid white;
+  :disabled {
+    opacity: 0.8;
+    color: green;
+    border: none;
+  }
+    :hover {
+    box-shadow: 0 0 10px blue;
+    cursor: pointer;
+  }
 `;
 
-export const SmallButton = styled.a`
+export const SmallButton = styled.button`
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
   border-radius: 3px 10%;

@@ -48,6 +48,7 @@ export const uploadImage = (formData) => {
           dispatch(upload.actions.setImage(json));
           dispatch(upload.actions.setImageError(null));
         } else {
+          console.log('fail', json)
           dispatch(upload.actions.setImageError(json.response));
         }
       })
@@ -82,6 +83,7 @@ export const uploadProduct = (
           dispatch(upload.actions.clearImageState());
           clearForm();
         } else {
+          console.log('fail', json)
           dispatch(upload.actions.setProductError(json.response));
         }
       })

@@ -2,14 +2,21 @@ import express from 'express';
 import mongoose from 'mongoose';
 import listEndpoints from 'express-list-endpoints';
 import cors from 'cors';
-// import crypto from 'crypto';
-import bcrypt from 'bcrypt';
 
 // for uploading images to the database
 import multer from 'multer';
 import dotenv from 'dotenv';
 import cloudinaryFramework from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
+
+import { getProductById, getProducts } from './productsEndPoints.js';
+import {
+  registerBusinessUser,
+  registerPersonalUser,
+} from './registerEndPoints.js';
+import { authenticateUser } from './authentication.js';
+import { loginUser } from './loginEndPoints.js';
+import { imageUpload, productUpload } from './uploadEndPoints.js';
 
 // importing models
 const {
@@ -42,6 +49,7 @@ app.use(express.json());
  * Setting up our cloudinary storage
  * secrets are in env file in gitignore
  */
+
 const cloudinary = cloudinaryFramework.v2;
 cloudinary.config({
   cloud_name: 'rekredo',
@@ -59,22 +67,6 @@ const storage = new CloudinaryStorage({
 });
 const parser = multer({ storage });
 
-// authenticating  a user
-const authenticateUser = async (req, res, next) => {
-  const accessToken = req.header('Authorization');
-  try {
-    const user = await User.findOne({ accessToken });
-    if (user) {
-      req.user = user;
-      next();
-    } else {
-      res.status(401).json({ response: 'Please log in', success: false });
-    }
-  } catch (error) {
-    res.status(400).json({ response: error, success: false });
-  }
-};
-
 app.get('/', async (req, res) => {
   try {
     res.json(listEndpoints(app));
@@ -83,224 +75,26 @@ app.get('/', async (req, res) => {
   }
 });
 
+// get account details after authentication
 app.get('/account', authenticateUser);
 app.get('/account', (req, res) => {
   res.send('this is your account page');
 });
 
-app.get('/products', async (req, res) => {
-  try {
-    const allProducts = await Product.find({}).populate('image');
-
-    if (!allProducts) {
-      throw 'product library empty are not available';
-    }
-
-    // const populated = await allProducts.map(element => {
-    // element.populate('image')
-    // return element
-    // });
-
-    res.status(200).json({ response: allProducts, success: true });
-  } catch (error) {
-    res.status(400).json({ response: error, success: false });
-  }
-});
-
-app.get('/products/id/:id', async (req, res) => {
-  const { propid } = req.params;
-
-  try {
-    const oneProduct = await Product.find((product) => productId === +id);
-    if (!oneProduct) {
-      throw 'product library empty are not available';
-    }
-    res.status(200).json({ response: oneProduct, success: true });
-  } catch (error) {
-    res.status(400).json({ response: error, success: false });
-  }
-});
-
-app.post('/register/personal', async (req, res) => {
-  const { username, password, email } = req.body;
-
-  try {
-    const salt = bcrypt.genSaltSync();
-
-    if (password.length < 5) {
-      throw 'Password must be at least 5 characters long';
-    }
-
-    const newUser = await new PersonalUser({
-      username,
-      password: bcrypt.hashSync(password, salt),
-      email,
-    }).save();
-
-    res.status(201).json({
-      response: {
-        userId: newUser._id,
-        username: newUser.username,
-        email: newUser.email,
-        accessToken: newUser.accessToken,
-      },
-      success: true,
-    });
-  } catch (error) {
-    if (error.code === 11000) {
-      res
-        .status(401)
-        .json({ success: false, error: 'That username is already taken' });
-    } else {
-      res.status(400).json({ response: error, success: false });
-    }
-  }
-});
-
-app.post('/register/business', async (req, res) => {
-  const { username, password, email, location, vatNumber } = req.body;
-
-  try {
-    const salt = bcrypt.genSaltSync();
-
-    if (password.length < 5) {
-      throw 'Password must be at least 5 characters long';
-    }
-
-    const newUser = await new BusinessUser({
-      businessName: username,
-      password: bcrypt.hashSync(password, salt),
-      businessEmail: email,
-      location,
-      vatNumber,
-    }).save();
-
-    res.status(201).json({
-      response: {
-        userId: newUser._id,
-        username: newUser.businessName,
-        email: newUser.businessEmail,
-        location: newUser.location,
-        vatNumber: newUser.vatNumber,
-        accessToken: newUser.accessToken,
-      },
-      success: true,
-    });
-  } catch (error) {
-    if (error.code === 11000) {
-      res
-        .status(401)
-        .json({ success: false, error: 'That username is already taken' });
-    } else {
-      res.status(400).json({ response: error, success: false });
-    }
-  }
-});
-
-const findUser = async (username) => {
-  const user = await PersonalUser.findOne({ username });
-  if (user) {
-    return user;
-  } else {
-    return await BusinessUser.findOne({ username });
-  }
-};
-
-app.post('/log-in', async (req, res) => {
-  const { username, password } = req.body;
-
-  try {
-    const user = await findUser(username);
-
-    if (user && bcrypt.compareSync(password, user.password)) {
-      res.status(200).json({
-        response: {
-          userId: user._id,
-          username: user.username,
-          accessToken: user.accessToken,
-        },
-        success: true,
-      });
-    } else {
-      res.status(404).json({
-        response: 'Username or password does not match',
-        success: false,
-      });
-    }
-  } catch (error) {
-    res.status(404).json({ response: error, success: false });
-  }
-});
-
-app.post('/product-upload', async (req, res) => {
-  const { name, description, category, tags, image } = req.body;
-  console.log(image, "image recieved in backend in product upload")
-  try {
-    if (!name) {
-      throw 'Your product has to have a name';
-    }
-    if (!description) {
-      throw 'Your product has to have a description';
-    }
-    if (!category) {
-      throw 'please choose a category for your product';
-    }
-    if (tags && Array.isArray(tags) === false) {
-      throw 'please add tags as an array';
-    }
-
-    // const image = Image.findById(imageId);
-
-    const newProduct = await new Product({
-      name,
-      description,
-      category,
-      tags,
-      image: image._id
-    }).save();
-
-    // console.log(newProduct, "new product line 262, testing using _id");
-    // const findingNewProduct = await Product.findById(newProduct._id)
-    // console.log(findingNewProduct, "finding after creating")
-    await newProduct.populate('image');
-    res.status(201).json({
-      response: {
-        productId: newProduct._id,
-        name: newProduct.name,
-        description: newProduct.description,
-        category: newProduct.category,
-        tags: newProduct.tags,
-        image: newProduct.image,
-      },
-      success: true,
-    });
-  } catch (error) {
-    res.status(404).json({ response: error, success: false });
-  }
-});
+app.get('/products', getProducts);
+app.get('/products/:id', getProductById);
+app.post('/register/personal', registerPersonalUser);
+app.post('/register/business', registerBusinessUser);
+app.post('/log-in', loginUser);
+app.post('/product-upload', productUpload);
 
 app.post('/image-upload', parser.single('image'), async (req, res) => {
-  //   try {
-  //     const image = await new Image({
-  //       name: req.body.name,
-  //       imageUrl: req.file.path,
-  //       imageId: req.file.filename
-  //     }).save();
-  //     res.json(image);
-  //   } catch (err) {
-  //     res.status(400).json({ errors: err.errors });
-  //   }
-  // });
-
   try {
     const image = await new Image({
       imageUrl: req.file.path,
       imageId: req.file.filename,
     }).save();
 
-    console.log("new image on 300", image)
-
-    // const product = await Product.findOne({ name: product.name });
     res.json({ response: image, success: true });
   } catch (err) {
     res.status(400).json({ response: error, success: false });

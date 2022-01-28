@@ -2,8 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
 import { BASE_URL } from '../utils/config';
-// console.log(BASE_URL);
-// const BASE_URL = 'http://localhost:8080';
 
 export const products = createSlice({
   name: 'products',
@@ -19,6 +17,23 @@ export const products = createSlice({
     setError: (store, action) => {
       store.error = action.payload;
     },
+    setCart: (store, action) => {
+      const itemNotInCart =
+        store.cart.filter((item) => item._id === action.payload._id).length ===
+        0;
+      if (itemNotInCart) {
+        store.cart.push(action.payload);
+      }
+    },
+    deleteOneFromCart: (store, action) => {
+      const itemsToSave = store.cart.filter(
+        (item) => item._id !== action.payload._id
+      );
+      store.cart = itemsToSave;
+    },
+    emptyCart: (store, action) => {
+      store.cart = []
+    }
   },
 });
 
@@ -29,12 +44,10 @@ export const showProduct = () => {
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
-          console.log(json);
           dispatch(products.actions.setProducts(json));
           dispatch(products.actions.setError(null));
         } else {
           dispatch(products.actions.setError(json.response));
-          console.log(json.response);
         }
       })
       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));

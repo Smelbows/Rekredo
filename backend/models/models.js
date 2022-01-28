@@ -77,12 +77,14 @@ const ProductSchema = new mongoose.Schema({
   owner: {
     type: String,
   },
-  // image: ImageSchema,
-    image: {
-  	 type: mongoose.Schema.Types.ObjectId,
-  		ref: 'Image'
-    }
-  // status: AvailabilitySchema,
+  image: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Image',
+  },
+  availability: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const PersonalUser = mongoose.model('PersonalUser', PersonalSchema);

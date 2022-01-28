@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { ui } from './ui';
 
 import { BASE_URL } from '../utils/config';
-console.log(BASE_URL);
-// const BASE_URL = 'http://localhost:8080';
 
 export const user = createSlice({
   name: 'user',
@@ -34,6 +33,10 @@ export const user = createSlice({
     setUserToLoggedOut: (store) => {
       store.username = null;
       store.accessToken = null;
+      store.email = null;
+      store.location = null;
+      store.vatNumber = null;
+      // store.error = null;
     },
   },
 });
@@ -57,7 +60,7 @@ export const personalUserLogin = (username, password, mode) => {
         } else {
           dispatch(user.actions.setError(json.response));
           console.log(json.response);
-          dispatch(user.actions.setUserToLoggedOut());
+          dispatch(user.actions.setUserToLoggedOut())
         }
       })
 
@@ -92,7 +95,7 @@ export const personalUserRegister = (username, password, email, mode) => {
 };
 
 export const businessUserRegister = (
-  username,
+  businessName,
   password,
   email,
   vatNumber,
@@ -107,7 +110,13 @@ export const businessUserRegister = (
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password, email, vatNumber, location }),
+      body: JSON.stringify({
+        businessName,
+        password,
+        email,
+        vatNumber,
+        location,
+      }),
     })
       .then((res) => res.json())
       .then((json) => {

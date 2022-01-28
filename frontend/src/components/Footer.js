@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { HeaderSection } from './Nav';
+// import { Button } from '../styledElements/Buttons';
+// import { useSelector, useDispatch } from 'react-redux';
+import { Logout } from '../components/Logout';
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -23,6 +26,7 @@ const Footer = () => {
         <NavLink to="/">Go home</NavLink>
         <p>Hi this is a footer</p>
       </HeaderSection>
+      <Logout />
     </FooterContainer>
   );
 };

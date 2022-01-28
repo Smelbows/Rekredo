@@ -17,8 +17,10 @@ export const Header = styled.div`
 `;
 export const HeaderSection = styled.div`
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  margin: 0.5em;
+  margin: 0.1em;
   padding-right: 1em;
   font-family: 'Lora', serif;
 `;
@@ -58,6 +60,7 @@ const Nav = () => {
         <Pages to="/faq">FAQ</Pages>
         <Pages to="/products">Products</Pages>
         <Pages to="/contact">Contact</Pages>
+        <Pages to="/checkout">Checkout</Pages>
         <Pages to="/">Home</Pages>
 
         {/* <Pages onClick={() => navigate('/Account')}>Profile</Pages>

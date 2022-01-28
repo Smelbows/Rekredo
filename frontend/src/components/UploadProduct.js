@@ -10,6 +10,7 @@ export const UploadProduct = () => {
   const image = useSelector((state) => state.upload.image);
   const productError = useSelector((state) => state.upload.imageError);
   const product = useSelector((state) => state.upload.product);
+  console.log(productError)
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
