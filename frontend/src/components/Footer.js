@@ -21,10 +21,7 @@ const FooterContainer = styled.footer`
 `;
 
 const LogoImg = styled.img`
-  width: 15rem;
-  height: 15rem;
-  margin-top: 2rem;
-  left: 1%;
+  width: 100px;
 `;
 
 const Footer = () => {

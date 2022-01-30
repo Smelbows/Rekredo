@@ -69,7 +69,15 @@ const ProductSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Instrument', 'Vehicle', 'Clothing', 'Electronics', 'Art', 'Toys'],
+    enum: [
+      'Instrument',
+      'Vehicle',
+      'Clothing',
+      'Electronics',
+      'Art',
+      'Toys',
+      'Environment',
+    ],
   },
   tags: {
     type: Array,

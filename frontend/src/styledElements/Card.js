@@ -52,7 +52,7 @@ export const Main = styled.section`
   padding-bottom: 10px;
 
   @media (min-width: 768px) {
-    padding-bottom: 15rem;
+    padding-bottom: 8em;
   }
 `;
 
@@ -61,6 +61,7 @@ export const BigSection = styled.section`
   justify-content: space-evenly;
   padding: 2em;
   width: 100vw;
+  padding-bottom: 2em;
   background: var(--saffron);
   & > .background {
     width: 100%;
