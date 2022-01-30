@@ -29,7 +29,7 @@ import CookieConsent from 'react-cookie-consent';
 import Nav from 'components/Nav';
 import Footer from 'components/Footer';
 
-import './App.css';
+// import './App.css';
 
 const reducer = combineReducers({
   user: user.reducer,

@@ -5,6 +5,7 @@ import { HeaderSection } from './Nav';
 // import { Button } from '../styledElements/Buttons';
 // import { useSelector, useDispatch } from 'react-redux';
 import { Logout } from '../components/Logout';
+import Logo from '../images/RekRedo.png';
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -19,9 +20,17 @@ const FooterContainer = styled.footer`
   bottom: 0;
 `;
 
+const LogoImg = styled.img`
+  width: 15rem;
+  height: 15rem;
+  margin-top: 2rem;
+  left: 1%;
+`;
+
 const Footer = () => {
   return (
     <FooterContainer>
+      <LogoImg className="logo" src={Logo} alt="logo" />
       <HeaderSection>
         <NavLink to="/">Go home</NavLink>
         <p>Hi this is a footer</p>

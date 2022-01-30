@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { uploadProduct } from 'reducers/upload';
 import { PropButton, Button } from '../styledElements/Buttons';
 import { FormBox, Form, StyledInput } from 'styledElements/Form';
+
+const Label = styled.label`
+  padding: 10px 35px;
+  font-size: 16px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+`;
 
 export const UploadProduct = () => {
   const dispatch = useDispatch();
@@ -44,24 +58,24 @@ export const UploadProduct = () => {
   return (
     <FormBox>
       <Form onSubmit={image !== null ? handleFormSubmit : null}>
-        <label>
+        <Label>
           Prop name
           <StyledInput
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Prop description
           <StyledInput
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-        </label>
+        </Label>
 
-        <label>
+        <Label>
           Prop category
           <select
             value={category}
@@ -76,15 +90,15 @@ export const UploadProduct = () => {
             <option value="Electronics">Electronics</option>
             <option value="Environment">Environment</option>
           </select>
-        </label>
-        <label>
+        </Label>
+        <Label>
           Prop tags
           <StyledInput
             type="text"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
           />
-        </label>
+        </Label>
 
         <Button disabled={!image} type="submit">
           Upload Product

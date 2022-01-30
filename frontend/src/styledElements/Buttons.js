@@ -2,21 +2,21 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--fontone);
   border-radius: 3px;
   padding: 0.5rem 0;
   margin: 0.5rem 1rem;
   width: 11rem;
   background: transparent;
-  color: white;
-  border: 2px solid white;
+  color: var(--white);
+  border: 1px solid black;
   :disabled {
     opacity: 0.8;
-    color: green;
-    border: none;
+    color: var(--black);
+    border: 2px black solid;
   }
-    :hover {
-    box-shadow: 0 0 10px blue;
+  :hover {
+    box-shadow: 0 0 10px var(--saffron);
     cursor: pointer;
   }
 `;

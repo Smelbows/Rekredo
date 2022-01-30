@@ -7,7 +7,7 @@ import { cart } from '../reducers/cart';
 import { showProduct } from 'reducers/products';
 // import styled from 'styled-components';
 import { Main, ProductCard, HeaderSection } from '../styledElements/Card';
-import { H1, H3, P, ProductText } from '../styledElements/Texts';
+import { H1, H2, H3, P, ProductText } from '../styledElements/Texts';
 import { Button, SmallButton } from 'styledElements/Buttons';
 
 const Products = () => {
@@ -40,12 +40,16 @@ const Products = () => {
           allProducts?.map((item) => (
             <ProductCard key={item._id}>
               <ProductText>
-                <P>{item.name}</P>
-                <P>{item.description}</P>
+                <H2>{item.name}</H2>
+                {/* <P>{item.description}</P>
                 <P>{item.category}</P>
-                <P>{item.tags}</P>
+                <P>{item.tags}</P> */}
               </ProductText>
-              <img src={item.image?.imageUrl} alt="website" />
+              <img
+                src={item.image?.imageUrl}
+                className="product-image"
+                alt="website"
+              />
               <SmallButton onClick={() => navigate(`/products/${item._id}`)}>
                 Prop details
               </SmallButton>

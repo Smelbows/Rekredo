@@ -2,6 +2,13 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { BigSection, Main } from 'styledElements/Card';
 import { useSelector } from 'react-redux';
+import styled from 'styled-components';
+
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
 const PropDetails = () => {
   const products = useSelector((state) => state.products.productList);
@@ -15,11 +22,15 @@ const PropDetails = () => {
   return (
     <Main>
       <BigSection>
-        <Link to="/products">Back to all props</Link>
-        <p>{prop.name}</p>
+        <Box>
+          <p>{prop.name}</p>
+          <p>{prop.description}</p>
+          <p>{prop.category}</p>
+          <p>{prop.tags}</p>
+          <Link to="/products">Back to all props</Link>
+        </Box>
         <img src={prop.image?.imageUrl} alt={prop.name}></img>
       </BigSection>
-      ;
     </Main>
   );
 };
