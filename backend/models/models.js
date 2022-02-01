@@ -93,6 +93,10 @@ const ProductSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  createdAt: {
+    type: Number,
+    default: () => Date.now()
+  },
 });
 
 const PersonalUser = mongoose.model('PersonalUser', PersonalSchema);

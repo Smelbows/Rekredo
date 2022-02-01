@@ -13,7 +13,7 @@ import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import { getProductById, getProducts } from './productsEndPoints';
 import {
   registerBusinessUser,
-  registerPersonalUser
+  registerPersonalUser,
 } from './registerEndPoints';
 import { authenticateUser } from './authentication';
 import { loginUser } from './loginEndPoints';
@@ -24,7 +24,7 @@ const {
   PersonalUser,
   BusinessUser,
   Product,
-  Image
+  Image,
 } = require('./models/models.js');
 
 // for MongoDB connection
@@ -55,7 +55,7 @@ const cloudinary = cloudinaryFramework.v2;
 cloudinary.config({
   cloud_name: 'rekredo',
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 const storage = new CloudinaryStorage({
@@ -63,8 +63,28 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'props',
     allowedFormats: ['jpg', 'png', 'JPG', 'jpeg'],
-    transformation: [{ width: 500, height: 500, crop: 'limit' }]
-  }
+    transformation: [
+      {gravity: "auto", height: 500, quality: 100, width: 500, crop: "fill"}
+      // { effect: 'trim' },
+
+      // { width: 'iw', height: 'ih', gravity: 'center', crop: 'lfill' }, //center object with trim
+      // // { width: 500, height: 500 },
+      // ,
+      // { variables: [['$imgwidth', '500']] },
+      // { variables: [['$imgheight', '500']] },
+      // { variables: [['$border', '1']] },
+      // { if: 'w_gte_h', width: '$imgwidth - $border * 2', crop: 'scale' },
+      // { if: 'else', height: '$imgheight - $border * 2', crop: 'scale' },
+      // { border: '10px_solid_black' },
+      // {
+      //   width: '$imgwidth',
+      //   height: '$imgheight',
+      //   background: '#f0ead6',
+      //   crop: 'pad',
+      // },
+      // { quality: 'auto', fetch_format: 'auto' },
+    ],
+  },
 });
 const parser = multer({ storage });
 
@@ -93,7 +113,7 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
   try {
     const image = await new Image({
       imageUrl: req.file.path,
-      imageId: req.file.filename
+      imageId: req.file.filename,
     }).save();
 
     res.json({ response: image, success: true });

@@ -7,7 +7,7 @@ const {
 
 export const getProducts = async (req, res) => {
   try {
-    const allProducts = await Product.find({}).populate('image');
+    const allProducts = await Product.find({}).populate('image').sort( {createdAt: 'desc'} );
 
     if (!allProducts) {
       throw 'product library empty are not available';
