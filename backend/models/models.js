@@ -104,6 +104,7 @@ const ProductSchema = new mongoose.Schema({
 
 const OrderSchema = new mongoose.Schema({
   products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
+  orderNumber: {type: Number},
   createdAt: { type: Number, default: () => Date.now() },
   completed: {type: Boolean, default: false}
 });

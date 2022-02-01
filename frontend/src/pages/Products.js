@@ -16,6 +16,7 @@ const Products = () => {
   const allProducts = useSelector((state) => state.products.productList);
   const loading = useSelector((state) => state.ui.loading);
   const myCart = useSelector((state) => state.cart.cartList);
+  const accessToken = useSelector((state) => state.user.accessToken)
 
   useEffect(() => {
     dispatch(showProduct());
