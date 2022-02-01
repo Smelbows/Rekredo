@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import crypto from 'crypto';
+import { type } from 'os';
 
 const PersonalSchema = new mongoose.Schema({
   username: {
@@ -19,6 +20,7 @@ const PersonalSchema = new mongoose.Schema({
     type: String,
     default: () => crypto.randomBytes(128).toString('hex'),
   },
+  ownedProducts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
 });
 
 const BusinessSchema = new mongoose.Schema({
@@ -45,6 +47,7 @@ const BusinessSchema = new mongoose.Schema({
     type: String,
     default: () => crypto.randomBytes(128).toString('hex'),
   },
+  myOrders: [{type: mongoose.Schema.Types.ObjectId, ref: 'Order'}]
 });
 
 const ImageSchema = new mongoose.Schema({
@@ -95,13 +98,21 @@ const ProductSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Number,
-    default: () => Date.now()
+    default: () => Date.now(),
   },
 });
 
+const OrderSchema = new mongoose.Schema({
+  products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
+  createdAt: { type: Number, default: () => Date.now() },
+  completed: {type: Boolean, default: false}
+});
+
+
 const PersonalUser = mongoose.model('PersonalUser', PersonalSchema);
 const BusinessUser = mongoose.model('BusinessUser', BusinessSchema);
-
 const Product = mongoose.model('Product', ProductSchema);
 const Image = mongoose.model('Image', ImageSchema);
-module.exports = { PersonalUser, BusinessUser, Product, Image };
+const Order = mongoose.model('Order', OrderSchema)
+
+module.exports = { PersonalUser, BusinessUser, Product, Image, Order };
