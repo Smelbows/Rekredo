@@ -37,11 +37,11 @@ const Register = () => {
     if (registered && token) {
       navigate('/account');
     }
-  }, [registered, token, navigate, dispatch]);
+  }, [registered, token, navigate]);
 
   useEffect(() => {
     dispatch(user.actions.setError(null));
-  }, []);
+  }, [dispatch]);
 
   const onUserSubmit = (event) => {
     event.preventDefault();
