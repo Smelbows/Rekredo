@@ -45,8 +45,8 @@ body {
 } */
 
 .product-image {
-  max-width: 300px !important;
-  max-height: 300px !important;
+  max-width: 400px;
+  max-height: 400px;
   object-fit: cover;
 }
 
