@@ -17,13 +17,12 @@ const Register = () => {
   const [accountType, setAccountType] = useState('Personal');
   const [registered, setRegistered] = useState(false);
 
-  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const token = useSelector((state) => state.user.accessToken);
   const error = useSelector((state) => state.user.error);
-  const username = useSelector((state) => state.user.username)
+  const username = useSelector((state) => state.user.username);
 
   const checkError = () => {
     if (typeof error === 'string') {
@@ -38,11 +37,11 @@ const Register = () => {
     if (registered && token) {
       navigate('/account');
     }
-  }, [registered, token, navigate]);
+  }, [registered, token, navigate, dispatch]);
 
   useEffect(() => {
     dispatch(user.actions.setError(null));
-  }, [])
+  }, []);
 
   const onUserSubmit = (event) => {
     event.preventDefault();
@@ -61,31 +60,31 @@ const Register = () => {
     <Main>
       {token ? (
         <p>
-          You're currently logged in as {`${username}`} please log out to register a new
-          account
+          You're currently logged in as {`${username}`} please log out to
+          register a new account
         </p>
       ) : (
         <FormBox>
           <h1>Register</h1>
           <div>
             <P>already have an account?</P>
-            <Link to='/log-in'>sign in here</Link>
+            <Link to="/log-in">sign in here</Link>
           </div>
           <div>
             <div>
-              <label htmlFor='personal'>Personal</label>
+              <label htmlFor="personal">Personal</label>
               <StyledInput
-                id='personal'
-                type='radio'
+                id="personal"
+                type="radio"
                 checked={accountType === 'Personal'}
                 onChange={() => setAccountType('Personal')}
               />
             </div>
             <div>
-              <label htmlFor='business'>Business</label>
+              <label htmlFor="business">Business</label>
               <StyledInput
-                id='business'
-                type='radio'
+                id="business"
+                type="radio"
                 checked={accountType === 'Business'}
                 onChange={() => setAccountType('Business')}
               />
@@ -93,25 +92,25 @@ const Register = () => {
           </div>
           <div>
             {error && <h1>{checkError()}</h1>}
-            <Form onSubmit={onUserSubmit} className='signin-form'>
+            <Form onSubmit={onUserSubmit} className="signin-form">
               <StyledInput
-                type='text'
-                placeholder='username'
-                className='input-field'
+                type="text"
+                placeholder="username"
+                className="input-field"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
               />
               <StyledInput
-                type='password'
-                placeholder='password'
-                className='input-field'
+                type="password"
+                placeholder="password"
+                className="input-field"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
               <StyledInput
-                type='email'
-                placeholder='email address'
-                className='input-field'
+                type="email"
+                placeholder="email address"
+                className="input-field"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
@@ -134,7 +133,7 @@ const Register = () => {
                 />
               )} */}
 
-              <SmallButton className='submit-button' type='submit'>
+              <SmallButton className="submit-button" type="submit">
                 Register
               </SmallButton>
             </Form>
