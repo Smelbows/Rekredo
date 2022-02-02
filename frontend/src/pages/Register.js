@@ -5,15 +5,15 @@ import { P } from 'styledElements/Texts';
 import { Form, StyledInput, FormBox } from 'styledElements/Form';
 import { SmallButton } from 'styledElements/Buttons';
 import { Main } from '../styledElements/Card';
-import { personalUserRegister, businessUserRegister } from '../reducers/user';
+import { userRegister } from '../reducers/user';
 
 const Register = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [location, setLocation] = useState('');
-  const [vatNumber, setVatNumber] = useState(0);
-  const [mode, setMode] = useState('/register/personal');
+  // const [location, setLocation] = useState('');
+  // const [vatNumber, setVatNumber] = useState(0);
+  const [accountType, setAccountType] = useState('Personal');
   const [registered, setRegistered] = useState(false);
 
   // const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Register = () => {
     }
   };
 
-  // checks if a user is logged in, naviagtes them away, but only if they have registered first.
+  // checks if a user is logged in, navigates them away, but only if they have registered first.
   useEffect(() => {
     if (registered && token) {
       navigate('/account');
@@ -40,13 +40,14 @@ const Register = () => {
 
   const onUserSubmit = (event) => {
     event.preventDefault();
-    if (mode === '/register/personal') {
-      dispatch(personalUserRegister(name, password, email, mode));
-    } else {
-      dispatch(
-        businessUserRegister(name, password, email, vatNumber, location, mode)
-      );
-    }
+    // if (accountType === 'Personal') {
+    //   dispatch(userRegister(name, password, email, accountType));
+    // } else {
+    //   dispatch(
+    //    userRegister(name, password, email, vatNumber, location, mode)
+    //   );
+    // }
+    dispatch(userRegister(name, password, email, accountType));
     setRegistered(true);
   };
 
@@ -70,8 +71,8 @@ const Register = () => {
               <StyledInput
                 id='personal'
                 type='radio'
-                checked={mode === '/register/personal'}
-                onChange={() => setMode('/register/personal')}
+                checked={accountType === 'Personal'}
+                onChange={() => setAccountType('Personal')}
               />
             </div>
             <div>
@@ -79,8 +80,8 @@ const Register = () => {
               <StyledInput
                 id='business'
                 type='radio'
-                checked={mode === '/register/business'}
-                onChange={() => setMode('/register/business')}
+                checked={accountType === 'Business'}
+                onChange={() => setAccountType('Business')}
               />
             </div>
           </div>
@@ -103,12 +104,12 @@ const Register = () => {
               />
               <StyledInput
                 type='email'
-                placeholder='emailadress'
+                placeholder='email address'
                 className='input-field'
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
-              {mode === '/register/business' && (
+              {/* {mode === '/register/business' && (
                 <StyledInput
                   type='number'
                   placeholder='VAT'
@@ -125,7 +126,7 @@ const Register = () => {
                   value={location}
                   onChange={(event) => setLocation(event.target.value)}
                 />
-              )}
+              )} */}
 
               <SmallButton className='submit-button' type='submit'>
                 Register

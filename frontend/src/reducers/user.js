@@ -86,60 +86,26 @@ export const userLogin = (username, password) => {
   };
 };
 
-export const personalUserRegister = (username, password, email, mode) => {
+export const userRegister = (username, password, email, accountType) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
 
-    fetch(BASE_URL + mode, {
+    fetch(BASE_URL + '/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username, password, email })
+      body: JSON.stringify({ username, password, email, accountType })
     })
       .then((res) => res.json())
       .then((json) => {
-        if (json.success) {
+        if (json.success && json.response.accountType === 'Personal') {
           dispatch(user.actions.setPersonalUser(json));
+          dispatch(user.actions.setUser(json));
           dispatch(user.actions.setError(null));
-        } else {
-          dispatch(user.actions.setError(json.response));
-          dispatch(user.actions.setUserToLoggedOut());
-        }
-      })
-
-      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
-  };
-};
-
-export const businessUserRegister = (
-  businessName,
-  password,
-  email,
-  vatNumber,
-  location,
-  mode
-) => {
-  return (dispatch) => {
-    dispatch(ui.actions.setLoading(true));
-
-    fetch(BASE_URL + mode, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        businessName,
-        password,
-        email,
-        vatNumber,
-        location
-      })
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        if (json.success) {
+        } else if (json.success && json.response.accountType === 'Business') {
           dispatch(user.actions.setBusinessUser(json));
+          dispatch(user.actions.setUser(json));
           dispatch(user.actions.setError(null));
         } else {
           dispatch(user.actions.setError(json.response));
@@ -150,3 +116,42 @@ export const businessUserRegister = (
       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
   };
 };
+
+// export const businessUserRegister = (
+//   businessName,
+//   password,
+//   email,
+//   vatNumber,
+//   location,
+//   mode
+// ) => {
+//   return (dispatch) => {
+//     dispatch(ui.actions.setLoading(true));
+
+//     fetch(BASE_URL + mode, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         businessName,
+//         password,
+//         email,
+//         vatNumber,
+//         location
+//       })
+//     })
+//       .then((res) => res.json())
+//       .then((json) => {
+//         if (json.success) {
+//           dispatch(user.actions.setBusinessUser(json));
+//           dispatch(user.actions.setError(null));
+//         } else {
+//           dispatch(user.actions.setError(json.response));
+//           dispatch(user.actions.setUserToLoggedOut());
+//         }
+//       })
+
+//       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+//   };
+// };
