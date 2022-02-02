@@ -11,21 +11,13 @@ import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
 // importing endpoints
 import { getProductById, getProducts } from './productsEndPoints';
-import {
-  registerBusinessUser,
-  registerPersonalUser,
-} from './registerEndPoints';
+import { registerUser } from './registerEndPoints';
 import { authenticateUser } from './authentication';
 import { loginUser } from './loginEndPoints';
 import { imageUpload, productUpload } from './uploadEndPoints';
 
 // importing models
-const {
-  PersonalUser,
-  BusinessUser,
-  Product,
-  Image,
-} = require('./models/models.js');
+const { User, Product, Image } = require('./models/models.js');
 
 // for MongoDB connection
 const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/rekredo';
@@ -55,7 +47,7 @@ const cloudinary = cloudinaryFramework.v2;
 cloudinary.config({
   cloud_name: 'rekredo',
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
 const storage = new CloudinaryStorage({
@@ -64,7 +56,7 @@ const storage = new CloudinaryStorage({
     folder: 'props',
     allowedFormats: ['jpg', 'png', 'JPG', 'jpeg'],
     transformation: [
-      {gravity: "auto", height: 500, quality: 100, width: 500, crop: "fill"}
+      { gravity: 'auto', height: 500, quality: 100, width: 500, crop: 'fill' }
       // { effect: 'trim' },
 
       // { width: 'iw', height: 'ih', gravity: 'center', crop: 'lfill' }, //center object with trim
@@ -83,8 +75,8 @@ const storage = new CloudinaryStorage({
       //   crop: 'pad',
       // },
       // { quality: 'auto', fetch_format: 'auto' },
-    ],
-  },
+    ]
+  }
 });
 const parser = multer({ storage });
 
@@ -103,8 +95,8 @@ app.get('/account', (req, res) => {
 });
 app.get('/products', getProducts);
 app.get('/products/:id', getProductById);
-app.post('/register/personal', registerPersonalUser);
-app.post('/register/business', registerBusinessUser);
+// app.post('/register/personal', registerPersonalUser);
+app.post('/register', registerUser);
 app.post('/log-in', loginUser);
 app.post('/product-upload', productUpload);
 
@@ -113,7 +105,7 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
   try {
     const image = await new Image({
       imageUrl: req.file.path,
-      imageId: req.file.filename,
+      imageId: req.file.filename
     }).save();
 
     res.json({ response: image, success: true });

@@ -35,7 +35,8 @@ export const registerUser = async (req, res) => {
           username: newUser.username,
           email: newUser.email,
           accountType,
-          accessToken: newUser.accessToken
+          accessToken: newUser.accessToken,
+          business
         },
         success: true
       });
@@ -54,7 +55,8 @@ export const registerUser = async (req, res) => {
           username: newUser.username,
           email: newUser.email,
           accountType,
-          accessToken: newUser.accessToken
+          accessToken: newUser.accessToken,
+          personal
         },
         success: true
       });

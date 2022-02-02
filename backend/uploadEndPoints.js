@@ -1,13 +1,8 @@
-const {
-  PersonalUser,
-  BusinessUser,
-  Product,
-  Image,
-} = require('./models/models.js');
+const { User, Product, Image } = require('./models/models.js');
 
 export const productUpload = async (req, res) => {
   const { name, description, category, tags, image } = req.body;
-  console.log(image, 'image recieved in backend in product upload');
+  console.log(image, 'image received in backend in product upload');
   try {
     if (!name) {
       throw 'Your product has to have a name';
@@ -27,7 +22,7 @@ export const productUpload = async (req, res) => {
       description,
       category,
       tags,
-      image: image._id,
+      image: image._id
     }).save();
 
     await newProduct.populate('image');
@@ -39,9 +34,9 @@ export const productUpload = async (req, res) => {
         description: newProduct.description,
         category: newProduct.category,
         tags: newProduct.tags,
-        image: newProduct.image,
+        image: newProduct.image
       },
-      success: true,
+      success: true
     });
   } catch (error) {
     res.status(404).json({ response: error, success: false });

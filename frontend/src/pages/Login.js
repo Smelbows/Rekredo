@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { personalUserLogin } from '../reducers/user';
+import { userLogin } from '../reducers/user';
 
 import { FormBox, StyledInput, Form } from 'styledElements/Form';
 import { Main } from '../styledElements/Card';
@@ -10,7 +10,6 @@ import { SmallButton } from 'styledElements/Buttons';
 const Login = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const mode = '/log-in';
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,41 +27,41 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      navigate('/products');
+      navigate('/account');
     }
   }, [token, navigate]);
 
   const onUserSubmit = (event) => {
     event.preventDefault();
-    dispatch(personalUserLogin(name, password, mode));
+    dispatch(userLogin(name, password));
   };
 
   return (
     <Main>
       <FormBox>
-        <Form onSubmit={onUserSubmit} className="signin-form">
+        <Form onSubmit={onUserSubmit} className='signin-form'>
           <h1>Log in</h1>
           <div>
             <p>don't have an account?</p>
-            <Link to="/register">register here</Link>
+            <Link to='/register'>register here</Link>
           </div>
           {error && <h1>{checkError()}</h1>}
           <StyledInput
-            type="text"
-            placeholder="username"
-            className="input-field"
+            type='text'
+            placeholder='username'
+            className='input-field'
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
           <StyledInput
-            type="password"
-            placeholder="password"
-            className="input-field"
+            type='password'
+            placeholder='password'
+            className='input-field'
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
 
-          <SmallButton className="submit-button" type="submit">
+          <SmallButton className='submit-button' type='submit'>
             Sign in
           </SmallButton>
         </Form>
