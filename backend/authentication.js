@@ -1,31 +1,16 @@
-const {
-    PersonalUser,
-    BusinessUser,
-    Product,
-    Image,
-  } = require('./models/models.js');
+const { User, Product, Image } = require('./models/models.js');
 
-  const findUserByToken = async (accessToken) => {
-    const user = await PersonalUser.findOne({ accessToken });
+export const authenticateUser = async (req, res, next) => {
+  const accessToken = req.header('Authorization');
+  try {
+    const user = await User.findOne({ accessToken });
     if (user) {
-      return user;
+      req.user = user;
+      next();
     } else {
-      const user = await BusinessUser.findOne({ accessToken });
-      return user;
+      res.status(401).json({ response: 'Please log in', success: false });
     }
-  };
-  
-  export const authenticateUser = async (req, res, next) => {
-    const accessToken = req.header('Authorization');
-    try {
-      const user = await findUserByToken(accessToken);
-      if (user) {
-        req.user = user;
-        next();
-      } else {
-        res.status(401).json({ response: 'Please log in', success: false });
-      }
-    } catch (error) {
-      res.status(400).json({ response: error, success: false });
-    }
-  };
+  } catch (error) {
+    res.status(400).json({ response: error, success: false });
+  }
+};
