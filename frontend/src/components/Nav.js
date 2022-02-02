@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import { SmallButton } from '../styledElements/Buttons';
+import { Button } from '../styledElements/Buttons';
 import Logo from '../images/RekRedo.png';
 import Background from '../images/camera.png';
 
@@ -92,10 +92,8 @@ const Nav = () => {
           <Pages to="/">Home</Pages>
         </NavSection>
         <NavButton>
-          <SmallButton onClick={() => navigate('/register')}>
-            Register
-          </SmallButton>
-          <SmallButton onClick={() => navigate('/log-in')}>Log in</SmallButton>
+          <Button onClick={() => navigate('/register')}>Register</Button>
+          <Button onClick={() => navigate('/log-in')}>Log in</Button>
         </NavButton>
 
         {/* <Pages onClick={() => navigate('/Account')}>Profile</Pages>

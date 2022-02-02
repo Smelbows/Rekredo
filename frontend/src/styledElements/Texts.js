@@ -14,14 +14,15 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-family: 'Montserrat', sans-serif;
   color: black;
-  border: 1px dotted solid;
+`;
+export const H4 = styled.h4`
+  font-family: 'Montserrat', sans-serif;
+  color: black;
 `;
 
 export const P = styled.p`
-  font-family: 'Montserrat', sans-serif;
-  color: var(--white);
-  margin: 5px;
-  border: 1px dotted solid;
+  font-family: var(--fonttwo);
+  color: var(--black);
 `;
 
 export const ProductText = styled.div`
