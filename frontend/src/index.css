@@ -45,8 +45,9 @@ body {
 } */
 
 .product-image {
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 300px !important;
+  max-height: 300px !important;
+  object-fit: cover;
 }
 
 .hero-text {
