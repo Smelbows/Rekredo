@@ -14,11 +14,9 @@ const FooterContainer = styled.footer`
   align-items: center;
   font-family: 'Lora', serif;
   width: 100vw;
-  padding: 8em;
+  padding: 1em;
   background-color: #546d64;
   justify-content: center;
-  position: absolute;
-  bottom: 0;
 `;
 export const SmallSection = styled.div`
   display: flex;
