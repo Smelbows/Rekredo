@@ -2,22 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import ImageCarousel from '../components/ImageCarousel';
 
-import Background from '../images/Background.jpg';
-
 import { Main } from '../styledElements/Card';
 import { H2 } from '../styledElements/Texts';
 
-const HeroImg = styled.img`
-  height: 70vh;
-  width: 100vw;
-  object-fit: cover;
-`;
-const HeroContainer = styled.div`
-  display: grid;
-  place-items: center;
-  position: relative;
-  padding-bottom: 20px;
-`;
+// const HeroImg = styled.img`
+//   height: 70vh;
+//   width: 100vw;
+//   object-fit: cover;
+// `;
+// const HeroContainer = styled.div`
+//   display: grid;
+//   place-items: center;
+//   position: relative;
+//   padding-bottom: 20px;
+// `;
 const CarouselContainer = styled.div`
   display: grid;
   /* place-items: center; */
