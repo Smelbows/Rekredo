@@ -1,13 +1,10 @@
-const {
-  PersonalUser,
-  BusinessUser,
-  Product,
-  Image
-} = require('./models/models.js');
+const { Product } = require('./models/models.js');
 
 export const getProducts = async (req, res) => {
   try {
-    const allProducts = await Product.find({}).populate('image').sort( {createdAt: 'desc'} );
+    const allProducts = await Product.find({})
+      .populate('image')
+      .sort({ createdAt: 'desc' });
 
     if (!allProducts) {
       throw 'product library empty are not available';
