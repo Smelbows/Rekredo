@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ImageCarousel from '../components/ImageCarousel';
 
 import Background from '../images/Background.jpg';
 
@@ -17,11 +18,21 @@ const HeroContainer = styled.div`
   position: relative;
   padding-bottom: 20px;
 `;
+const CarouselContainer = styled.div`
+  display: grid;
+  /* place-items: center; */
+  padding-bottom: 20px;
+  width: 100vw;
+  height: 100vh;
+`;
 const TextContainer = styled.div`
   display: grid;
   place-items: center;
+
   position: absolute;
   background-color: rgb(30, 30, 30, 0.5);
+  z-index: 1;
+  top: 30%;
 
   // height: 200px;
   // width: 800px;
@@ -40,13 +51,14 @@ const Home = () => {
   return (
     <>
       <Main>
-        <HeroContainer>
-          <TextContainer>
-            <Header className="hero-text"> REKREDO </Header>
-            <H2 className="hero-text"> REKVISITA - ON DEMAND </H2>
-          </TextContainer>
-          <HeroImg src={Background} className="hero" alt="background" />
-        </HeroContainer>
+        {' '}
+        <TextContainer>
+          <Header className="hero-text"> REKREDO </Header>
+          <H2 className="hero-text"> REKVISITA - ON DEMAND </H2>
+        </TextContainer>
+        <CarouselContainer>
+          <ImageCarousel />
+        </CarouselContainer>
       </Main>
     </>
   );

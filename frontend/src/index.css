@@ -65,3 +65,38 @@ body {
 .end {
   flex-direction: row;
 }
+
+.accordion {
+  min-width: 600px;
+  max-width: 600px;
+}
+
+.accordion-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: #e0e8e9;
+}
+
+.accordion-title:hover {
+  background-color: #e0e8e9;
+}
+
+.accordion-title,
+.accordion-content {
+  padding: 1rem;
+}
+
+.accordion-content {
+  background-color: #e0e8e9;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    font-size: 18px;
+  }
+  .accordion {
+    width: 50%;
+  }
+}
