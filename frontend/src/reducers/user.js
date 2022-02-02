@@ -12,13 +12,13 @@ export const user = createSlice({
     accountType: null,
     accessToken: null,
     error: null,
+    personal: {
+      myProducts: null
+    },
     business: {
       location: null,
       vatNumber: null,
       orders: null
-    },
-    personal: {
-      myProducts: null
     }
   },
   reducers: {

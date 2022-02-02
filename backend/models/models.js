@@ -2,6 +2,20 @@ import mongoose from 'mongoose';
 import crypto from 'crypto';
 // import { type } from 'os';
 
+const PersonalSchema = new mongoose.Schema({
+  ownedProducts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
+});
+
+const BusinessSchema = new mongoose.Schema({
+  location: {
+    type: String
+  },
+  vatNumber: {
+    type: Number
+  },
+  myOrders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }]
+});
+
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -27,20 +41,6 @@ const UserSchema = new mongoose.Schema({
   },
   business: BusinessSchema,
   personal: PersonalSchema
-});
-
-const PersonalSchema = new mongoose.Schema({
-  ownedProducts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
-});
-
-const BusinessSchema = new mongoose.Schema({
-  location: {
-    type: String
-  },
-  vatNumber: {
-    type: Number
-  },
-  myOrders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }]
 });
 
 const ImageSchema = new mongoose.Schema({
