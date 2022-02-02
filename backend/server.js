@@ -47,7 +47,7 @@ const cloudinary = cloudinaryFramework.v2;
 cloudinary.config({
   cloud_name: 'rekredo',
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 const storage = new CloudinaryStorage({
@@ -56,7 +56,7 @@ const storage = new CloudinaryStorage({
     folder: 'props',
     allowedFormats: ['jpg', 'png', 'JPG', 'jpeg'],
     transformation: [
-      { gravity: 'auto', height: 500, quality: 100, width: 500, crop: 'fill' }
+      { gravity: 'auto', height: 500, quality: 100, width: 500, crop: 'fill' },
       // { effect: 'trim' },
 
       // { width: 'iw', height: 'ih', gravity: 'center', crop: 'lfill' }, //center object with trim
@@ -75,8 +75,8 @@ const storage = new CloudinaryStorage({
       //   crop: 'pad',
       // },
       // { quality: 'auto', fetch_format: 'auto' },
-    ]
-  }
+    ],
+  },
 });
 const parser = multer({ storage });
 
@@ -91,6 +91,14 @@ app.get('/', async (req, res) => {
 // endpoints
 app.get('/account', authenticateUser);
 app.get('/account', (req, res) => {
+  try {
+    const user = User.findById(req.user._id);
+    user.personal.populate('ownedProducts');
+
+    res.status(201).json({ response: user, success: true });
+  } catch (error) {
+    res.status(404).json({ response: error, success: false });
+  }
   res.send('this is your account page');
 });
 app.get('/products', getProducts);
@@ -98,6 +106,8 @@ app.get('/products/:id', getProductById);
 // app.post('/register/personal', registerPersonalUser);
 app.post('/register', registerUser);
 app.post('/log-in', loginUser);
+
+app.post('/product-upload', authenticateUser);
 app.post('/product-upload', productUpload);
 
 // image endpoint currently in server.js, try to take out if poss
@@ -105,7 +115,7 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
   try {
     const image = await new Image({
       imageUrl: req.file.path,
-      imageId: req.file.filename
+      imageId: req.file.filename,
     }).save();
 
     res.json({ response: image, success: true });

@@ -48,7 +48,7 @@ export const uploadImage = (formData) => {
           dispatch(upload.actions.setImage(json));
           dispatch(upload.actions.setImageError(null));
         } else {
-          console.log('fail', json)
+          console.log('fail', json);
           dispatch(upload.actions.setImageError(json.response));
         }
       })
@@ -63,7 +63,8 @@ export const uploadProduct = (
   category,
   tags,
   image,
-  clearForm
+  clearForm,
+  accessToken
 ) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
@@ -71,6 +72,7 @@ export const uploadProduct = (
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: accessToken,
       },
       body: JSON.stringify({ name, description, category, tags, image }),
     })
@@ -83,7 +85,7 @@ export const uploadProduct = (
           dispatch(upload.actions.clearImageState());
           clearForm();
         } else {
-          console.log('fail', json)
+          console.log('fail', json);
           dispatch(upload.actions.setProductError(json.response));
         }
       })

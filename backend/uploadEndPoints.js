@@ -22,8 +22,15 @@ export const productUpload = async (req, res) => {
       description,
       category,
       tags,
-      image: image._id
+      image: image._id,
     }).save();
+
+    await User.findByIdAndUpdate(req.user._id, {
+    $push: {
+      'personal.ownedProducts': newProduct._id
+    }
+  
+  });
 
     await newProduct.populate('image');
 
@@ -34,9 +41,9 @@ export const productUpload = async (req, res) => {
         description: newProduct.description,
         category: newProduct.category,
         tags: newProduct.tags,
-        image: newProduct.image
+        image: newProduct.image,
       },
-      success: true
+      success: true,
     });
   } catch (error) {
     res.status(404).json({ response: error, success: false });

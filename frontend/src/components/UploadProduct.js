@@ -25,6 +25,7 @@ export const UploadProduct = () => {
   const image = useSelector((state) => state.upload.image);
   const productError = useSelector((state) => state.upload.imageError);
   const product = useSelector((state) => state.upload.product);
+  const accessToken = useSelector((state) => state.user.accessToken)
   console.log(productError);
 
   const [name, setName] = useState('');
@@ -44,7 +45,7 @@ export const UploadProduct = () => {
     e.preventDefault();
     const allTags = tags?.split(',');
     dispatch(
-      uploadProduct(name, description, category, allTags, image, clearForm)
+      uploadProduct(name, description, category, allTags, image, clearForm, accessToken)
     );
     // if (image == null) {
     //   e.preventDefault();
