@@ -120,8 +120,7 @@ export const userRegister = (username, password, email, accountType) => {
 };
 
 export const getUserDetails = (accessToken) => {
-  return (dispatch) =>
-  {
+  return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch(BASE_URL + '/account', {
       method: 'GET',
@@ -129,25 +128,26 @@ export const getUserDetails = (accessToken) => {
         'Content-Type': 'application/json',
         Authorization: accessToken,
       },
-    }) .then((res) => res.json())
-        .then((json) => {
-          if (json.success && json.response.accountType === 'Personal') {
-            dispatch(user.actions.setPersonalUser(json));
-            dispatch(user.actions.setUser(json));
-            dispatch(user.actions.setError(null));
-          } else if (json.success && json.response.accountType === 'Business') {
-            dispatch(user.actions.setBusinessUser(json));
-            dispatch(user.actions.setUser(json));
-            dispatch(user.actions.setError(null));
-          } else {
-            dispatch(user.actions.setError(json.response));
-            dispatch(user.actions.setUserToLoggedOut());
-          }
-        })
-  
-        .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
-    };
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success && json.response.accountType === 'Personal') {
+          dispatch(user.actions.setPersonalUser(json));
+          dispatch(user.actions.setUser(json));
+          dispatch(user.actions.setError(null));
+        } else if (json.success && json.response.accountType === 'Business') {
+          dispatch(user.actions.setBusinessUser(json));
+          dispatch(user.actions.setUser(json));
+          dispatch(user.actions.setError(null));
+        } else {
+          dispatch(user.actions.setError(json.response));
+          dispatch(user.actions.setUserToLoggedOut());
+        }
+      })
+
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
   };
+};
 
 // export const businessUserRegister = (
 //   businessName,
