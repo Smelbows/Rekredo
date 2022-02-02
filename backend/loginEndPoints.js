@@ -1,27 +1,22 @@
 import bcrypt from 'bcrypt';
 
-const {
-  PersonalUser,
-  BusinessUser,
-  Product,
-  Image,
-} = require('./models/models.js');
+const { User, Product, Image } = require('./models/models.js');
 
-const findUser = async (username) => {
-  const user = await PersonalUser.findOne({ username });
-  if (user) {
-    return user;
-  } else {
-    const user = await BusinessUser.findOne({ businessName: username });
-    return user;
-  }
-};
+// const findUser = async (username) => {
+//   const user = await PersonalUser.findOne({ username });
+//   if (user) {
+//     return user;
+//   } else {
+//     const user = await BusinessUser.findOne({ businessName: username });
+//     return user;
+//   }
+// };
 
 export const loginUser = async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    const user = await findUser(username);
+    const user = await User.findOne({ username });
 
     if (user && bcrypt.compareSync(password, user.password)) {
       res.status(200).json({
@@ -29,13 +24,17 @@ export const loginUser = async (req, res) => {
           userId: user._id,
           username: user.username,
           accessToken: user.accessToken,
+          email,
+          accountType,
+          business,
+          personal
         },
-        success: true,
+        success: true
       });
     } else {
       res.status(404).json({
         response: 'Username or password does not match',
-        success: false,
+        success: false
       });
     }
   } catch (error) {
