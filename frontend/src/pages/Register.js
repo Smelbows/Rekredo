@@ -6,6 +6,7 @@ import { Form, StyledInput, FormBox } from 'styledElements/Form';
 import { SmallButton } from 'styledElements/Buttons';
 import { Main } from '../styledElements/Card';
 import { userRegister } from '../reducers/user';
+import { user } from '../reducers/user';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -22,6 +23,7 @@ const Register = () => {
 
   const token = useSelector((state) => state.user.accessToken);
   const error = useSelector((state) => state.user.error);
+  const username = useSelector((state) => state.user.username)
 
   const checkError = () => {
     if (typeof error === 'string') {
@@ -37,6 +39,10 @@ const Register = () => {
       navigate('/account');
     }
   }, [registered, token, navigate]);
+
+  useEffect(() => {
+    dispatch(user.actions.setError(null));
+  }, [])
 
   const onUserSubmit = (event) => {
     event.preventDefault();
@@ -55,7 +61,7 @@ const Register = () => {
     <Main>
       {token ? (
         <p>
-          You're currently logged in as ..., please log out to register a new
+          You're currently logged in as {`${username}`} please log out to register a new
           account
         </p>
       ) : (

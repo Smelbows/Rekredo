@@ -13,13 +13,13 @@ export const user = createSlice({
     accessToken: null,
     error: null,
     personal: {
-      myProducts: null
+      myProducts: [],
     },
     business: {
-      location: null,
+      location: '',
       vatNumber: null,
-      orders: null
-    }
+      orders: null,
+    },
   },
   reducers: {
     setUser: (store, action) => {
@@ -29,13 +29,15 @@ export const user = createSlice({
       store.accountType = action.payload.response.accountType;
     },
     setPersonalUser: (store, action) => {
-      store.personal.myProducts =
-        action.payload.response.personal.ownedProducts;
+      if (action.payload.response.personal?.ownedProducts) {
+        store.personal.myProducts =
+          action.payload.response.personal?.ownedProducts;
+      }
     },
     setBusinessUser: (store, action) => {
-      store.business.location = action.payload.response.business.location;
-      store.business.vatNumber = action.payload.response.business.vatNumber;
-      store.business.orders = action.payload.response.business.myOrders;
+      store.business.location = action.payload.response.business?.location;
+      store.business.vatNumber = action.payload.response.business?.vatNumber;
+      store.business.orders = action.payload.response.business?.myOrders;
     },
     setError: (store, action) => {
       store.error = action.payload;
@@ -50,8 +52,8 @@ export const user = createSlice({
       store.business.vatNumber = null;
       store.business.orders = null;
       // store.error = null;
-    }
-  }
+    },
+  },
 });
 
 export const userLogin = (username, password) => {
@@ -61,9 +63,9 @@ export const userLogin = (username, password) => {
     fetch(BASE_URL + '/log-in', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({ username, password }),
     })
       .then((res) => res.json())
       .then((json) => {
@@ -93,9 +95,9 @@ export const userRegister = (username, password, email, accountType) => {
     fetch(BASE_URL + '/register', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password, email, accountType })
+      body: JSON.stringify({ username, password, email, accountType }),
     })
       .then((res) => res.json())
       .then((json) => {

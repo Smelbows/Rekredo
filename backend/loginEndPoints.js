@@ -24,10 +24,10 @@ export const loginUser = async (req, res) => {
           userId: user._id,
           username: user.username,
           accessToken: user.accessToken,
-          email,
-          accountType,
-          business,
-          personal
+          email: user.email,
+          accountType: user.accountType,
+          business: user.business,
+          personal: user.personal
         },
         success: true
       });
@@ -38,6 +38,7 @@ export const loginUser = async (req, res) => {
       });
     }
   } catch (error) {
+    console.error(error)
     res.status(404).json({ response: error, success: false });
   }
 };

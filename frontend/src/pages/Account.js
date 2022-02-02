@@ -34,18 +34,12 @@ const Account = () => {
     }
   }, [accessToken, navigate]);
 
-  const accountType = () => {
-    if (user.vatNumber) {
-      return 'business';
-    } else return 'personal';
-  };
-
   return (
     <Main>
       <BigSection>
         <ProfileCard />
-        {accountType() === 'personal' && <PersonalProfile />}
-        {accountType() === 'business' && <BusinessProfile />}
+        {user.accountType === 'Personal' && <PersonalProfile />}
+        {user.accountType === 'Business' && <BusinessProfile />}
       </BigSection>
     </Main>
   );
