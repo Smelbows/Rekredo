@@ -10,12 +10,12 @@ import cloudinaryFramework from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
 // importing endpoints
-import { getProductById, getProducts } from './productsEndPoints';
-import { registerUser } from './registerEndPoints';
-import { authenticateUser } from './authentication';
-import { loginUser } from './loginEndPoints';
-import { imageUpload, productUpload } from './uploadEndPoints';
-import { createOrder } from './orderEndPoints';
+import { getProductById, getProducts } from './controllers/productsEndPoints';
+import { registerUser } from './controllers/registerEndPoints';
+import { authenticateUser } from './controllers/authentication';
+import { loginUser } from './controllers/loginEndPoints';
+import { imageUpload, productUpload } from './controllers/uploadEndPoints';
+import { createOrder } from './controllers/orderEndPoints';
 
 // importing models
 const { User, Product, Image } = require('./models/models.js');

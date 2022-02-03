@@ -26,7 +26,7 @@ export const createOrder = async (req, res) => {
     });
 
     await newOrder.populate('products')
-    
+
     res.status(201).json({
       response: {
         newOrder,

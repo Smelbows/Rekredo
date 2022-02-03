@@ -1,4 +1,4 @@
-const { User, Product, Image } = require('./models/models.js');
+const { User, Product, Image } = require('../models/models.js');
 
 export const authenticateUser = async (req, res, next) => {
   const accessToken = req.header('Authorization');
