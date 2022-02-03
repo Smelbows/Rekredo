@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import ImageCarousel from '../components/ImageCarousel';
 
-import { Main, BigSection } from '../styledElements/Card';
+
+import { BigSection } from '../styledElements/Card';
 import { H2 } from '../styledElements/Texts';
 // import { products } from 'reducers/products';
 import AccordionSection from 'components/AccordionSection';
@@ -50,6 +51,13 @@ const Header = styled.h1`
   margin-bottom: 10px;
   opacity: 0.8;
   color: var(--white);
+  font-size: 2em;
+  color: var(--white);
+  opacity: 0.8;
+
+    @media (min-width: 768px) {
+      font-size: 6em;
+    }
 `;
 
 const Home = () => {
@@ -120,36 +128,35 @@ const Home = () => {
   ];
   return (
     <>
-      <Main>
-        <BigSection>
-          <TextContainer>
-            <Header className="hero-text"> REKREDO </Header>
-            <H2 className="hero-text"> REKVISITA - ON DEMAND </H2>
-          </TextContainer>
-          <CarouselContainer>
-            <ImageCarousel images={images} quantity={1} />
-          </CarouselContainer>
-        </BigSection>
-        <BigSection>
-          <H2>We are Rekredo</H2>
-        </BigSection>
-        <BigSection>
-          <H2>Production Companies, we've got you!</H2>
-          <H2>Individuals, we got you too.</H2>
-        </BigSection>
-        <BigSection>
-          {images && (
-            <PropsCarouselContainer>
-              <ImageCarousel images={getPropImages()} quantity={3} />
-            </PropsCarouselContainer>
-          )}
-        </BigSection>
-        <BigSection>
-          <AccordionSection accordionData={accordionData1} />
-        </BigSection>
-      </Main>
+      <BigSection>
+        <TextContainer>
+          <Header className="hero-text"> REKREDO </Header>
+          <H2 className="hero-text"> REKVISITA - ON DEMAND </H2>
+        </TextContainer>
+        <CarouselContainer>
+          <ImageCarousel images={images} quantity={1} />
+        </CarouselContainer>
+      </BigSection>
+      <BigSection>
+        <H2>We are Rekredo</H2>
+      </BigSection>
+      <BigSection>
+        <H2>Production Companies, we've got you!</H2>
+        <H2>Individuals, we got you too.</H2>
+      </BigSection>
+      <BigSection>
+        {images && (
+          <PropsCarouselContainer>
+            <ImageCarousel images={getPropImages()} quantity={3} />
+          </PropsCarouselContainer>
+        )}
+      </BigSection>
+      <BigSection>
+        <AccordionSection accordionData={accordionData1} />
+      </BigSection>
     </>
   );
 };
+
 
 export default Home;

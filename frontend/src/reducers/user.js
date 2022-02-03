@@ -13,7 +13,7 @@ export const user = createSlice({
     accessToken: null,
     error: null,
     personal: {
-      myProducts: [],
+      ownedProducts: [],
     },
     business: {
       location: '',

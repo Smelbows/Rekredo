@@ -1,8 +1,9 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { BigSection, Main } from 'styledElements/Card';
+import { BigSection } from 'styledElements/Card';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { MiddleContainer } from 'styledElements/Container';
 
 const Box = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ const PropDetails = () => {
   console.log(prop);
 
   return (
-    <Main>
+    <MiddleContainer>
       <BigSection>
         <Box>
           <p>{prop.name}</p>
@@ -31,7 +32,7 @@ const PropDetails = () => {
         </Box>
         <img src={prop.image?.imageUrl} alt={prop.name}></img>
       </BigSection>
-    </Main>
+    </MiddleContainer>
   );
 };
 

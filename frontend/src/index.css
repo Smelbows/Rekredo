@@ -56,12 +56,11 @@ body {
   object-fit: cover;
 }
 
-.hero-text {
-  font-size: 4em;
+/* .hero-text {
   text-decoration-line: none;
   color: white;
   opacity: 0.8;
-}
+} */
 
 .hero {
   display: grid;

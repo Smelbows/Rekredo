@@ -23,10 +23,14 @@ const HeaderSection = styled.div`
 
 
 const HeaderLogo = styled.div`
-  width: 30vw;
+  width: 50vw;
   display: flex;
   align-items: center;
     justify-content: center;
+
+    @media(min-width: 768px) {
+        width: 30vw;
+    }
 `;
 
 const LogoImg = styled.img`

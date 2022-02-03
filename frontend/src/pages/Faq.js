@@ -3,6 +3,7 @@ import { Main } from '../styledElements/Card';
 import styled from 'styled-components';
 
 import AccordionSection from 'components/AccordionSection';
+import { MiddleContainer } from 'styledElements/Container';
 // import Accordion from '../components/Accordion';
 
 // const AccordionDiv = styled.div`
@@ -113,11 +114,11 @@ const Faq = () => {
     },
   ];
   return (
-    <Main>
+    <MiddleContainer>
       <AccordionSection accordionData={accordionData1} />
       <AccordionSection accordionData={accordionData2} />
       <AccordionSection accordionData={accordionData3} />
-    </Main>
+    </MiddleContainer>
   );
 };
 

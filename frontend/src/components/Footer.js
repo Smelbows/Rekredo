@@ -29,6 +29,7 @@ export const SmallSection = styled.div`
 export const TopSection = styled.div`
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   margin: 1em 0em 0em 0em;

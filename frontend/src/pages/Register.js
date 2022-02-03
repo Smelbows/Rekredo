@@ -4,9 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { P } from 'styledElements/Texts';
 import { Form, StyledInput, FormBox } from 'styledElements/Form';
 import { SmallButton } from 'styledElements/Buttons';
-import { Main } from '../styledElements/Card';
+// import { Main } from '../styledElements/Card';
 import { userRegister } from '../reducers/user';
 import { user } from '../reducers/user';
+import { MiddleContainer } from 'styledElements/Container';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -57,7 +58,7 @@ const Register = () => {
   };
 
   return (
-    <Main>
+    <MiddleContainer>
       {token ? (
         <p>
           You're currently logged in as {`${username}`} please log out to
@@ -140,7 +141,7 @@ const Register = () => {
           </div>
         </FormBox>
       )}
-    </Main>
+    </MiddleContainer>
   );
 };
 

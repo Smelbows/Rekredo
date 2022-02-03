@@ -13,9 +13,10 @@ import BusinessAccountNav from '../components/BusinessAccNav';
 
 // import { Button, PropButton } from '../styledElements/Buttons';
 // import { StyledProfileCard } from '../styledElements/Card';
-import { Main, BigSection } from '../styledElements/Card';
+import { BigSection } from '../styledElements/Card';
+import { MiddleContainer } from 'styledElements/Container';
 
-const AccountMain = styled(Main)`
+const AccountMain = styled(MiddleContainer)`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -56,7 +57,7 @@ const Account = () => {
     if (!accessToken) {
       navigate('/log-in');
     } else {
-          dispatch(getUserDetails(accessToken))
+      dispatch(getUserDetails(accessToken))
     }
   }, [accessToken, navigate, dispatch]);
 

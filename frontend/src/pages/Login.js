@@ -4,8 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { userLogin } from '../reducers/user';
 
 import { FormBox, StyledInput, Form } from 'styledElements/Form';
-import { Main } from '../styledElements/Card';
+// import { Main } from '../styledElements/Card';
 import { SmallButton } from 'styledElements/Buttons';
+import { MiddleContainer } from 'styledElements/Container';
 
 const Login = () => {
   const [name, setName] = useState('');
@@ -37,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <Main>
+    <MiddleContainer>
       <FormBox>
         <Form onSubmit={onUserSubmit} className='signin-form'>
           <h1>Log in</h1>
@@ -66,7 +67,7 @@ const Login = () => {
           </SmallButton>
         </Form>
       </FormBox>
-    </Main>
+    </MiddleContainer>
   );
 };
 
