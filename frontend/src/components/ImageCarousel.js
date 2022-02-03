@@ -1,8 +1,8 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { products } from 'reducers/products';
+// import { useSelector } from 'react-redux';
+// import { useEffect } from 'react';
+// import { products } from 'reducers/products';
 
 // const images = [
 //   'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
@@ -42,7 +42,7 @@ const ImageCarousel = ({ images, quantity }) => {
   return (
     <Carousel
       responsive={responsive}
-      autoPlay= {true}
+      autoPlay={true}
       autoPlaySpeed={2000}
       infinite={true}
     >

@@ -26,7 +26,6 @@ export const UploadProduct = () => {
   const productError = useSelector((state) => state.upload.imageError);
   const product = useSelector((state) => state.upload.product);
   const accessToken = useSelector((state) => state.user.accessToken)
-  console.log(productError);
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
