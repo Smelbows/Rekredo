@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { ui } from './ui';
+import { ui } from './ui';
 
-// import { BASE_URL } from '../utils/config';
+import { BASE_URL } from '../utils/config';
 
 export const cart = createSlice({
   name: 'cart',
@@ -24,7 +24,35 @@ export const cart = createSlice({
       store.cartList = itemsToSave;
     },
     emptyCart: (store, action) => {
-      store.cartList = []
-    }
+      store.cartList = [];
+    },
   },
 });
+
+export const sendOrder = (myCart, accessToken) => {
+  return (dispatch) => {
+    dispatch(ui.actions.setLoading(true));
+    fetch(BASE_URL + '/create-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken,
+      },
+      body: JSON.stringify({ cart: myCart }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success) {
+          console.log('success', json);
+          // dispatch(upload.actions.setProductError(null));
+          // dispatch(upload.actions.setProduct(json));
+          // dispatch(upload.actions.clearImageState());
+          // clearForm();
+        } else {
+          // console.log('fail', json);
+          // dispatch(upload.actions.setProductError(json.response));
+        }
+      })
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+  };
+};

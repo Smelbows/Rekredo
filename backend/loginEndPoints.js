@@ -2,16 +2,6 @@ import bcrypt from 'bcrypt';
 
 const { User, Product, Image } = require('./models/models.js');
 
-// const findUser = async (username) => {
-//   const user = await PersonalUser.findOne({ username });
-//   if (user) {
-//     return user;
-//   } else {
-//     const user = await BusinessUser.findOne({ businessName: username });
-//     return user;
-//   }
-// };
-
 export const loginUser = async (req, res) => {
   const { username, password } = req.body;
 
@@ -27,18 +17,18 @@ export const loginUser = async (req, res) => {
           email: user.email,
           accountType: user.accountType,
           business: user.business,
-          personal: user.personal
+          personal: user.personal,
         },
-        success: true
+        success: true,
       });
     } else {
       res.status(404).json({
         response: 'Username or password does not match',
-        success: false
+        success: false,
       });
     }
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res.status(404).json({ response: error, success: false });
   }
 };

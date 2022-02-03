@@ -26,11 +26,10 @@ export const productUpload = async (req, res) => {
     }).save();
 
     await User.findByIdAndUpdate(req.user._id, {
-    $push: {
-      'personal.ownedProducts': newProduct._id
-    }
-  
-  });
+      $push: {
+        'personal.ownedProducts': newProduct._id,
+      },
+    });
 
     await newProduct.populate('image');
 

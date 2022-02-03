@@ -1,9 +1,9 @@
 // import react from 'react';
-import { Main, BigSection } from '../styledElements/Card';
+import { Main} from '../styledElements/Card';
 import styled from 'styled-components';
 
 import AccordionSection from 'components/AccordionSection';
-import Accordion from '../components/Accordion';
+// import Accordion from '../components/Accordion';
 
 // const AccordionDiv = styled.div`
 //   max-width: 600px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import { UploadImage } from './UploadImage';
 import { UploadProduct } from 'components/UploadProduct';
@@ -7,13 +7,13 @@ import { UploadProduct } from 'components/UploadProduct';
 import { H1 } from '../styledElements/Texts';
 import { Card } from 'styledElements/Card';
 
-const UploadedProducts = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 500px;
-  height: 300px;
-  border: 1px solid black;
-`;
+// const UploadedProducts = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   width: 500px;
+//   height: 300px;
+//   border: 1px solid black;
+// `;
 
 const Upload = () => {
   return (

@@ -2,12 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import ImageCarousel from '../components/ImageCarousel';
-import Faq from '../pages/Faq';
-import { Link } from 'react-router-dom';
 
 import { Main, BigSection } from '../styledElements/Card';
 import { H2 } from '../styledElements/Texts';
-import { products } from 'reducers/products';
+// import { products } from 'reducers/products';
 import AccordionSection from 'components/AccordionSection';
 
 // const HeroImg = styled.img`

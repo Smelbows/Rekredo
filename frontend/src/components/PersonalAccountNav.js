@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import styled from 'styled-components';
+
 import { useSelector } from 'react-redux';
 import { AsideButton } from 'styledElements/Buttons';
 

@@ -3,64 +3,64 @@ import crypto from 'crypto';
 // import { type } from 'os';
 
 const PersonalSchema = new mongoose.Schema({
-  ownedProducts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
+  ownedProducts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
 });
 
 const BusinessSchema = new mongoose.Schema({
   location: {
-    type: String
+    type: String,
   },
   vatNumber: {
-    type: Number
+    type: Number,
   },
-  myOrders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }]
+  myOrders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }],
 });
 
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
-    required: true
+    required: true,
   },
   accessToken: {
     type: String,
-    default: () => crypto.randomBytes(128).toString('hex')
+    default: () => crypto.randomBytes(128).toString('hex'),
   },
   accountType: {
     type: String,
     required: true,
-    enum: ['Business', 'Personal']
+    enum: ['Business', 'Personal'],
   },
   business: BusinessSchema,
-  personal: PersonalSchema
+  personal: PersonalSchema,
 });
 
 const ImageSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
-    required: true
+    required: true,
   },
   imageId: {
-    type: String
-  }
+    type: String,
+  },
 });
 
 const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   category: {
     type: String,
@@ -72,34 +72,34 @@ const ProductSchema = new mongoose.Schema({
       'Electronics',
       'Art',
       'Toys',
-      'Environment'
-    ]
+      'Environment',
+    ],
   },
   tags: {
-    type: Array
+    type: Array,
   },
   owner: {
-    type: String
+    type: String,
   },
   image: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Image'
+    ref: 'Image',
   },
   availability: {
     type: Boolean,
-    default: true
+    default: true,
   },
   createdAt: {
     type: Number,
-    default: () => Date.now()
-  }
+    default: () => Date.now(),
+  },
 });
 
 const OrderSchema = new mongoose.Schema({
   products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
   orderNumber: { type: Number },
   createdAt: { type: Number, default: () => Date.now() },
-  completed: { type: Boolean, default: false }
+  completed: { type: Boolean, default: false },
 });
 
 // const PersonalUser = mongoose.model('PersonalUser', PersonalSchema);

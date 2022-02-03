@@ -15,6 +15,7 @@ import { registerUser } from './registerEndPoints';
 import { authenticateUser } from './authentication';
 import { loginUser } from './loginEndPoints';
 import { imageUpload, productUpload } from './uploadEndPoints';
+import { createOrder } from './orderEndPoints';
 
 // importing models
 const { User, Product, Image } = require('./models/models.js');
@@ -109,6 +110,9 @@ app.post('/log-in', loginUser);
 
 app.post('/product-upload', authenticateUser);
 app.post('/product-upload', productUpload);
+
+app.post('/create-order', authenticateUser);
+app.post('/create-order', createOrder);
 
 // image endpoint currently in server.js, try to take out if poss
 app.post('/image-upload', parser.single('image'), async (req, res) => {
