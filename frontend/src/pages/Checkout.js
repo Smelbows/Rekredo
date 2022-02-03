@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { sendOrder } from 'reducers/cart';
 import Cart from '../components/Cart';
 
-import { Main } from 'styledElements/Card';
+import { BigSection, Main } from 'styledElements/Card';
 import { Button } from 'styledElements/Buttons';
 
 const Checkout = () => {
@@ -17,7 +17,11 @@ const Checkout = () => {
 
   return (
     <Main>
+      <BigSection>
+
       <Cart />
+      </BigSection>
+      {/* Text is white right now but the button works */}
       <Button onClick={onOrderConfirm}>Confirm Order</Button>
     </Main>
   );
