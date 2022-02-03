@@ -2,6 +2,7 @@
 import { Main, BigSection } from '../styledElements/Card';
 import styled from 'styled-components';
 
+import AccordionSection from 'components/AccordionSection';
 import Accordion from '../components/Accordion';
 
 // const AccordionDiv = styled.div`
@@ -113,37 +114,9 @@ const Faq = () => {
   ];
   return (
     <Main>
-      <Section>
-        <BigSection className="wrap">
-          <H1>Question about products</H1>
-          <div className="accordion">
-            {accordionData1.map(({ title, content }, index) => (
-              <Accordion key={index} title={title} content={content} />
-            ))}
-          </div>
-        </BigSection>
-      </Section>
-      <Section>
-        <BigSection>
-          <H1>Questions about sending and notification</H1>
-          <div className="accordion">
-            {accordionData2.map(({ title, content }, index) => (
-              <Accordion key={index} title={title} content={content} />
-            ))}{' '}
-          </div>
-        </BigSection>
-      </Section>
-      <Section>
-        <BigSection>
-          {' '}
-          <H1>Question about getting paid </H1>
-          <div className="accordion">
-            {accordionData3.map(({ title, content }, index) => (
-              <Accordion key={index} title={title} content={content} />
-            ))}{' '}
-          </div>
-        </BigSection>
-      </Section>
+      <AccordionSection accordionData={accordionData1}/>
+      <AccordionSection accordionData={accordionData2} />
+      <AccordionSection accordionData={accordionData3} />
     </Main>
   );
 };

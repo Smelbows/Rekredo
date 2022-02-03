@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Main, BigSection } from '../styledElements/Card';
 import { H2 } from '../styledElements/Texts';
 import { products } from 'reducers/products';
+import AccordionSection from 'components/AccordionSection';
 
 // const HeroImg = styled.img`
 //   height: 70vh;
@@ -55,6 +56,31 @@ const Header = styled.h1`
 
 const Home = () => {
   const products = useSelector((state) => state.products.productList);
+
+  const accordionData1 = [
+    {
+      title: 'Section 1',
+      content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
+      laborum cupiditate possimus labore, hic temporibus velit dicta earum
+      suscipit commodi eum enim atque at? Et perspiciatis dolore iure
+      voluptatem.`,
+    },
+    {
+      title: 'Section 2',
+      content: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia veniam
+      reprehenderit nam assumenda voluptatem ut. Ipsum eius dicta, officiis
+      quaerat iure quos dolorum accusantium ducimus in illum vero commodi
+      pariatur? Impedit autem esse nostrum quasi, fugiat a aut error cumque
+      quidem maiores doloremque est numquam praesentium eos voluptatem amet!
+      Repudiandae, mollitia id reprehenderit a ab odit!`,
+    },
+    {
+      title: 'Section 3',
+      content: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+      quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+      dolor ut sequi minus iste? Quas?`,
+    },
+  ];
 
   const getPropImages = () => {
     if (products) {
@@ -123,7 +149,7 @@ const Home = () => {
           )}
         </BigSection>
         <BigSection>
-          <Faq />
+          <AccordionSection accordionData={accordionData1}/>
         </BigSection>
       </Main>
     </>
