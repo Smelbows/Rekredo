@@ -49,10 +49,10 @@ export const Main = styled.section`
   background: var(--white);
   min-height: 70vh;
   box-sizing: border-box;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 
   @media (min-width: 768px) {
-    padding-bottom: 8em;
+    /* padding-bottom: 8em; */
   }
 `;
 

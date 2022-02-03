@@ -46,3 +46,14 @@ export const PropButton = styled.button`
   color: ${(props) => props.propBtnColor || 'red'};
   border: 2px solid white;
 `;
+
+export const AsideButton = styled.button`
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  margin:10px;
+  font-size: 20px;
+  height: 50px;
+  box-shadow: 1px 1px 1px black;
+  border-radius: 10px;
+
+`

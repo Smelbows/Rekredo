@@ -13,17 +13,15 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
-  border: 1px solid black;
   justify-content: space-around;
 `;
 export const HeaderSection = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 0.1em;
   padding-right: 1em;
   font-family: 'Lora', serif;
-  background-color: rgb(131, 159, 90, 0.7);
+  background-color: var(--wintergreen);
 `;
 
 // export const Logo = styled.h1`
@@ -48,7 +46,7 @@ const HeaderLogo = styled.div`
 const LogoImg = styled.img`
   width: 15rem;
   height: 15rem;
-  margin-top: 2rem;
+  margin-top: 5rem;
 `;
 
 const Pages = styled(NavLink)`

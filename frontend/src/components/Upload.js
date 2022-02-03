@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { UploadImage } from '../components/UploadImage';
+import { UploadImage } from './UploadImage';
 import { UploadProduct } from 'components/UploadProduct';
 // import { Card } from 'styledElements/Card';
 import { H1 } from '../styledElements/Texts';
@@ -15,15 +15,14 @@ const UploadedProducts = styled.div`
   border: 1px solid black;
 `;
 
-const PersonalProfile = () => {
+const Upload = () => {
   return (
     <Card>
       <H1> UPLAOD A PROP FROM YOUR HOME</H1>
-      <UploadedProducts></UploadedProducts>
       <UploadImage />
       <UploadProduct />
     </Card>
   );
 };
 
-export default PersonalProfile;
+export default Upload;

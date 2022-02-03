@@ -142,14 +142,12 @@ const Home = () => {
         <BigSection>
           {images && (
             <PropsCarouselContainer>
-              <Link to="/products">
-                <ImageCarousel images={getPropImages()} quantity={3} />
-              </Link>
+              <ImageCarousel images={getPropImages()} quantity={3} />
             </PropsCarouselContainer>
           )}
         </BigSection>
         <BigSection>
-          <AccordionSection accordionData={accordionData1}/>
+          <AccordionSection accordionData={accordionData1} />
         </BigSection>
       </Main>
     </>
