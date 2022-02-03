@@ -1,5 +1,5 @@
 // import react from 'react';
-import { Main} from '../styledElements/Card';
+import { Main } from '../styledElements/Card';
 import styled from 'styled-components';
 
 import AccordionSection from 'components/AccordionSection';
@@ -33,7 +33,7 @@ export const Section = styled.section`
 export const H1 = styled.h1`
   font-family: 'Montserrat', sans-serif;
   color: var(--black);
-  font-size: 2rem;
+  font-size: 1.2em;
   max-width: 400px;
 `;
 
@@ -114,7 +114,7 @@ const Faq = () => {
   ];
   return (
     <Main>
-      <AccordionSection accordionData={accordionData1}/>
+      <AccordionSection accordionData={accordionData1} />
       <AccordionSection accordionData={accordionData2} />
       <AccordionSection accordionData={accordionData3} />
     </Main>

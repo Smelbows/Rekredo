@@ -4,11 +4,11 @@ export const Button = styled.button`
   display: inline-block;
   font-family: var(--fontone);
   border-radius: 3px;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   margin: 0.5rem 1rem;
   width: 8rem;
   background: transparent;
-  color: var(--white);
+  color: ${(props) => props.propBtnColor || 'var(--white)'};
   border: 1px solid black;
   :disabled {
     opacity: 0.8;
@@ -51,7 +51,7 @@ export const AsideButton = styled.button`
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   margin:10px;
-  font-size: 20px;
+  font-size: 1.2em;
   height: 50px;
   box-shadow: 1px 1px 1px black;
   border-radius: 10px;

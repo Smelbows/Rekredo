@@ -22,7 +22,7 @@ export const Section = styled.section`
 export const H1 = styled.h1`
   font-family: 'Montserrat', sans-serif;
   color: var(--black);
-  font-size: 2rem;
+  font-size: 1.2em;
   max-width: 400px;
 `;
 

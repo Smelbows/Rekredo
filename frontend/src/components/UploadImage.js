@@ -7,7 +7,7 @@ import { Button } from 'styledElements/Buttons';
 
 const Label = styled.label`
   padding: 10px;
-  font-size: 16px;
+  font-size: 1.2em;
   display: flex;
   flex-direction: column;
   text-align: center;

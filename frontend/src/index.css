@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -6,7 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,8 +27,8 @@ body {
 } */
 
 :root {
-  --fontone: 'Montserrat', sans-serif;
-  --fonttwo: 'Lora', serif;
+  --fontone: "Montserrat", sans-serif;
+  --fonttwo: "Lora", serif;
   --green: #3df590;
   --saffron: #ff9b42;
   --wintergreen: #6a8e7f;

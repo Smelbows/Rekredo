@@ -45,7 +45,7 @@ const TextContainer = styled.div`
 `;
 
 const Header = styled.h1`
-  font-size: 10em;
+  font-size: 6em;
   padding-bottom: 0px;
   margin-bottom: 10px;
   opacity: 0.8;

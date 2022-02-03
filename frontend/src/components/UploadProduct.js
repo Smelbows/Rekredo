@@ -9,7 +9,7 @@ import { FormBox, Form, StyledInput } from 'styledElements/Form';
 
 const Label = styled.label`
   padding: 10px 35px;
-  font-size: 16px;
+  font-size: 1.2em;
   border-radius: 3px;
   margin-bottom: 20px;
   display: flex;

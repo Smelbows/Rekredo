@@ -10,9 +10,15 @@ export const products = createSlice({
     error: null,
   },
   reducers: {
-    setAvailability: (store, action) => {},
+    setAvailability: (store, action) => { },
     setProducts: (store, action) => {
       store.productList = action.payload.response;
+      // const newProduct = {
+
+      //   productList: action.payload.response,
+
+      // };
+      // store.productList = [newProduct, ...store.productList];
     },
     setError: (store, action) => {
       store.error = action.payload;
