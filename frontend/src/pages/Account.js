@@ -58,7 +58,7 @@ const Account = () => {
     } else {
           dispatch(getUserDetails(accessToken))
     }
-  }, [accessToken, navigate]);
+  }, [accessToken, navigate, dispatch]);
 
   // useEffect(() => {
   //   if (accessToken) {
