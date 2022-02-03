@@ -91,20 +91,21 @@ app.get('/', async (req, res) => {
 
 // endpoints
 app.get('/account', authenticateUser);
-app.get('/account', (req, res) => {
+app.get('/account', async (req, res) => {
   try {
-    const user = User.findById(req.user._id);
-    user.personal.populate('ownedProducts');
+    const user = await User.findById(req.user._id);
+    await user.populate('personal.ownedProducts');
+    await user.populate('business.myOrders')
 
     res.status(201).json({ response: user, success: true });
   } catch (error) {
+    console.error(error)
     res.status(404).json({ response: error, success: false });
   }
-  res.send('this is your account page');
 });
+
 app.get('/products', getProducts);
 app.get('/products/:id', getProductById);
-// app.post('/register/personal', registerPersonalUser);
 app.post('/register', registerUser);
 app.post('/log-in', loginUser);
 
@@ -123,7 +124,8 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
     }).save();
 
     res.json({ response: image, success: true });
-  } catch (err) {
+  } catch (error) {
+    console.error(error)
     res.status(400).json({ response: error, success: false });
   }
 });

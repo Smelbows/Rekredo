@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-// import { getUserDetails } from '../reducers/user'
+import { useSelector, useDispatch } from 'react-redux';
+import { getUserDetails } from '../reducers/user'
 
 import Upload from '../components/Upload';
 import BusinessProfile from '../components/BusinessProfile';
@@ -50,11 +50,13 @@ const Account = () => {
 
   const accessToken = useSelector((store) => store.user.accessToken);
   const user = useSelector((store) => store.user);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!accessToken) {
       navigate('/log-in');
+    } else {
+          dispatch(getUserDetails(accessToken))
     }
   }, [accessToken, navigate]);
 
