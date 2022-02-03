@@ -18,10 +18,15 @@ export const Section = styled.section`
   justify-content: space-between;
   padding: 5em;
   width: 100vw;
-
   background: var(--saffron);
   & > .background {
     width: 100%;
+  }
+  ,
+  @media (max-width: 800px) {
+    flex-direction: column;
+    max-width: 100vw;
+    padding: 1em;
   }
 `;
 export const H1 = styled.h1`
@@ -109,7 +114,7 @@ const Faq = () => {
   return (
     <Main>
       <Section>
-        <BigSection>
+        <BigSection className="wrap">
           <H1>Question about products</H1>
           <div className="accordion">
             {accordionData1.map(({ title, content }, index) => (

@@ -67,7 +67,7 @@ body {
 }
 
 .accordion {
-  min-width: 600px;
+  width: 70vw;
   max-width: 600px;
 }
 

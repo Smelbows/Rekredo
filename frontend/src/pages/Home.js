@@ -1,8 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import ImageCarousel from '../components/ImageCarousel';
+import Faq from '../pages/Faq';
 
-import { Main } from '../styledElements/Card';
+import { Main, BigSection } from '../styledElements/Card';
 import { H2 } from '../styledElements/Texts';
 
 // const HeroImg = styled.img`
@@ -23,14 +25,18 @@ const CarouselContainer = styled.div`
   width: 100vw;
   height: 100vh;
 `;
+
+const PropsCarouselContainer = styled(CarouselContainer)`
+  height: 20em;
+`;
+
 const TextContainer = styled.div`
   display: grid;
   place-items: center;
-
+  top: 10%;
   position: absolute;
   background-color: rgb(30, 30, 30, 0.5);
   z-index: 1;
-  top: 30%;
 
   // height: 200px;
   // width: 800px;
@@ -46,17 +52,55 @@ const Header = styled.h1`
 `;
 
 const Home = () => {
+  const products = useSelector((state) => state.products.productList);
+
+  const best5images = products?.slice(0, 10).map((prop) => {
+      return prop.image.imageUrl;
+    })
+
+  const images = [
+    'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1549396535-c11d5c55b9df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1550167164-1b67c2be3973?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1550338861-b7cfeaf8ffd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1550223640-23097fc71cb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1550353175-a3611868086b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1550330039-a54e15ed9d33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1549737328-8b9f3252b927?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1549833284-6a7df91c1f65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1549985908-597a09ef0a7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1550064824-8f993041ffd3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+  ];
   return (
     <>
       <Main>
-        {' '}
-        <TextContainer>
-          <Header className="hero-text"> REKREDO </Header>
-          <H2 className="hero-text"> REKVISITA - ON DEMAND </H2>
-        </TextContainer>
-        <CarouselContainer>
-          <ImageCarousel />
-        </CarouselContainer>
+        <BigSection>
+          <TextContainer>
+            <Header className="hero-text"> REKREDO </Header>
+            <H2 className="hero-text"> REKVISITA - ON DEMAND </H2>
+          </TextContainer>
+          <CarouselContainer>
+            <ImageCarousel images={images} quantity={1} />
+          </CarouselContainer>
+        </BigSection>
+        <BigSection>
+          <H2>We are Rekredo</H2>
+        </BigSection>
+        <BigSection>
+          <H2>Production Companies, we've got you!</H2>
+          <H2>Individuals, we got you too.</H2>
+        </BigSection>
+        <BigSection>
+          {best5images && (
+            <PropsCarouselContainer>
+              <ImageCarousel images={best5images} quantity={3} />
+            </PropsCarouselContainer>
+          )}
+        </BigSection>
+        <BigSection>
+          <Faq />
+        </BigSection>
       </Main>
     </>
   );

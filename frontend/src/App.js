@@ -55,7 +55,7 @@ const store = createStore(reducer, persistedState, applyMiddleware(thunk));
 
 store.subscribe(() => {
   const state = store.getState();
-  const stateToPersist = { user: state.user, cart: state.cart };
+  const stateToPersist = { user: state.user, cart: state.cart, products:state.products };
   localStorage.setItem('RekredoReduxState', JSON.stringify(stateToPersist));
 });
 

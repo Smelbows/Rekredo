@@ -62,9 +62,19 @@ export const BigSection = styled.section`
   padding: 2em;
   width: 100vw;
   padding-bottom: 2em;
+  &:nth-child(2n) {
+    background-color: var(--wintergreen);
+  }
   background: var(--saffron);
   & > .background {
     width: 100%;
+  }
+  .wrap {
+    @media (max-width: 800px) {
+      flex-direction: column;
+      max-width: 80vw;
+      padding: 1em;
+    }
   }
 `;
 
