@@ -20,11 +20,12 @@ const AccountMain = styled(MiddleContainer)`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  ,
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   display: flex;  
   flex-direction: column;
   max-width: 100vw;
+  height: 80vh;
+  justify-content: space-between;
 }
 `;
 
@@ -39,9 +40,15 @@ const AccountBigSection = styled(BigSection)`
   & > .background {
     width: 100%;
   }
+  @media (max-width: 768px) {
+    display: flex;  
+    width: 100vw;
+    height: 85%;
+    font-size: 10px;
+  }
 `;
 const Aside = styled.section`
-  width 20%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,10 +56,12 @@ const Aside = styled.section`
   /* padding: 3em; */
   height: 100vh;
   background: var(--wintergreen);
-  ,@media (max-width: 500px) {
-    display: inline-block;  
-    max-width: 100vw;
-    height: 20vh;
+  @media (max-width: 768px) {
+    display: flex;  
+    flex-direction: row;
+    width: 100vw;
+    height: 15%;
+    font-size: 10px;
   }
 `;
 

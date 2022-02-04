@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'styledElements/Buttons';
+import { P } from 'styledElements/Texts';
 import { Logout } from 'pages/Footer/Components/Logout';
 
 const NavButton = styled.div`
@@ -14,6 +15,7 @@ const NavButton = styled.div`
 const NavSwitcher = () => {
   const navigate = useNavigate();
   const accessToken = useSelector((state) => state.user.accessToken);
+  const username = useSelector((state) => state.user.username);
 
   return (
     <>
@@ -27,7 +29,10 @@ const NavSwitcher = () => {
           </Button>
         </NavButton>
       ) : (
-        <Logout />
+        <NavButton>
+          <P>Logged in as {username} </P>
+          <Logout />
+        </NavButton>
       )}
     </>
   );
