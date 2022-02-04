@@ -18,7 +18,7 @@ export const user = createSlice({
     business: {
       location: '',
       vatNumber: null,
-      orders: null,
+      orders: [],
     },
   },
   reducers: {
@@ -47,10 +47,10 @@ export const user = createSlice({
       store.accessToken = null;
       store.email = null;
       store.accountType = null;
-      store.personal.ownedProducts = null;
-      store.business.location = null;
+      store.personal.ownedProducts = [];
+      store.business.location = '';
       store.business.vatNumber = null;
-      store.business.orders = null;
+      store.business.orders = [];
       // store.error = null;
     },
   },

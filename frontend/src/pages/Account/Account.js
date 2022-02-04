@@ -20,7 +20,14 @@ const AccountMain = styled(MiddleContainer)`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  ,
+@media (max-width: 500px) {
+  display: flex;  
+  flex-direction: column;
+  max-width: 100vw;
+}
 `;
+
 const AccountBigSection = styled(BigSection)`
   display: flex;
   padding: 2em;
@@ -42,7 +49,13 @@ const Aside = styled.section`
   /* padding: 3em; */
   height: 100vh;
   background: var(--wintergreen);
+  ,@media (max-width: 500px) {
+    display: inline-block;  
+    max-width: 100vw;
+    height: 20vh;
+  }
 `;
+
 
 const Account = () => {
     const navigate = useNavigate();
