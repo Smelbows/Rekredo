@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { uploadProduct } from 'reducers/upload';
-import { PropButton, Button } from '../styledElements/Buttons';
+import { PropButton, Button } from '../../../styledElements/Buttons';
 import { FormBox, Form, StyledInput } from 'styledElements/Form';
 
 const Label = styled.label`

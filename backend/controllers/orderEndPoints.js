@@ -1,4 +1,4 @@
-const { Product, Order, User } = require('./models/models.js');
+const { Product, Order, User } = require('../models/models.js');
 
 export const createOrder = async (req, res) => {
   const { cart } = req.body;

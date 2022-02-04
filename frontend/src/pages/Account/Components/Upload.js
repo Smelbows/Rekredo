@@ -2,9 +2,9 @@ import React from 'react';
 // import styled from 'styled-components';
 
 import { UploadImage } from './UploadImage';
-import { UploadProduct } from 'components/UploadProduct';
+import { UploadProduct } from 'pages/Account/Components/UploadProduct';
 // import { Card } from 'styledElements/Card';
-import { H1 } from '../styledElements/Texts';
+import { H1 } from '../../../styledElements/Texts';
 import { Card } from 'styledElements/Card';
 
 // const UploadedProducts = styled.div`

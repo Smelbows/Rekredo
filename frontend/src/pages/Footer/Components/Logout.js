@@ -1,6 +1,6 @@
 import React from 'react';
 // import styled from 'styled-components';
-import { Button } from '../styledElements/Buttons';
+import { Button } from '../../../styledElements/Buttons';
 import { useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
 import { cart } from 'reducers/cart';

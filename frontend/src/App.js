@@ -15,19 +15,19 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { upload } from '../src/reducers/upload';
 // import { cart } from 'reducers/cart';
 
-import Home from './pages/Home';
-import Contact from './pages/Contact';
-import Faq from './pages/Faq';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Account from './pages/Account';
-import Products from './pages/Products';
-import Checkout from './pages/Checkout';
-import PropDetails from './pages/PropDetails';
+import Home from './pages/Home/Home';
+import Contact from './pages/Contact/Contact';
+import Faq from './pages/Faq/Faq';
+import Register from './pages/Register/Register';
+import Login from './pages/Login/Login';
+import Account from './pages/Account/Account';
+import Products from './pages/Products/Products';
+import Checkout from './pages/Checkout/Checkout';
+import PropDetails from './pages/PropDetails/PropDetails';
 import CookieConsent from 'react-cookie-consent';
 
-import Footer from 'components/Footer';
-import Header from 'components/Header';
+import Footer from './pages/Footer/Footer';
+import Header from './pages/Header/Header';
 
 import './App.css';
 

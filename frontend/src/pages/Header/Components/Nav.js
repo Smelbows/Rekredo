@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { slide as Menu } from 'react-burger-menu';
 import { useMediaQuery } from 'react-responsive'
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Button } from '../styledElements/Buttons';
-import '../utils/Nav.css'
+import { Button } from '../../../styledElements/Buttons';
+import './Nav.css'
 
 
 const Pages = styled(NavLink)`

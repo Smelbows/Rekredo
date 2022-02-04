@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from '../images/RekRedo.png';
+import Logo from '../../images/RekRedo.png';
 // import Background from '../images/camera.png';
 
-import Nav from './Nav'
+import Nav from './Components/Nav'
 
 const HeaderBox = styled.div`
   display: flex;

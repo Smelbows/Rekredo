@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { cart } from '../reducers/cart';
+import { cart } from '../../../reducers/cart';
 
-import { ProductCard } from '../styledElements/Card';
-import { P, ProductText } from '../styledElements/Texts';
-import { SmallButton } from 'styledElements/Buttons';
+import { ProductCard } from '../../../styledElements/Card';
+import { P, ProductText } from '../../../styledElements/Texts';
+import { SmallButton } from '../../../styledElements/Buttons';
 
 const Cart = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
-import { BigSection } from '../styledElements/Card';
+import { BigSection } from '../../../styledElements/Card';
 import styled from 'styled-components';
 
-import Accordion from '../components/Accordion';
+import Accordion from './Accordion';
 
 export const Section = styled.section`
   display: flex;
