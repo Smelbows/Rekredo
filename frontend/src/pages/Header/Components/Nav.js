@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { slide as Menu } from 'react-burger-menu';
 import { useMediaQuery } from 'react-responsive';
 import { NavLink } from 'react-router-dom';
+import { Logout } from 'pages/Footer/Components/Logout';
 import './Nav.css';
 import NavSwitcher from './NavSwitcher';
 
@@ -30,6 +31,7 @@ const Nav = () => {
   return (
     <>
       {isMobile && (
+        <>
         <Menu right>
           <Pages to="/account">Account</Pages>
           <Pages to="/products">Products</Pages>
@@ -37,6 +39,8 @@ const Nav = () => {
           <Pages to="/contact">Contact</Pages>
           <Pages to="/checkout">Checkout</Pages>
         </Menu>
+        <Logout/>
+        </>
       )}
       {!isMobile && (
         <>
