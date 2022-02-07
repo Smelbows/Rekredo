@@ -39,6 +39,10 @@ export const user = createSlice({
       store.business.vatNumber = action.payload.response.business?.vatNumber;
       store.business.orders = action.payload.response.business?.myOrders;
     },
+    setOrders: (store, action) => {
+      const ordersToSave = store.business.orders.filter((order) => order._id !== action.payload.orderId)
+      store.business.orders = ordersToSave
+    },
     setError: (store, action) => {
       store.error = action.payload;
     },
@@ -150,19 +154,30 @@ export const getUserDetails = (accessToken) => {
 };
 
 export const deleteAnOrder = (id) => {
+  console.log(id, "order id at thunk")
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    fetch(BASE_URL + '/deleteorder', {
+    fetch(BASE_URL + '/delete-order', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
         // Authorization: accessToken,
       },
-      body: {
+      body: JSON.stringify({
         _id: id,
-      },
+      }),
     })
       .then((res) => res.json())
-      .then((json) => {});
+      .then((json) => {
+        if (json.success) {
+          console.log(json.response.message)
+          dispatch(user.actions.setOrders(json.response))
+        }
+        else {
+          dispatch(user.actions.setError(json.response))
+        }
+      })
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
+
   };
 };

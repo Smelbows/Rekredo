@@ -1,6 +1,9 @@
 import React from 'react';
 import { H1, H2, P } from '../../../styledElements/Texts';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { deleteAnOrder } from 'reducers/user';
+
 import styled from 'styled-components';
 import { SmallButton } from '../../../styledElements/Buttons';
 
@@ -16,10 +19,16 @@ const OrderDiv = styled.div`
 `;
 
 const MyOrders = () => {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const orders = useSelector((state) => state.user.business.orders);
   console.log(orders, 'orders');
   console.log(user, 'user');
+
+  const handleDeleteOrder = (id) => {
+    dispatch(deleteAnOrder(id));
+  };
+
   return (
     <>
       <div>
@@ -38,13 +47,15 @@ const MyOrders = () => {
 
               <div>
                 <P>Number of products</P>
-                <P>{item.products.length}</P>
+                <P>{item.products?.length}</P>
               </div>
               <div>
                 <P>Date</P>
                 <P>{new Date(item.createdAt).toLocaleString()}</P>
               </div>
-              <SmallButton>Delete</SmallButton>
+              <SmallButton onClick={() => handleDeleteOrder(item._id)}>
+                Delete
+              </SmallButton>
             </OrderDiv>
           ))
         ) : (

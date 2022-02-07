@@ -44,7 +44,10 @@ export const createOrder = async (req, res) => {
 };
 
 export const deleteOrder = async (req, res) => {
+  console.log(req.body, "body in backend")
   const { _id } = req.body;
+
+  console.log(_id, "deleteOrder endpoint")
   try {
     if (!_id) {
       throw 'Order id needed to delete order';
