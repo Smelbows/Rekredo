@@ -44,7 +44,7 @@ const Checkout = () => {
 
   useEffect(() => {
     if (orderSuccess) {
-      navigate('/account');
+      setTimeout(navigate('/account'), 5000);
     } else if (orderSuccess === false) {
     } else {
     }

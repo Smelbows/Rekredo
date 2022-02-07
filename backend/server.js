@@ -95,11 +95,13 @@ app.get('/account', async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
     await user.populate('personal.ownedProducts');
-    await user.populate('business.myOrders')
+    await user.populate('personal.ownedProducts.image');
+    await user.populate('business.myOrders');
+    await user.populate('business.myOrders.products');
 
     res.status(201).json({ response: user, success: true });
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res.status(404).json({ response: error, success: false });
   }
 });
@@ -125,7 +127,7 @@ app.post('/image-upload', parser.single('image'), async (req, res) => {
 
     res.json({ response: image, success: true });
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res.status(400).json({ response: error, success: false });
   }
 });

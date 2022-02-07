@@ -90,6 +90,7 @@ const Account = () => {
   //   dispatch(getUserDetails(accessToken))
   // }}, [dispatch, accessToken]
   // );
+  console.log(activeSection, 'active now');
 
   return (
     <AccountMain>
