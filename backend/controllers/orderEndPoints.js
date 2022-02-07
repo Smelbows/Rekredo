@@ -25,7 +25,7 @@ export const createOrder = async (req, res) => {
       },
     });
 
-    await newOrder.populate('products')
+    await newOrder.populate('products');
 
     res.status(201).json({
       response: {
@@ -40,5 +40,22 @@ export const createOrder = async (req, res) => {
     } else {
       res.status(400).json({ response: error, success: false });
     }
+  }
+};
+
+export const deleteOrder = async (req, res) => {
+  const { _id } = req.body;
+  try {
+    if (!_id) {
+      throw 'Order id needed to delete order';
+    }
+    await Order.findByIdAndDelete(_id);
+    res.status(201).json({
+      response: { message: 'Order deleted', orderId: _id },
+      success: true,
+    });
+  } catch (error) {
+    console.log(error, 'delete error');
+    res.status(400).json({ response: 'Order id not found', success: false });
   }
 };

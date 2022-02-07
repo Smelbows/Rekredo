@@ -149,41 +149,20 @@ export const getUserDetails = (accessToken) => {
   };
 };
 
-// export const businessUserRegister = (
-//   businessName,
-//   password,
-//   email,
-//   vatNumber,
-//   location,
-//   mode
-// ) => {
-//   return (dispatch) => {
-//     dispatch(ui.actions.setLoading(true));
-
-//     fetch(BASE_URL + mode, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         businessName,
-//         password,
-//         email,
-//         vatNumber,
-//         location
-//       })
-//     })
-//       .then((res) => res.json())
-//       .then((json) => {
-//         if (json.success) {
-//           dispatch(user.actions.setBusinessUser(json));
-//           dispatch(user.actions.setError(null));
-//         } else {
-//           dispatch(user.actions.setError(json.response));
-//           dispatch(user.actions.setUserToLoggedOut());
-//         }
-//       })
-
-//       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
-//   };
-// };
+export const deleteAnOrder = (id) => {
+  return (dispatch) => {
+    dispatch(ui.actions.setLoading(true));
+    fetch(BASE_URL + '/deleteorder', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization: accessToken,
+      },
+      body: {
+        _id: id,
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => {});
+  };
+};

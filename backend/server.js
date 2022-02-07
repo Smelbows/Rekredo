@@ -15,7 +15,7 @@ import { registerUser } from './controllers/registerEndPoints';
 import { authenticateUser } from './controllers/authentication';
 import { loginUser } from './controllers/loginEndPoints';
 import { imageUpload, productUpload } from './controllers/uploadEndPoints';
-import { createOrder } from './controllers/orderEndPoints';
+import { createOrder, deleteOrder } from './controllers/orderEndPoints';
 
 // importing models
 const { User, Product, Image } = require('./models/models.js');
@@ -116,6 +116,9 @@ app.post('/product-upload', productUpload);
 
 app.post('/create-order', authenticateUser);
 app.post('/create-order', createOrder);
+
+// app.delete('/delete-order', authenticateUser);
+app.delete('/delete-order', deleteOrder);
 
 // image endpoint currently in server.js, try to take out if poss
 app.post('/image-upload', parser.single('image'), async (req, res) => {
