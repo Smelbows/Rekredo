@@ -17,13 +17,16 @@ const FooterContainer = styled.footer`
   padding: 1em;
   background-color: #546d64;
   justify-content: center;
+
+@media (max-width: 500px){
+    flex-direction: row;
+  }
 `;
 export const SmallSection = styled.div`
   display: flex;
   align-items: center;
   margin: 1em;
   padding: 1em;
-  border: 1px solid white;
   font-family: 'Lora', serif;
 `;
 export const TopSection = styled.div`
@@ -34,8 +37,9 @@ export const TopSection = styled.div`
   align-items: center;
   margin: 1em 0em 0em 0em;
   padding: 1px;
-  border: 1px solid white;
   font-family: 'Lora', serif;
+  width: 90vw;
+  padding: 0em 10 em;
 `;
 export const TextDiv = styled.div`
   display: flex;
@@ -43,15 +47,21 @@ export const TextDiv = styled.div`
   align-items: center;
   margin: 1em;
   padding: 1em;
-  border: 1px solid white;
+  font-family: 'Lora', serif;
+`;
+export const IconDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 1em;
   font-family: 'Lora', serif;
 `;
 export const HeaderSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 4em;
-  border: 1px solid black;
+  padding-bottom: 1em;
   font-family: 'Lora', serif;
   width: 100vw;
 `;
@@ -60,14 +70,23 @@ export const BottomSection = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid black;
   font-family: 'Lora', serif;
-  width: 80vw;
+  width: 90vw;
+  @media (max-width: 500px){
+    font-size: 10px;
+  }
 `;
 
 const LogoImg = styled.img`
   width: 100px;
 `;
+
+const SocialIcon = styled.img `
+width: 20px;
+height: 20px;
+
+`;
+
 
 const Footer = () => {
   return (
@@ -81,22 +100,24 @@ const Footer = () => {
           <TextDiv>
             <H4>Telephone ICON 0704028282</H4>
             <H4>info@rekredo.com</H4>
-            <img className="social-icon" alt="twitter"></img>
-            <img className="social-icon" alt="twitter"></img>
-            <img className="social-icon" alt="twitter"></img>
+            <IconDiv>
+            <SocialIcon alt="X"/>
+            <SocialIcon alt="X"/>
+            <SocialIcon alt="X"/>
+            </IconDiv>
           </TextDiv>
           <TextDiv>
-            <H3>Rekredo</H3>
+            <H3>REKREDO</H3>
             <NavLink to="/">About us</NavLink>
             <NavLink to="/">FAQ</NavLink>
           </TextDiv>
           <TextDiv>
-            <H3>Rekredo</H3>
+            <H3>HOW TO</H3>
             <NavLink to="/">About us</NavLink>
             <NavLink to="/">FAQ</NavLink>
           </TextDiv>{' '}
           <TextDiv>
-            <H3>Rekredo</H3>
+            <H3>CONTACT</H3>
             <NavLink to="/">About us</NavLink>
             <NavLink to="/">FAQ</NavLink>
           </TextDiv>

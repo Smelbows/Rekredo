@@ -12,6 +12,8 @@ import { H1, H2, H3, P, ProductText } from '../../styledElements/Texts';
 import { Button, SmallButton } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
 
+import AddToCartButton from './AddToCartButton';
+
 const Products = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,7 +22,6 @@ const Products = () => {
   const myCart = useSelector((state) => state.cart.cartList);
   const typeOfUser = useSelector((state) => state.user.accountType);
   // const accessToken = useSelector((state) => state.user.accessToken)
-  console.log(typeOfUser);
 
   useEffect(() => {
     dispatch(showProduct());
@@ -60,12 +61,13 @@ const Products = () => {
               ) : (
                 <>
                   {typeOfUser === 'Business' && (
-                    <Button
-                      onClick={() => onAddToCart(item)}
-                      disabled={itemIsInCart(item)}
-                    >
-                      Add to cart
-                    </Button>
+                    <AddToCartButton item={item} />
+                    // <Button
+                    //   onClick={() => onAddToCart(item)}
+                    //   disabled={itemIsInCart(item)}
+                    // >
+                    //   Add to cart
+                    // </Button>
                   )}
                 </>
               )}
