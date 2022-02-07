@@ -3,8 +3,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { StyledProfileCard } from 'styledElements/Card';
-import { Button, PropButton } from '../../../styledElements/Buttons';
-import { H2 } from 'styledElements/Texts';
+import { Button } from '../../../styledElements/Buttons';
+import { H2, P } from 'styledElements/Texts';
 
 const ProfileCard = () => {
   const navigate = useNavigate();
@@ -13,12 +13,23 @@ const ProfileCard = () => {
   return (
     <StyledProfileCard>
       <div>
-          <H2>Account Details</H2>
+        <H2>Account Details</H2>
+        <div>
+          <P>Hello {user.username}</P>
+          <Button>Edit username</Button>
+        </div>
+        <div>
+          <P>Account type: {user.accountType}</P>
+          <Button>Edit account type</Button>
+        </div>
+        <div>
+          <P>Email: {user.email}</P>
+          <Button>Edit email</Button>
+        </div>
+        <Button>Delete account</Button>
         <Button onClick={() => navigate('/contact')}>
           need help? click here
         </Button>
-        <PropButton propBtnColor="yellow"> This is a propbutton</PropButton>
-        Account
       </div>
     </StyledProfileCard>
   );

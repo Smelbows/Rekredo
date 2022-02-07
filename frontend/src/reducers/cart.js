@@ -7,6 +7,7 @@ export const cart = createSlice({
   name: 'cart',
   initialState: {
     cartList: [],
+    orderSuccess: null,
   },
   reducers: {
     setCart: (store, action) => {
@@ -26,6 +27,9 @@ export const cart = createSlice({
     emptyCart: (store, action) => {
       store.cartList = [];
     },
+    setOrderSuccess: (store, action) => {
+      store.orderSuccess = action.payload;
+    },
   },
 });
 
@@ -44,11 +48,16 @@ export const sendOrder = (myCart, accessToken) => {
       .then((json) => {
         if (json.success) {
           console.log('success', json);
+          dispatch(cart.actions.emptyCart());
+          dispatch(cart.actions.setOrderSuccess(true));
+
           // dispatch(upload.actions.setProductError(null));
           // dispatch(upload.actions.setProduct(json));
           // dispatch(upload.actions.clearImageState());
           // clearForm();
         } else {
+          dispatch(cart.actions.setOrderSuccess(false));
+
           // console.log('fail', json);
           // dispatch(upload.actions.setProductError(json.response));
         }

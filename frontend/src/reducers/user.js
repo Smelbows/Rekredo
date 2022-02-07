@@ -30,7 +30,7 @@ export const user = createSlice({
     },
     setPersonalUser: (store, action) => {
       if (action.payload.response.personal?.ownedProducts) {
-        store.personal.myProducts =
+        store.personal.ownedProducts =
           action.payload.response.personal?.ownedProducts;
       }
     },

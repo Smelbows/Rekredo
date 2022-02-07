@@ -15,9 +15,9 @@ export const StyledInput = styled.input`
   border-radius: 3px;
   /* margin-bottom: 10px; */
 
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  // appearance: none;
 `;
 
 export const FormBox = styled.div`

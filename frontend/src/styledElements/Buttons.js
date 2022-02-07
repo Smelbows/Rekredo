@@ -23,7 +23,7 @@ export const Button = styled.button`
 
 export const SmallButton = styled.button`
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--fonttwo)
   border-radius: 3px 10%;
   padding: 0.5rem 0;
   margin: 0.5rem 0.2rem;
@@ -50,10 +50,9 @@ export const PropButton = styled.button`
 export const AsideButton = styled.button`
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
-  margin:10px;
+  margin: 10px;
   font-size: 1.2em;
   height: 50px;
   box-shadow: 1px 1px 1px black;
   border-radius: 10px;
-
-`
+`;
