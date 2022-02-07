@@ -1,14 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { H1 } from '../../../styledElements/Texts';
 import { ProductCard } from 'styledElements/Card';
 import { ProductText, H2 } from 'styledElements/Texts';
 import { SmallButton } from 'styledElements/Buttons';
+import { deleteAProduct } from 'reducers/user';
 
 const MyProps = () => {
+  // const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const props = useSelector((state) => state.user.personal.ownedProducts);
-  console.log(props)
+  console.log(props);
   const userHasProps = props.length > 0;
+
+  const handleDeleteProduct = (id) => {
+    dispatch(deleteAProduct(id));
+  };
 
   return (
     <>
@@ -23,9 +30,9 @@ const MyProps = () => {
               className="product-image"
               alt="website"
             />
-            {/* <SmallButton onClick={() => navigate(`/products/${item._id}`)}>
-              Prop details
-            </SmallButton> */}
+            <SmallButton onClick={() => handleDeleteProduct(item._id)}>
+              Delete
+            </SmallButton>
           </ProductCard>
         ))
       ) : (

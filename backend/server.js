@@ -10,7 +10,7 @@ import cloudinaryFramework from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
 // importing endpoints
-import { getProductById, getProducts } from './controllers/productsEndPoints';
+import { getProductById, getProducts, deleteProduct } from './controllers/productsEndPoints';
 import { registerUser } from './controllers/registerEndPoints';
 import { authenticateUser } from './controllers/authentication';
 import { loginUser } from './controllers/loginEndPoints';
@@ -119,6 +119,7 @@ app.post('/create-order', createOrder);
 
 // app.delete('/delete-order', authenticateUser);
 app.delete('/delete-order', deleteOrder);
+app.delete('/delete-product', deleteProduct);
 
 // image endpoint currently in server.js, try to take out if poss
 app.post('/image-upload', parser.single('image'), async (req, res) => {

@@ -27,3 +27,24 @@ export const getProductById = async (req, res) => {
     res.status(400).json({ response: error, success: false });
   }
 };
+
+export const deleteProduct = async (req, res) => {
+  console.log(req.body, "body in backend")
+  const { _id } = req.body;
+
+  // console.log(_id, "deleteProduct endpoint")
+  try {
+    if (!_id) {
+      throw 'Product id needed to delete';
+    }
+    await Product.findByIdAndDelete(_id);
+    res.status(201).json({
+      response: { message: 'Product deleted', productId: _id },
+      success: true,
+    });
+  } catch (error) {
+    console.log(error, 'delete error');
+    res.status(400).json({ response: 'Prouct id not found', success: false });
+  }
+};
+

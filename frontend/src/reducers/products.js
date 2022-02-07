@@ -10,7 +10,7 @@ export const products = createSlice({
     error: null,
   },
   reducers: {
-    setAvailability: (store, action) => { },
+    setAvailability: (store, action) => {},
     setProducts: (store, action) => {
       store.productList = action.payload.response;
       // const newProduct = {
@@ -38,8 +38,8 @@ export const products = createSlice({
       store.cart = itemsToSave;
     },
     emptyCart: (store, action) => {
-      store.cart = []
-    }
+      store.cart = [];
+    },
   },
 });
 
@@ -59,32 +59,3 @@ export const showProduct = () => {
       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
   };
 };
-
-// export const deleteAProduct = (id) => {
-//   // console.log(id, "order id at thunk")
-//   return (dispatch) => {
-//     dispatch(ui.actions.setLoading(true));
-//     fetch(BASE_URL + '/delete-product', {
-//       method: 'DELETE',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         // Authorization: accessToken,
-//       },
-//       body: JSON.stringify({
-//         _id: id,
-//       }),
-//     })
-//       .then((res) => res.json())
-//       .then((json) => {
-//         if (json.success) {
-//           console.log(json.response.message)
-//           dispatch(user.actions.setProducts(json.response))
-//         }
-//         else {
-//           dispatch(user.actions.setError(json.response))
-//         }
-//       })
-//       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
-
-//   };
-// };
