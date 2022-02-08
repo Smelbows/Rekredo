@@ -79,14 +79,14 @@ const TextHeader = styled.div`
   width: 100vw;
   height: 40vh;
 `;
-const Text2 = styled(TextHeader)`
-  display: flex;
-  flex-direction: column;
-  align-items: right;
-  text-align: left;
-  width: 80vw;
-  height: 20vh;
-`;
+// const Text2 = styled(TextHeader)`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: right;
+//   text-align: left;
+//   width: 80vw;
+//   height: 20vh;
+// `;
 const Text3 = styled(TextHeader)`
   display: flex;
   flex-direction: column;
