@@ -21,6 +21,11 @@ const ConfirmButton = styled(Button)`
   margin-top: 1em;
 `;
 
+const CheckoutContainer = styled(BigSection)`
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
 const Checkout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,7 +53,7 @@ const Checkout = () => {
     } else if (orderSuccess === false) {
     } else {
     }
-  }, [orderSuccess]);
+  }, [orderSuccess, navigate]);
 
   const onOrderConfirm = () => {
     dispatch(sendOrder(myCart, accessToken));
@@ -57,9 +62,9 @@ const Checkout = () => {
   console.log(myCart);
   return (
     <MiddleContainer>
-      <BigSection>
+      <CheckoutContainer>
         <Cart />
-      </BigSection>
+      </CheckoutContainer>
       {/* Text is white right now but the button works */}
       {myCart.length === 0 ? (
         <P>Your cart is empty right now</P>

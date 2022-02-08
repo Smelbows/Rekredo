@@ -1,4 +1,3 @@
-import { BigSection } from '../../../styledElements/Card';
 import styled from 'styled-components';
 
 import Accordion from './Accordion';
@@ -6,7 +5,7 @@ import Accordion from './Accordion';
 export const Section = styled.section`
   display: flex;
   justify-content: space-around;
-  padding: 6em;
+  padding: 10em;
   align-items: center;
   width: 100vw;
   &:nth-child(2n) {

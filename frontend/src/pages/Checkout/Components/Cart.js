@@ -19,8 +19,6 @@ const Cart = () => {
         <ProductCard key={item._id}>
           <ProductText>
             <P>{item.name}</P>
-            <P>{item.description}</P>
-            <P>{item.category}</P>
             <P>{item.tags}</P>
           </ProductText>
           <img src={item.image?.imageUrl} alt="website" />

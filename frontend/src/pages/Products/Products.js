@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 // import { products } from '../reducers/products';
 import { cart } from '../../reducers/cart';
-import { user } from '../../reducers/user';
+// import { user } from '../../reducers/user';
 import styled from 'styled-components';
 
 import { showProduct } from '../../reducers/products';
@@ -13,8 +13,8 @@ import {
   HeaderSection,
   BigSection,
 } from '../../styledElements/Card';
-import { H1, H2, H3, P, H4, ProductText } from '../../styledElements/Texts';
-import { Button, SmallButton } from '../../styledElements/Buttons';
+import { H1, H2, P, H4, ProductText } from '../../styledElements/Texts';
+import { SmallButton } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
 
 import AddToCartButton from './AddToCartButton';
@@ -38,10 +38,10 @@ const H1x = styled(H1)`
 const Px = styled(P)`
   padding-bottom: 1em;
 `;
-const Text = styled.div`
-  width: 80vw;
-  border: 2px solid black;
-`;
+// const Text = styled.div`
+//   width: 80vw;
+//   border: 2px solid black;
+// `;
 const Products = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -55,9 +55,9 @@ const Products = () => {
     dispatch(showProduct());
   }, [dispatch]);
 
-  const onAddToCart = (product) => {
-    dispatch(cart.actions.setCart(product));
-  };
+  // const onAddToCart = (product) => {
+  //   dispatch(cart.actions.setCart(product));
+  // };
 
   const itemIsInCart = (item) => {
     return myCart.filter((prop) => prop._id === item._id).length > 0;

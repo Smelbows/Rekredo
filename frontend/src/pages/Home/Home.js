@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import ImageCarousel from './Components/ImageCarousel';
 import { BigSection } from '../../styledElements/Card';
 import { MiddleContainer } from '../../styledElements/Container';
-import { H2, H1, P } from '../../styledElements/Texts';
+import { H2, H1, H3 } from '../../styledElements/Texts';
 // import { products } from 'reducers/products';
 import AccordionSection from '../Faq/Components/AccordionSection';
 import Marquee from 'react-fast-marquee';
@@ -20,67 +20,129 @@ const H2x = styled(H2)`
   line-height: 1.75em;
   font-weight: 400;
 `;
-// const HeroImg = styled.img`
-//   height: 70vh;
-//   width: 100vw;
-//   object-fit: cover;
-// `;
-// const HeroContainer = styled.div`
-//   display: grid;
-//   place-items: center;
-//   position: relative;
-//   padding-bottom: 20px;
-// `;
+const H3x = styled(H3)`
+  color: white;
+  line-height: 2.1em;
+  font-weight: 400;
+`;
+
+const H2Marq = styled(H2)`
+  color: black;
+  line-height: 1.75em;
+  font-weight: 400;
+  padding-right: 1em;
+`;
 const CarouselContainer = styled.div`
   display: grid;
-  /* place-items: center; */
   padding-bottom: 20px;
   width: 100vw;
   height: 100vh;
 `;
 
+const MarqueeSection = styled(BigSection)`
+  padding: 3em;
+`;
+
 const PropsCarouselContainer = styled(CarouselContainer)`
-  height: 20em;
+  height: 23em;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    padding: 1em;
+    height: 15em;
+    width: 95vw;
+  }
 `;
 
 const TextContainer = styled.div`
   display: grid;
   place-items: center;
-  top: 15%;
+  top: 13%;
   position: absolute;
   background-color: rgb(30, 30, 30, 0.5);
   z-index: 1;
-  height: 15%;
-  width: 70%;
+  height: 24vh;
+  width: 70vw;
+  @media (max-width: 768px) {
+    top: 14%;
+    width: 90vw;
+  }
 `;
 
 const TextHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: right;
+  padding: 0em 1em 0em 0em;
   margin: 0 auto;
   text-align: left;
   justify-content: space-around;
-  width: 800px;
-  height: 400px;
+  width: 100vw;
+  height: 40vh;
 `;
 const Text2 = styled(TextHeader)`
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: right;
   text-align: left;
-  width: 800px;
-  height: 400px;
+  width: 80vw;
+  height: 20vh;
 `;
 const Text3 = styled(TextHeader)`
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: left;
   text-align: left;
-  width: 800px;
-  height: 400px;
+  width: 80vw;
+  height: 20vh;
+  margin-bottom: 2em;
+`;
+
+const TextText = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: 3em;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const LeftText = styled.div`
+  width: 300%;
+  position: absolute;
+
+  margin-right: 2em;
+  bottom: 40%;
+  right: 105%;
+  @media (max-width: 768px) {
+    width: 100vw;
+    bottom: 0;
+    right: 0;
+  }
+`;
+
+const Seperator = styled.div`
+  display: grid;
+  place-items: center;
+  font-size: 250px;
+  color: white;
+  transform: rotate(20deg);
+  @media (max-width: 768px) {
+    width: 100vw;
+    font-size: 100px;
+  }
+`;
+
+const RightText = styled.div`
+  width: 300%;
+  margin-left: 2em;
+  position: absolute;
+  top: 40%;
+  left: 105%;
+  @media (max-width: 768px) {
+    width: 100vw;
+  }
 `;
 
 const Header = styled.h1`
@@ -126,18 +188,13 @@ const Home = () => {
     } else {
       // Jakob, add your 10 fave prop images here!!!
       return [
-        'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1549396535-c11d5c55b9df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1550167164-1b67c2be3973?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1550338861-b7cfeaf8ffd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1550223640-23097fc71cb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1550353175-a3611868086b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1550330039-a54e15ed9d33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1549737328-8b9f3252b927?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1549833284-6a7df91c1f65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1549985908-597a09ef0a7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1550064824-8f993041ffd3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        'https://res.cloudinary.com/rekredo/image/upload/v1644336742/props/rmpjhaz3kptjbc3ms1hf.jpg',
+        'https://res.cloudinary.com/rekredo/image/upload/v1644336674/props/m10sbq2ytdu7krvqhouv.jpg',
+        'https://res.cloudinary.com/rekredo/image/upload/v1644336557/props/vfil3tnckobml40rcnde.jpg',
+        'https://res.cloudinary.com/rekredo/image/upload/v1644336507/props/l6vrwzonwmg1xszb6ntk.jpg',
+        'https://res.cloudinary.com/rekredo/image/upload/v1644336319/props/xxhf09jsnsiyt137vepb.jpg',
+        'https://res.cloudinary.com/rekredo/image/upload/v1644336236/props/undczggld4kpy19jcjza.jpg',
+        'https://res.cloudinary.com/rekredo/image/upload/v1644335781/props/we2e1k3lkbgz1gsqrnpg.jpg',
       ];
     }
   };
@@ -158,8 +215,8 @@ const Home = () => {
     <>
       <MiddleContainer>
         <TextContainer>
-          <Header className="hero-text"> REKREDO </Header>
-          <H2 className="hero-text"> REKVISITA - ON DEMAND </H2>
+          <Header> REKREDO </Header>
+          <H2> REKVISITA - ON DEMAND </H2>
         </TextContainer>
         <CarouselContainer>
           <ImageCarousel images={images} quantity={1} />
@@ -169,33 +226,67 @@ const Home = () => {
         <TextHeader>
           <H1x>We are Rekredo</H1x>
         </TextHeader>
-        <Text2>
+        {/* <Text2>
           <H2x>A place for your belongings.</H2x>{' '}
-        </Text2>
+        </Text2> */}
         <Text3>
           <H2x>
-            We help bridging the connection between individuals and companies so
-            that renting can occur with ease. Rekredo is on a mission to
-            showcase your valuables in the next movies and tv series.
+            We help bridging the gap between individuals and production crews so
+            that you can rent your stuff renting can occur with ease.
           </H2x>
         </Text3>
       </BigSection>
       <BigSection>
-        <H2>Production Companies, we've got you!</H2>
-        <H2>Individuals, we got you too.</H2>
+        <TextText>
+          <LeftText>
+            <H3x>
+              <span>Production Companies</span> it's finally here. The platform
+              you have been needing all this time. A simplified way for you to
+              find what you need for you next production. We have created a
+              platform where you easily can connect with people all across
+              europe to find unique props what will make the difference in your
+              next production! Register and rent away!
+            </H3x>
+          </LeftText>
+          <Seperator>/</Seperator>
+          <RightText>
+            <H3x>
+              <span>Individuals</span> we got you too. REKREDO is a platform for
+              all those things that you kept in your home for ages. May it be a
+              vintage car, a unique memorable watch or maybe even a summer
+              house; you can now rent these objects to production companies that
+              are looking for props for their next production. We have created a
+              space where you can upload, rent and get paid. What are you
+              waiting for register now and
+              <span>get paid</span>!
+            </H3x>
+          </RightText>
+        </TextText>
       </BigSection>
       <BigSection>
         {images && (
           <PropsCarouselContainer>
             <H1>Recently upload potential!</H1>
-            <ImageCarousel images={getPropImages()} quantity={3} />
+            <ImageCarousel images={getPropImages()} quantity={4} />
           </PropsCarouselContainer>
         )}
       </BigSection>
-      <Marquee>
-        I can be a React component, multiple React components, or just some
-        text.
-      </Marquee>
+      <MarqueeSection>
+        <Marquee play={true} speed={100} gradient={false}>
+          <H2Marq>Cars </H2Marq>
+          <H2Marq> Motorbikes</H2Marq>
+          <H2Marq> Artwork </H2Marq>
+          <H2Marq> Spaces </H2Marq>
+          <H2Marq> Furniture </H2Marq>
+          <H2Marq> House </H2Marq>
+          <H2Marq> Watches </H2Marq>
+          <H2Marq> 1970's</H2Marq>
+          <H2Marq> 1960's </H2Marq>
+          <H2Marq> Clothing </H2Marq>
+          <H2Marq> Electronics </H2Marq>
+          <H2Marq> More... </H2Marq>
+        </Marquee>
+      </MarqueeSection>
 
       <AccordionSection accordionData={accordionData1} />
     </>

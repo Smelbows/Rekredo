@@ -126,17 +126,32 @@ const Footer = () => {
         <TopSection>
           <TextDiv>
             <ContactDiv>
-              <ContactIcon src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/64/ffffff/external-telephone-contact-us-kmg-design-detailed-outline-kmg-design.png" />
+              <ContactIcon
+                src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/64/ffffff/external-telephone-contact-us-kmg-design-detailed-outline-kmg-design.png"
+                alt="telephone"
+              />
               <H4x>08 500 500 5002</H4x>
             </ContactDiv>
             <ContactDiv>
-              <ContactIcon src="https://img.icons8.com/ios/50/ffffff/apple-mail.png" />
+              <ContactIcon
+                src="https://img.icons8.com/ios/50/ffffff/apple-mail.png"
+                alt="mail"
+              />
               <H4x>info@rekredo.com</H4x>
             </ContactDiv>
             <IconDiv>
-              <SocialIcon src="https://img.icons8.com/ios/40/ffffff/instagram-new--v1.png" />
-              <SocialIcon src="https://img.icons8.com/ios/40/ffffff/facebook-new.png" />
-              <SocialIcon src="https://img.icons8.com/ios/50/ffffff/linkedin.png" />
+              <SocialIcon
+                src="https://img.icons8.com/ios/40/ffffff/instagram-new--v1.png"
+                alt="instagram"
+              />
+              <SocialIcon
+                src="https://img.icons8.com/ios/40/ffffff/facebook-new.png"
+                alt="Facebook"
+              />
+              <SocialIcon
+                src="https://img.icons8.com/ios/50/ffffff/linkedin.png"
+                alt="Linkedin"
+              />
             </IconDiv>
           </TextDiv>
           <TextDiv>

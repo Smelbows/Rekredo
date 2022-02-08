@@ -58,9 +58,9 @@ export const Main = styled.section`
 export const BigSection = styled.section`
   display: flex;
   justify-content: space-evenly;
-  padding: 5em;
+  padding: 8em 2em 8em 2em;
   width: 100vw;
-  padding-bottom: 2em;
+  /* padding-bottom: 2em; */
   &:nth-child(2n) {
     background-color: var(--wintergreen);
   }
@@ -68,12 +68,9 @@ export const BigSection = styled.section`
   & > .background {
     width: 100%;
   }
-  .wrap {
-    @media (max-width: 800px) {
-      flex-direction: column;
-      max-width: 80vw;
-      padding: 1em;
-    }
+  @media (max-width: 800px) {
+    flex-direction: column;
+    padding: 1em;
   }
 `;
 
