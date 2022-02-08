@@ -1,5 +1,5 @@
 .accordion {
-  width: 70vw;
+  width: 60vw;
   max-width: 600px;
 }
 
@@ -29,6 +29,6 @@
     font-size: 18px;
   }
   .accordion {
-    width: 80vw;
+    width: 70vw;
   }
 }

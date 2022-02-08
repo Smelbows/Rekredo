@@ -10,11 +10,16 @@ import { H2, H1, P } from '../../styledElements/Texts';
 import AccordionSection from '../Faq/Components/AccordionSection';
 import Marquee from 'react-fast-marquee';
 
+const H1x = styled.h1`
+  color: black;
+  font-size: 4rem;
+  margin-bottom: 1em;
+`;
 const H2x = styled(H2)`
   color: black;
-  border: 2px solid black;
+  line-height: 1.75em;
+  font-weight: 400;
 `;
-
 // const HeroImg = styled.img`
 //   height: 70vh;
 //   width: 100vw;
@@ -41,22 +46,40 @@ const PropsCarouselContainer = styled(CarouselContainer)`
 const TextContainer = styled.div`
   display: grid;
   place-items: center;
-  top: 17%;
+  top: 15%;
   position: absolute;
   background-color: rgb(30, 30, 30, 0.5);
   z-index: 1;
-  height: 20%;
+  height: 15%;
   width: 70%;
 `;
 
-const Text = styled.div`
+const TextHeader = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: right;
   margin: 0 auto;
   text-align: left;
-  border: 2px solid black;
-  width: 400px;
+  justify-content: space-around;
+  width: 800px;
+  height: 400px;
+`;
+const Text2 = styled(TextHeader)`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: right;
+  text-align: left;
+  width: 800px;
+  height: 400px;
+`;
+const Text3 = styled(TextHeader)`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: left;
+  text-align: left;
+  width: 800px;
   height: 400px;
 `;
 
@@ -143,15 +166,19 @@ const Home = () => {
         </CarouselContainer>
       </MiddleContainer>
       <BigSection>
-        <Text>
-          <H2x>We are Rekredo</H2x>
-          <P>
-            You hvae just found the platform you have always been wanting. A
-            place for props. We help bridging the connection between individuals
-            and companies so that renting can occur with ease. Rekredo is on a
-            mission to showcase your valuables in the next movies and tv series.
-          </P>
-        </Text>
+        <TextHeader>
+          <H1x>We are Rekredo</H1x>
+        </TextHeader>
+        <Text2>
+          <H2x>A place for your belongings.</H2x>{' '}
+        </Text2>
+        <Text3>
+          <H2x>
+            We help bridging the connection between individuals and companies so
+            that renting can occur with ease. Rekredo is on a mission to
+            showcase your valuables in the next movies and tv series.
+          </H2x>
+        </Text3>
       </BigSection>
       <BigSection>
         <H2>Production Companies, we've got you!</H2>
@@ -165,12 +192,11 @@ const Home = () => {
           </PropsCarouselContainer>
         )}
       </BigSection>
-      <BigSection>
-        <Marquee>
-          I can be a React component, multiple React components, or just some
-          text.
-        </Marquee>
-      </BigSection>
+      <Marquee>
+        I can be a React component, multiple React components, or just some
+        text.
+      </Marquee>
+
       <AccordionSection accordionData={accordionData1} />
     </>
   );
