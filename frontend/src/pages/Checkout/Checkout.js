@@ -45,7 +45,7 @@ const Checkout = () => {
 
   useEffect(() => {
     dispatch(cart.actions.setOrderSuccess(null));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (orderSuccess) {

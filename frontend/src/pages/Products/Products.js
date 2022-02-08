@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 // import { products } from '../reducers/products';
-import { cart } from '../../reducers/cart';
+// import { cart } from '../../reducers/cart';
 // import { user } from '../../reducers/user';
 import styled from 'styled-components';
 

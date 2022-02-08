@@ -177,7 +177,10 @@ const Footer = () => {
           Stockholm
         </Px>
         <SmallSection>
-          <img src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-chatbot-online-shopping-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" />
+          <img
+            src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-chatbot-online-shopping-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
+            alt="chat"
+          />
         </SmallSection>
       </BottomSection>
     </FooterContainer>
