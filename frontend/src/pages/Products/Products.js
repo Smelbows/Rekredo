@@ -4,16 +4,44 @@ import { useNavigate } from 'react-router-dom';
 // import { products } from '../reducers/products';
 import { cart } from '../../reducers/cart';
 import { user } from '../../reducers/user';
+import styled from 'styled-components';
 
 import { showProduct } from '../../reducers/products';
 // import styled from 'styled-components';
-import { ProductCard, HeaderSection } from '../../styledElements/Card';
-import { H1, H2, H3, P, ProductText } from '../../styledElements/Texts';
+import {
+  ProductCard,
+  HeaderSection,
+  BigSection,
+} from '../../styledElements/Card';
+import { H1, H2, H3, P, H4, ProductText } from '../../styledElements/Texts';
 import { Button, SmallButton } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
 
 import AddToCartButton from './AddToCartButton';
 
+const Input = styled.input`
+  border-radius: 20px;
+  width: 60vw;
+  padding: 0.4em;
+  margin-top: 3em;
+  text-align: center;
+  font-family: var(--fontone);
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 5px;
+  box-shadow: inset 1px 0px 10px 0.5px var(--black);
+`;
+
+const H1x = styled(H1)`
+  padding-bottom: 1em;
+`;
+const Px = styled(P)`
+  padding-bottom: 1em;
+`;
+const Text = styled.div`
+  width: 80vw;
+  border: 2px solid black;
+`;
 const Products = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -38,14 +66,27 @@ const Products = () => {
   return (
     <MiddleContainer>
       <HeaderSection>
-        <H1>Props collection</H1>
-        <H3>Choose unique assortment uploaded from people all over Europe</H3>
+        <H1x>Props collection</H1x>
+        <H4>
+          Choose from our unique assortment of uploaded props from people all
+          over Europe
+        </H4>
+        <Px>
+          Either use our search bar or fine tune your selection through the
+          category buttons
+        </Px>
+        <div>
+          <form>
+            <Input placeholder="Searchbar"></Input>
+          </form>
+        </div>
       </HeaderSection>
       <MiddleContainer>
         {!loading ? (
           allProducts?.map((item) => (
             <ProductCard key={item._id}>
               <ProductText>
+                <H4>{item.category}</H4>
                 <H2>{item.name}</H2>
               </ProductText>
               <img
@@ -74,9 +115,12 @@ const Products = () => {
             </ProductCard>
           ))
         ) : (
-          <h1>loading</h1>
+          <H1>Loading products be patient</H1>
         )}
       </MiddleContainer>
+      <BigSection>
+        <P>Text holder for something like pagination</P>
+      </BigSection>
     </MiddleContainer>
   );
 };

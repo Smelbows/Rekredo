@@ -11,7 +11,7 @@ export const Button = styled.button`
   color: ${(props) => props.propBtnColor || 'var(--white)'};
   border: 1px solid black;
   :disabled {
-    opacity: 0.8;
+    opacity: 1;
     color: var(--black);
     border: 2px black solid;
   }
@@ -23,7 +23,7 @@ export const Button = styled.button`
 
 export const SmallButton = styled.button`
   display: inline-block;
-  font-family: var(--fonttwo)
+  font-family: var(--fonttwo);
   border-radius: 3px 10%;
   padding: 0.5rem 0;
   margin: 0.5rem 0.2rem;
@@ -55,4 +55,5 @@ export const AsideButton = styled.button`
   height: 50px;
   box-shadow: 1px 1px 1px black;
   border-radius: 10px;
+  width: 70%;
 `;

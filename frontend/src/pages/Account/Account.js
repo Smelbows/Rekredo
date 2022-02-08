@@ -37,7 +37,7 @@ const AccountBigSection = styled(BigSection)`
   padding: 2em;
   width: 80%;
   &:nth-child(2n) {
-    background-color: var(--saffron);
+    background-color: var(--white);
   }
   background: var(--saffron);
   & > .background {
@@ -55,7 +55,7 @@ const Aside = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   /* padding: 3em; */
   height: 100vh;
   background: var(--wintergreen);

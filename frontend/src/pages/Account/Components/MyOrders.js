@@ -10,6 +10,7 @@ import { SmallButton } from '../../../styledElements/Buttons';
 const OrderDiv = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   flex-wrap: nowrap;
   justify-content: space-evenly;
   width: 70vw;

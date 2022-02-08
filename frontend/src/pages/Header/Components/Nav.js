@@ -9,9 +9,8 @@ import NavSwitcher from './NavSwitcher';
 
 const Pages = styled(NavLink)`
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
   display: flex;
-  font-size: 1.2em;
   padding: 0.5em;
   color: black;
   &.${(props) => props.activeClassName} {
@@ -32,14 +31,14 @@ const Nav = () => {
     <>
       {isMobile && (
         <>
-        <Menu right>
-          <Pages to="/account">Account</Pages>
-          <Pages to="/products">Products</Pages>
-          <Pages to="/faq">FAQ</Pages>
-          <Pages to="/contact">Contact</Pages>
-          <Pages to="/checkout">Checkout</Pages>
-        </Menu>
-        <Logout/>
+          <Menu right>
+            <Pages to="/account">Account</Pages>
+            <Pages to="/products">Products</Pages>
+            <Pages to="/faq">FAQ</Pages>
+            <Pages to="/contact">Contact</Pages>
+            <Pages to="/checkout">Checkout</Pages>
+          </Menu>
+          <Logout />
         </>
       )}
       {!isMobile && (

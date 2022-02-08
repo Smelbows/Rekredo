@@ -1,7 +1,6 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-
 // import { useSelector } from 'react-redux';
 // import { useEffect } from 'react';
 // import { products } from 'reducers/products';
@@ -33,7 +32,7 @@ const ImageCarousel = ({ images, quantity }) => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 1,
+      items: quantity,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -41,17 +40,13 @@ const ImageCarousel = ({ images, quantity }) => {
     },
   };
 
-
-
   return (
     <Carousel
       responsive={responsive}
       autoPlaySpeed={2000}
+      autoPlay={true}
       infinite={true}
-      removeArrowOnDeviceType={["tablet", "mobile"]}
-
-
-
+      removeArrowOnDeviceType={['tablet', 'mobile']}
     >
       {images.slice(0, 10).map((image, index) => {
         return (
@@ -67,7 +62,5 @@ const ImageCarousel = ({ images, quantity }) => {
     </Carousel>
   );
 };
-
-
 
 export default ImageCarousel;

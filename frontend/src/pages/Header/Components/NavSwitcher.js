@@ -8,7 +8,7 @@ import { Logout } from 'pages/Footer/Components/Logout';
 
 const NavButton = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: 15rem;
 `;
 
@@ -21,10 +21,10 @@ const NavSwitcher = () => {
     <>
       {!accessToken ? (
         <NavButton>
-          <Button propBtnColor="gray" onClick={() => navigate('/register')}>
+          <Button propBtnColor="grey" onClick={() => navigate('/register')}>
             Register
           </Button>
-          <Button propBtnColor="gray" onClick={() => navigate('/log-in')}>
+          <Button propBtnColor="grey" onClick={() => navigate('/log-in')}>
             Log in
           </Button>
         </NavButton>

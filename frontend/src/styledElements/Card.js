@@ -15,15 +15,14 @@ export const Card = styled.div`
 export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 10px;
-  padding: 0.5rem;
-  margin: 0.5rem 1rem;
-  min-height: 100px;
+  padding: 1.2em 1em 1.2em 1em;
+  margin: 1rem;
+  max-height: 450px;
   width: 300px;
-  background-color: var(--wintergreen);
-  color: black;
-  box-shadow: 2px 2px 2px 2px grey;
+  background-color: var(--saffron);
+  box-shadow: 2px 2px 2px 3px grey;
 `;
 
 export const StyledProfileCard = styled.div`
@@ -59,13 +58,13 @@ export const Main = styled.section`
 export const BigSection = styled.section`
   display: flex;
   justify-content: space-evenly;
-  padding: 2em;
+  padding: 5em;
   width: 100vw;
   padding-bottom: 2em;
   &:nth-child(2n) {
     background-color: var(--wintergreen);
   }
-  background: var(--saffron);
+  background: var(--white);
   & > .background {
     width: 100%;
   }
@@ -81,10 +80,11 @@ export const BigSection = styled.section`
 export const HeaderSection = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  /* margin: 1em; */
   align-items: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   width: 100vw;
+  padding: 4em 0em 8em 0em;
   background-color: white;
-  font-family: 'Lora', serif;
 `;
