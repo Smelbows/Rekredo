@@ -166,17 +166,17 @@ const Home = () => {
   const accordionData1 = [
     {
       title: 'How do I upload a prop?',
-      content: `To be able to upload a prop you need to register an account on our register page. Once you have registered you can upload the prop`,
+      content: `To be able to upload a prop you need to register for a personal account on our register page. Once you have registered you can upload the prop.`,
     },
     {
       title: 'Can I make money on things I have at home?',
       content: `You can make money on things you have at home. The most important factor is that there is a need from a production company.
-      As long as you have something interesting or unique your chances increase to make money.`,
+      As long as you have something interesting or unique, your chance to make money increases.`,
     },
     {
       title: 'What are production companies looking for? ',
       content: `Some of the props that we know are important are props that are memorable or tell a story just by being so unique. 
-      A good example is a vintage car from a certain era for example a 1970s Ferrari or a Picasso`,
+      A good example is a vintage car from a certain era, for example a 1970s Ferrari, or a Picasso`,
     },
   ];
 
@@ -231,8 +231,9 @@ const Home = () => {
         </Text2> */}
         <Text3>
           <H2x>
-            We help bridging the gap between individuals and production crews so
-            that you can rent your stuff renting can occur with ease.
+            Bridging the gap between individuals who may have a unique cherished
+            item sitting at home gathering dust, and production crews who are on
+            the hunt for the perfect prop to make their scenes oscar-worthy.
           </H2x>
         </Text3>
       </BigSection>

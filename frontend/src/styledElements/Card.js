@@ -8,8 +8,11 @@ export const Card = styled.div`
   width: 40vw;
   background: var(--wintergreen);
   color: var(--black);
-  justify-content: space-between;
+  justify-content: space-evenly;
   box-shadow: 2px 2px 2px 2px grey;
+  @media (max-width: 768px) {
+    width: 100vw;
+  }
 `;
 
 export const ProductCard = styled.div`

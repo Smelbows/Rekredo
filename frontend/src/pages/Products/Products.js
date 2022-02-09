@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 // import { products } from '../reducers/products';
@@ -43,6 +43,7 @@ const Px = styled(P)`
 //   border: 2px solid black;
 // `;
 const Products = () => {
+  const [searchValue, setSearchValue] = useState('')
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products.productList);
@@ -52,8 +53,8 @@ const Products = () => {
   // const accessToken = useSelector((state) => state.user.accessToken)
 
   useEffect(() => {
-    dispatch(showProduct());
-  }, [dispatch]);
+    dispatch(showProduct(searchValue));
+  }, [dispatch, searchValue]);
 
   // const onAddToCart = (product) => {
   //   dispatch(cart.actions.setCart(product));
@@ -77,7 +78,7 @@ const Products = () => {
         </Px>
         <div>
           <form>
-            <Input placeholder="Searchbar"></Input>
+            <Input type="text" placeholder="Searchbar" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}></Input>
           </form>
         </div>
       </HeaderSection>

@@ -2,3 +2,9 @@
   width: 100vw;
   overflow-x: none;
 }
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--wintergreen);
+  opacity: 1; /* Firefox */
+  font-size: 0.7em;
+}

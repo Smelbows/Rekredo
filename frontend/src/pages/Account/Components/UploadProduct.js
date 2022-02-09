@@ -96,6 +96,7 @@ export const UploadProduct = () => {
           <StyledInput
             type="text"
             value={tags}
+            placeholder='separate the tags with a comma'
             onChange={(e) => setTags(e.target.value)}
           />
         </Label>

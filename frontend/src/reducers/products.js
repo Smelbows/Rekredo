@@ -43,10 +43,10 @@ export const products = createSlice({
   },
 });
 
-export const showProduct = () => {
+export const showProduct = (searchValue) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    fetch(BASE_URL + '/products')
+    fetch(BASE_URL + `/products?description=${searchValue}`)
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {

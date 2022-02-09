@@ -12,7 +12,7 @@ export const MiddleContainer = styled.div`
   /* padding: 1em 0; */
   width: 100vw;
   background: var(--white);
-  min-height: 70vh;
+  /* min-height: 70vh; */
   box-sizing: border-box;
 
   @media (min-width: 768px) {

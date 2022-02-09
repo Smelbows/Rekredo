@@ -8,6 +8,7 @@ export const Form = styled.form`
   align-items: center;
 `;
 
+
 export const StyledInput = styled.input`
   padding: 5px;
   font-size: 1.2em;
@@ -15,6 +16,7 @@ export const StyledInput = styled.input`
   margin: 5px;
   padding: 5px;
   border-radius: 3px;
+  width: 100%;
   /* margin-bottom: 10px; */
 
   // -webkit-appearance: none;
@@ -28,7 +30,7 @@ export const FormBox = styled.div`
   margin: 0 auto;
   justify-content: center;
   align-items: center;
-  margin: 6em;
+  /* margin: 6em; */
   padding: 1em;
   box-shadow: 0 0 40px grey;
 
