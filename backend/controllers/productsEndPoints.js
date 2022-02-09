@@ -3,11 +3,16 @@ const { Product } = require('../models/models.js');
 export const getProducts = async (req, res) => {
   const { description, category } = req.query;
 
+  const query = {
+    description: new RegExp(description, 'i'),
+  }  
+  if (category){
+    query.category = category
+  }
+
   try {
-    const allProducts = await Product.find({
-      category: new RegExp(category, 'i'),
-      description: new RegExp(description, 'i'),
-    })
+    console.log(query)
+    const allProducts = await Product.find(query)
       .populate('image')
       .sort({ createdAt: 'desc' });
 
