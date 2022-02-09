@@ -60,10 +60,11 @@ export const Main = styled.section`
 
 export const BigSection = styled.section`
   display: flex;
+  flex-direction: column;
+  padding: 1em;
   justify-content: space-evenly;
   padding: 8em 0em 8em 0em;
   width: 100vw;
-  /* padding-bottom: 2em; */
   &:nth-child(2n) {
     background-color: var(--wintergreen);
   }
@@ -71,9 +72,11 @@ export const BigSection = styled.section`
   & > .background {
     width: 100%;
   }
-  @media (max-width: 800px) {
-    flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
     padding: 1em;
+    width: 80%;
+    margin: 0 auto;
   }
 `;
 

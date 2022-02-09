@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { H1 } from '../../../styledElements/Texts';
+import { H1, H5, H6 } from '../../../styledElements/Texts';
 import { ProductCard } from 'styledElements/Card';
 import { ProductText, H2 } from 'styledElements/Texts';
 import { SmallButton } from 'styledElements/Buttons';
@@ -32,13 +32,17 @@ const MyProps = () => {
           props.map((item) => (
             <ProductCard key={item._id}>
               <ProductText>
-                <H2>{item.name}</H2>
+                <H5 color="black">{item.name}</H5>
               </ProductText>
               <img
                 src={item.image?.imageUrl}
                 className="product-image"
                 alt="website"
               />
+              <ProductText>
+                <H6 color="black">Category: {item.category}</H6>
+              </ProductText>
+
               <SmallButton onClick={() => handleDeleteProduct(item._id)}>
                 Delete
               </SmallButton>

@@ -10,12 +10,14 @@ export const MiddleContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   /* padding: 1em 0; */
-  width: 100vw;
+
   background: var(--white);
   /* min-height: 70vh; */
   box-sizing: border-box;
 
   @media (min-width: 768px) {
     /* padding-bottom: 8em; */
+    justify-content: ${(props) => props.justify || 'center'};
+    width: 100vw;
   }
 `;

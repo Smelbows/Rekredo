@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 import { AsideButton } from 'styledElements/Buttons';
+import { P } from 'styledElements/Texts';
 
 import messages from '../../../images/messages.png';
 import props from '../../../images/props.png';
@@ -15,19 +16,19 @@ const PersonalAccountNav = ({ activeSection, setActiveSection }) => {
     <>
       <AsideButton onClick={() => setActiveSection('upload new')}>
         <img src={upload} alt="upload icon"></img>
-        <p>Upload New Prop</p>
+        <P mobileDisplay="none">Upload New Prop</P>
       </AsideButton>
       <AsideButton onClick={() => setActiveSection('update account')}>
         <img src={settings} alt="settings icon"></img>
-        Account Settings
+        <P mobileDisplay="none">Account Settings</P>
       </AsideButton>
       <AsideButton onClick={() => setActiveSection('view props')}>
         <img src={props} alt="props icon"></img>
-        My Props
+        <P mobileDisplay="none">My Props</P>
       </AsideButton>
       <AsideButton onClick={() => setActiveSection('messages')}>
         <img src={messages} alt="message icon"></img>
-        <p>Messages</p>
+        <P mobileDisplay="none">Messages</P>
       </AsideButton>
     </>
   );

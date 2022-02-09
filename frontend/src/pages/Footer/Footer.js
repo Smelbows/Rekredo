@@ -130,14 +130,14 @@ const Footer = () => {
                 src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/64/ffffff/external-telephone-contact-us-kmg-design-detailed-outline-kmg-design.png"
                 alt="telephone"
               />
-              <H4x>08 500 500 5002</H4x>
+              <P color="white">08 500 500 5002</P>
             </ContactDiv>
             <ContactDiv>
               <ContactIcon
                 src="https://img.icons8.com/ios/50/ffffff/apple-mail.png"
                 alt="mail"
               />
-              <H4x>info@rekredo.com</H4x>
+              <P color="white">info@rekredo.com</P>
             </ContactDiv>
             <IconDiv>
               <SocialIcon
@@ -155,33 +155,33 @@ const Footer = () => {
             </IconDiv>
           </TextDiv>
           <TextDiv>
-            <H3x>REKREDO</H3x>
+            <H6 paddingBottom="0.75em">REKREDO</H6>
             <StyledLink to="/about">About us</StyledLink>
             <StyledLink to="/faq">FAQ</StyledLink>
           </TextDiv>
           <TextDiv>
-            <H3x>HOW TO</H3x>
+            <H6 paddingBottom="0.75em">HOW TO</H6>
             <StyledLink to="/products">Products</StyledLink>
             <StyledLink to="/Checkout">Checkout</StyledLink>
           </TextDiv>{' '}
           <TextDiv>
-            <H6 color="white">CONTACT</H6>
-            <StyledLink to="/contact">Conact form</StyledLink>
+            <H6 paddingBottom="0.75em">CONTACT</H6>
+            <StyledLink to="/contact">Contact form</StyledLink>
             <StyledLink to="/faq">FAQ</StyledLink>
           </TextDiv>
         </TopSection>
-      <BottomSection>
-        <Px>
-          © REKREDO AB Org. nr: 999999-6666. Stockholmsgatan 99, 199 99
-          Stockholm
-        </Px>
-        <SmallSection>
-          <img
-            src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-chatbot-online-shopping-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
-            alt="chat"
-          />
-        </SmallSection>
-      </BottomSection>
+        <BottomSection>
+          <Px>
+            © REKREDO AB Org. nr: 999999-6666. Stockholmsgatan 99, 199 99
+            Stockholm
+          </Px>
+          <SmallSection>
+            <img
+              src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-chatbot-online-shopping-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
+              alt="chat"
+            />
+          </SmallSection>
+        </BottomSection>
       </HeaderSection>
     </FooterContainer>
   );

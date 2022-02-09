@@ -23,7 +23,7 @@ body {
   --fontone: 'Montserrat', sans-serif;
   --fonttwo: 'Lora', serif;
   --green: #3df590;
-  --saffron: #ff9b42;
+  --saffron: rgb(255, 155, 66, 0.9);
   --wintergreen: #546d64;
   --white: #f4f4f4;
   --black: #111111;

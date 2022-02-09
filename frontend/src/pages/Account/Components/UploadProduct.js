@@ -7,13 +7,12 @@ import { uploadProduct } from 'reducers/upload';
 import { PropButton, Button } from '../../../styledElements/Buttons';
 import { FormBox, Form, StyledInput, Label } from 'styledElements/Form';
 
-
 export const UploadProduct = () => {
   const dispatch = useDispatch();
   const image = useSelector((state) => state.upload.image);
   const productError = useSelector((state) => state.upload.imageError);
   const product = useSelector((state) => state.upload.product);
-  const accessToken = useSelector((state) => state.user.accessToken)
+  const accessToken = useSelector((state) => state.user.accessToken);
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -32,7 +31,15 @@ export const UploadProduct = () => {
     e.preventDefault();
     const allTags = tags?.split(',');
     dispatch(
-      uploadProduct(name, description, category, allTags, image, clearForm, accessToken)
+      uploadProduct(
+        name,
+        description,
+        category,
+        allTags,
+        image,
+        clearForm,
+        accessToken
+      )
     );
     // if (image == null) {
     //   e.preventDefault();
@@ -84,7 +91,7 @@ export const UploadProduct = () => {
           <StyledInput
             type="text"
             value={tags}
-            placeholder='separate the tags with a comma'
+            placeholder="separate the tags with a comma"
             onChange={(e) => setTags(e.target.value)}
           />
         </Label>

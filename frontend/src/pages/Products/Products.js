@@ -14,7 +14,16 @@ import {
   HeaderSection,
   BigSection,
 } from '../../styledElements/Card';
-import { H1, H2, H3, P, H4, ProductText } from '../../styledElements/Texts';
+import {
+  H1,
+  H2,
+  H3,
+  P,
+  H4,
+  H5,
+  H6,
+  ProductText,
+} from '../../styledElements/Texts';
 import { SmallButton } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
 
@@ -71,7 +80,7 @@ const Products = () => {
     <MiddleContainer>
       <HeaderSection>
         <H2>Props collection</H2>
-        <H4>
+        <H4 color="black">
           Choose from our unique assortment of uploaded props from people all
           over Europe
         </H4>
@@ -111,14 +120,17 @@ const Products = () => {
           allProducts?.map((item) => (
             <ProductCard key={item._id}>
               <ProductText>
-                <H4>{item.category}</H4>
-                <H2>{item.name}</H2>
+                <H5 color="black">{item.name}</H5>
               </ProductText>
               <img
                 src={item.image?.imageUrl}
                 className="product-image"
                 alt="website"
               />
+              <ProductText>
+                <H6 color="black">Category: {item.category}</H6>
+              </ProductText>
+
               <SmallButton onClick={() => navigate(`/products/${item._id}`)}>
                 Prop details
               </SmallButton>
@@ -140,7 +152,7 @@ const Products = () => {
             </ProductCard>
           ))
         ) : (
-          <H1>Loading products be patient</H1>
+          <H5 color="black">Loading products</H5>
         )}
       </MiddleContainer>
       <BigSection>

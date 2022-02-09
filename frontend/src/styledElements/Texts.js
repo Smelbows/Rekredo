@@ -12,7 +12,7 @@ export const H2 = styled.h2`
   font-size: 4em;
   font-family: var(--fontone);
   color: ${(props) => props.color || 'var(--black)'};
-  /* line-height: ${(props) => props.height}; */
+  line-height: ${(props) => props.height};
   font-weight: ${(props) => props.weight};
 `;
 
@@ -36,17 +36,28 @@ export const H5 = styled.h5`
   font-family: var(--fontone);
   color: ${(props) => props.color || 'var(--white)'};
   line-height: ${(props) => props.height};
+  font-weight: ${(props) => props.weight};
+  padding-right: ${(props) => props.paddingRight || '1em'};
 `;
 export const H6 = styled.h6`
   font-size: 1.25em;
   font-family: var(--fontone);
   color: ${(props) => props.color || 'var(--white)'};
+  padding-bottom: ${(props) => props.paddingBottom};
+  line-height: ${(props) => props.height};
+  font-weight: ${(props) => props.weight};
 `;
 
 export const P = styled.p`
+  display: ${(props) => props.mobileDisplay || 'inline'};
   font-size: 1em
   font-family: var(--fonttwo);
   color: ${(props) => props.color || 'var(--black)'};
+
+  @media (min-width: 768px) {
+    display: inline;
+  }
+
 `;
 
 export const ProductText = styled.div`

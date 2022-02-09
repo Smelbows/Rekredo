@@ -11,6 +11,10 @@ const HeaderBox = styled.div`
   width: 100vw;
   justify-content: space-evenly;
   height: 7rem;
+  position: relative;
+  @media (min-width: 768px) {
+    height: 12rem;
+  }
 `;
 
 const HeaderSection = styled.div`
@@ -40,7 +44,9 @@ const HeaderLogo = styled.div`
 const LogoImg = styled.img`
   width: 8rem;
   @media (min-width: 768px) {
-    width: 13em;
+    height: 12rem;
+    width: 20rem;
+    object-fit: cover;
   }
 `;
 
@@ -60,5 +66,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// background - image: url(${ Background });

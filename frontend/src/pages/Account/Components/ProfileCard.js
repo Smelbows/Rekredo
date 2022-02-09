@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { StyledProfileCard } from 'styledElements/Card';
 import { Button } from '../../../styledElements/Buttons';
 import { H4, P } from 'styledElements/Texts';
-import { Form, Label, StyledInput } from 'styledElements/Form';
+import { Form, Label, StyledInput, TextArea } from 'styledElements/Form';
 import styled from 'styled-components';
 
 const Account = styled.div`
@@ -13,17 +13,39 @@ const Account = styled.div`
 `;
 
 const GridForm = styled.form`
+  margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  
+  grid-template-columns: 1fr;
+  gap: 30px;
+
+  /* & > button {
+    grid-row: 5/6;
+  }
+  & > textarea {
+    grid-row: 4/5;
+    grid-column: 1/3;
+  } */
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+
+    & > button {
+      grid-row: 5/6;
+    }
+    & > textarea {
+      grid-row: 4/5;
+      grid-column: 1/3;
+    }
+  }
 `;
 
 const ProfileCard = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  const [name, setName] = useState([user.username]);
+  const [username, setUsername] = useState([user.username]);
   const [email, setEmail] = useState([user.email]);
-
+  const [accountType, setAccountType] = useState([user.accountType]);
+  const [firstName, setFirstName] = useState('');
+  const [surname, setSurname] = useState('');
 
   console.log(user);
   return (
@@ -31,41 +53,59 @@ const ProfileCard = () => {
       <H4 padding="none" color="var(--black)">
         Account Settings
       </H4>
+
       <GridForm>
-        <Label>
-          Username
-          <input
+        <Label bottom="0" padding="0px" textAlign="left">
+          First name
+          <StyledInput
+            margin="10px 0"
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
           />
         </Label>
-        <Label>
+        <Label bottom="0" padding="0px" textAlign="left">
+          Surname
+          <StyledInput
+            margin="10px 0"
+            type="text"
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
+          />
+        </Label>
+        <Label bottom="0" padding="0px" textAlign="left">
+          Username
+          <StyledInput
+            margin="10px 0"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </Label>
+        <Label bottom="0" padding="0px" textAlign="left">
           Email
-          <input
+          <StyledInput
+            margin="10px 0"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </Label>
-        <div>
-          <P>Hello {user.username}</P>
-          <Button propBtnColor="var(--black)">Edit username</Button>
-        </div>
-        <div>
-          <P>Account type: {user.accountType}</P>
-          <Button propBtnColor="var(--black)">Edit account type</Button>
-        </div>
-        <div>
-          <P>Email: {user.email}</P>
-          <Button propBtnColor="var(--black)">Edit email</Button>
-        </div>
-        <Button propBtnColor="var(--black)">Delete account</Button>
-        <Button
-          propBtnColor="var(--black)"
-          onClick={() => navigate('/contact')}
-        >
-          need help? click here
+        <Label bottom="0" padding="0px" textAlign="left">
+          Account type
+          <StyledInput
+            margin="10px 0"
+            type="text"
+            value={accountType}
+            onChange={(e) => setAccountType(e.target.value)}
+          />
+        </Label>
+        <TextArea margin="0" placeholder="Add a bio" />
+        <Button propBtnColor="var(--white)" background="var(--wintergreen)">
+          Update
+        </Button>
+        <Button propBtnColor="var(--white)" background="var(--wintergreen)">
+          Delete my account
         </Button>
       </GridForm>
     </Account>

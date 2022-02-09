@@ -7,7 +7,7 @@ export const Button = styled.button`
   padding: 0.5rem;
   margin: 0.5rem 1rem;
   width: 8rem;
-  background: transparent;
+  background: ${(props) => props.background || 'transparent'};
   color: ${(props) => props.propBtnColor || 'var(--white)'};
   border: 1px solid black;
   :disabled {
@@ -49,7 +49,7 @@ export const PropButton = styled.button`
 
 export const AsideButton = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   text-decoration: none;
@@ -61,6 +61,10 @@ export const AsideButton = styled.div`
   border-bottom: solid 0.5px;
   padding-left: 10%;
   background-color: var(--white);
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
 
   :hover {
     background-color: var(--wintergreen);

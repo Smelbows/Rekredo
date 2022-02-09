@@ -29,7 +29,6 @@ const AccountMain = styled(MiddleContainer)`
     display: flex;
     flex-direction: column;
     max-width: 100vw;
-    height: 80vh;
     justify-content: space-between;
   }
 `;
@@ -38,6 +37,7 @@ const AccountBigSection = styled(BigSection)`
   display: flex;
   padding: 2em;
   width: 80%;
+  border-left: solid var(--wintergreen) 0.5px;
   &:nth-child(2n) {
     background-color: var(--white);
   }
@@ -53,22 +53,23 @@ const AccountBigSection = styled(BigSection)`
   }
 `;
 const Aside = styled.section`
-  width: 20%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  width: 100vw;
+  height: 15%;
   background: var(--white);
-  border-right: solid var(--wintergreen) 0.5px;
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 15%;
-    font-size: 10px;
+  & > :first-child {
+    grid-column: 1 / 5;
   }
-
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr;
+    & > :first-child {
+      grid-column: 1 / 2;
+    }
+    width: 20%;
+  }
 `;
 
 const ProfileContainer = styled.div`
