@@ -1,11 +1,12 @@
 const { Product } = require('../models/models.js');
 
 export const getProducts = async (req, res) => {
-  const {description} = req.query
+  const { description, category } = req.query;
 
   try {
     const allProducts = await Product.find({
-      description: new RegExp(description, "i")
+      category: new RegExp(category, 'i'),
+      description: new RegExp(description, 'i'),
     })
       .populate('image')
       .sort({ createdAt: 'desc' });
@@ -33,7 +34,7 @@ export const getProductById = async (req, res) => {
 };
 
 export const deleteProduct = async (req, res) => {
-  console.log(req.body, "body in backend")
+  console.log(req.body, 'body in backend');
   const { _id } = req.body;
 
   // console.log(_id, "deleteProduct endpoint")
@@ -51,4 +52,3 @@ export const deleteProduct = async (req, res) => {
     res.status(400).json({ response: 'Prouct id not found', success: false });
   }
 };
-

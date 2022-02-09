@@ -5,20 +5,8 @@ import styled from 'styled-components';
 
 import { uploadProduct } from 'reducers/upload';
 import { PropButton, Button } from '../../../styledElements/Buttons';
-import { FormBox, Form, StyledInput } from 'styledElements/Form';
+import { FormBox, Form, StyledInput, Label } from 'styledElements/Form';
 
-const Label = styled.label`
-  padding: 10px 35px;
-  font-size: 1.2em;
-  border-radius: 3px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-`;
 
 export const UploadProduct = () => {
   const dispatch = useDispatch();

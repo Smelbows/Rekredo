@@ -24,6 +24,19 @@ export const StyledInput = styled.input`
   // appearance: none;
 `;
 
+export const Label = styled.label`
+  padding: 10px 35px;
+  font-size: 1.2em;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+`;
+
 export const FormBox = styled.div`
   display: flex;
   flex-direction: column;

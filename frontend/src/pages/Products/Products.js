@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // import { cart } from '../../reducers/cart';
 // import { user } from '../../reducers/user';
 import styled from 'styled-components';
+import { Label } from 'styledElements/Form';
 
 import { showProduct } from '../../reducers/products';
 // import styled from 'styled-components';
@@ -21,7 +22,7 @@ import AddToCartButton from './AddToCartButton';
 
 const Input = styled.input`
   border-radius: 20px;
-  width: 60vw;
+  width: 20vw;
   padding: 0.4em;
   margin-top: 3em;
   text-align: center;
@@ -44,6 +45,8 @@ const Px = styled(P)`
 // `;
 const Products = () => {
   const [searchValue, setSearchValue] = useState('')
+  const [category, setCategory] = useState('');
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products.productList);
@@ -52,9 +55,10 @@ const Products = () => {
   const typeOfUser = useSelector((state) => state.user.accountType);
   // const accessToken = useSelector((state) => state.user.accessToken)
 
+
   useEffect(() => {
-    dispatch(showProduct(searchValue));
-  }, [dispatch, searchValue]);
+    dispatch(showProduct(searchValue, category));
+  }, [dispatch, searchValue, category]);
 
   // const onAddToCart = (product) => {
   //   dispatch(cart.actions.setCart(product));
@@ -79,6 +83,22 @@ const Products = () => {
         <div>
           <form>
             <Input type="text" placeholder="Searchbar" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}></Input>
+            <Label>
+          Prop category
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option defaultValue="">Please select a category</option>
+            <option value="Instrument">Instrument</option>
+            <option value="Vehicle">Vehicle</option>
+            <option value="Art">Art</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Toys">Toys</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Environment">Environment</option>
+          </select>
+        </Label>
           </form>
         </div>
       </HeaderSection>
