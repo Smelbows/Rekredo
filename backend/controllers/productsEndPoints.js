@@ -5,7 +5,9 @@ export const getProducts = async (req, res) => {
 
   const query = {
     description: new RegExp(description, 'i'),
+    availability: true
   }  
+
   if (category){
     query.category = category
   }

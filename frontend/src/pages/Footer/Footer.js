@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux';
 import { Logout } from './Components/Logout';
 import Logo from '../../images/RekRedo.png';
-import { P, H3, H4 } from '../../styledElements/Texts';
+import { P, H3, H4, H6 } from '../../styledElements/Texts';
 
 const Px = styled(P)`
   color: white;
@@ -34,7 +34,7 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   position: absolute;
   align-items: center;
-  font-family: 'Lora', serif;
+  font-family: var(--fonttwo);
   width: 100vw;
   background-color: #546d64;
   justify-content: center;
@@ -84,7 +84,7 @@ export const HeaderSection = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: var(--fonttwo);
-  width: 100vw;
+  width: 80vw;
 `;
 export const BottomSection = styled.div`
   display: flex;
@@ -165,12 +165,11 @@ const Footer = () => {
             <StyledLink to="/Checkout">Checkout</StyledLink>
           </TextDiv>{' '}
           <TextDiv>
-            <H3x>CONTACT</H3x>
+            <H6 color="white">CONTACT</H6>
             <StyledLink to="/contact">Conact form</StyledLink>
             <StyledLink to="/faq">FAQ</StyledLink>
           </TextDiv>
         </TopSection>
-      </HeaderSection>
       <BottomSection>
         <Px>
           © REKREDO AB Org. nr: 999999-6666. Stockholmsgatan 99, 199 99
@@ -183,6 +182,7 @@ const Footer = () => {
           />
         </SmallSection>
       </BottomSection>
+      </HeaderSection>
     </FooterContainer>
   );
 };

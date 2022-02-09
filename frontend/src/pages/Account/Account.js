@@ -14,6 +14,8 @@ import Summary from './Summary';
 import MyOrders from './Components/MyOrders';
 import MyProps from './Components/MyProps';
 
+import testAccount from '../../images/test-account.png';
+
 // import { Button, PropButton } from '../styledElements/Buttons';
 // import { StyledProfileCard } from '../styledElements/Card';
 import { BigSection } from '../../styledElements/Card';
@@ -54,17 +56,34 @@ const Aside = styled.section`
   width: 20%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  /* padding: 3em; */
   height: 100vh;
-  background: var(--wintergreen);
+  background: var(--white);
+  border-right: solid var(--wintergreen) 0.5px;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: row;
     width: 100vw;
     height: 15%;
     font-size: 10px;
+  }
+
+`;
+
+const ProfileContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: solid 0.5px;
+  padding: 20px;
+
+  & > img {
+    width: 60%;
+  }
+  & > p {
+    font-size: 1.5em;
   }
 `;
 
@@ -94,6 +113,10 @@ const Account = () => {
   return (
     <AccountMain>
       <Aside>
+        <ProfileContainer>
+          <img src={testAccount} alt="profile-pic"></img>
+          <p>{user.username}</p>
+        </ProfileContainer>
         {user.accountType === 'Personal' && (
           <PersonalAccountNav
             activeSection={activeSection}

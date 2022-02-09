@@ -8,8 +8,15 @@ import { Logout } from 'pages/Footer/Components/Logout';
 
 const NavButton = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  width: 15rem;
+  margin: 2em 0;
+  @media (min-width:768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 15rem;
+  }
 `;
 
 const NavSwitcher = () => {

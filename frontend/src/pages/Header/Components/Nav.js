@@ -32,13 +32,14 @@ const Nav = () => {
       {isMobile && (
         <>
           <Menu right>
+            <NavSwitcher />
             <Pages to="/account">Account</Pages>
             <Pages to="/products">Products</Pages>
             <Pages to="/faq">FAQ</Pages>
             <Pages to="/contact">Contact</Pages>
             <Pages to="/checkout">Checkout</Pages>
           </Menu>
-          <Logout />
+          
         </>
       )}
       {!isMobile && (

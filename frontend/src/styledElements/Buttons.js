@@ -47,13 +47,24 @@ export const PropButton = styled.button`
   border: 2px solid white;
 `;
 
-export const AsideButton = styled.button`
+export const AsideButton = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
-  margin: 10px;
-  font-size: 1.2em;
-  height: 50px;
-  box-shadow: 1px 1px 1px black;
-  border-radius: 10px;
-  width: 70%;
+  font-size: 1em;
+  height: 60px;
+  width: 100%;
+  border: 0;
+  border-bottom: solid 0.5px;
+  padding-left: 10%;
+  background-color: var(--white);
+
+  :hover {
+    background-color: var(--wintergreen);
+    color: var(--white);
+    cursor: pointer;
+  }
 `;

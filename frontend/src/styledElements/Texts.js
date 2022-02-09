@@ -1,28 +1,52 @@
 import styled from 'styled-components';
 
 export const H1 = styled.h1`
+  font-size: 6em;
   font-family: var(--fontone);
-  color: var(--black);
-  text-decoration-line: underline;
-  text-align: center;
+  color: ${(props) => props.textColor || 'var(--black)'};
+  text-decoration-line: ${(props) => props.textDecor || 'underline'};
+  background-color: ${(props) => props.backGroundColor};
 `;
+
 export const H2 = styled.h2`
+  font-size: 4em;
   font-family: var(--fontone);
-  color: var(--white);
+  color: ${(props) => props.color || 'var(--black)'};
+  /* line-height: ${(props) => props.height}; */
+  font-weight: ${(props) => props.weight};
 `;
 
 export const H3 = styled.h3`
+  font-size: 3em;
   font-family: var(--fontone);
-  color: var(--white);
+  color: ${(props) => props.color || 'var(--white)'};
 `;
 export const H4 = styled.h4`
-  font-family: var(--fonttwo);
-  color: var(--black);
+  font-size: 2em;
+  font-family: var(--fontone);
+  color: ${(props) => props.color || 'var(--white)'};
+  line-height: ${(props) => props.height};
+  font-weight: ${(props) => props.weight};
+  background-color: ${(props) => props.backGroundColor};
+  padding: ${(props) => props.padding || '1em'};
+`;
+
+export const H5 = styled.h5`
+  font-size: 1.5em;
+  font-family: var(--fontone);
+  color: ${(props) => props.color || 'var(--white)'};
+  line-height: ${(props) => props.height};
+`;
+export const H6 = styled.h6`
+  font-size: 1.25em;
+  font-family: var(--fontone);
+  color: ${(props) => props.color || 'var(--white)'};
 `;
 
 export const P = styled.p`
+  font-size: 1em
   font-family: var(--fonttwo);
-  color: var(--black);
+  color: ${(props) => props.color || 'var(--black)'};
 `;
 
 export const ProductText = styled.div`

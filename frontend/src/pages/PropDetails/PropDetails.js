@@ -30,8 +30,10 @@ const PropDetails = () => {
     return myCart.filter((prop) => prop._id === item._id).length > 0;
   };
 
+
+
   return (
-    <MiddleContainer>
+    <MiddleContainer >
       <BigSection>
         <Box>
           <p>{prop.name}</p>
@@ -44,12 +46,6 @@ const PropDetails = () => {
             <>
               {typeOfUser === 'Business' && (
                 <AddToCartButton item={prop} />
-                // <Button
-                //   onClick={() => onAddToCart(item)}
-                //   disabled={itemIsInCart(item)}
-                // >
-                //   Add to cart
-                // </Button>
               )}
             </>
           )}

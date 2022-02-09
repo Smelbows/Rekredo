@@ -40,7 +40,7 @@ const HeaderLogo = styled.div`
 const LogoImg = styled.img`
   width: 8rem;
   @media (min-width: 768px) {
-    width: 8em;
+    width: 13em;
   }
 `;
 

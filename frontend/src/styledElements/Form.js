@@ -8,7 +8,6 @@ export const Form = styled.form`
   align-items: center;
 `;
 
-
 export const StyledInput = styled.input`
   padding: 5px;
   font-size: 1.2em;

@@ -61,7 +61,7 @@ export const Main = styled.section`
 export const BigSection = styled.section`
   display: flex;
   justify-content: space-evenly;
-  padding: 8em 2em 8em 2em;
+  padding: 8em 0em 8em 0em;
   width: 100vw;
   /* padding-bottom: 2em; */
   &:nth-child(2n) {

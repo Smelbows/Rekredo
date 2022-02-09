@@ -14,7 +14,7 @@ import {
   HeaderSection,
   BigSection,
 } from '../../styledElements/Card';
-import { H1, H2, P, H4, ProductText } from '../../styledElements/Texts';
+import { H1, H2, H3, P, H4, ProductText } from '../../styledElements/Texts';
 import { SmallButton } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
 
@@ -44,7 +44,7 @@ const Px = styled(P)`
 //   border: 2px solid black;
 // `;
 const Products = () => {
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState('');
   const [category, setCategory] = useState('');
 
   const navigate = useNavigate();
@@ -54,7 +54,6 @@ const Products = () => {
   const myCart = useSelector((state) => state.cart.cartList);
   const typeOfUser = useSelector((state) => state.user.accountType);
   // const accessToken = useSelector((state) => state.user.accessToken)
-
 
   useEffect(() => {
     dispatch(showProduct(searchValue, category));
@@ -71,34 +70,39 @@ const Products = () => {
   return (
     <MiddleContainer>
       <HeaderSection>
-        <H1x>Props collection</H1x>
+        <H2>Props collection</H2>
         <H4>
           Choose from our unique assortment of uploaded props from people all
           over Europe
         </H4>
-        <Px>
+        <P>
           Either use our search bar or fine tune your selection through the
           category buttons
-        </Px>
+        </P>
         <div>
           <form>
-            <Input type="text" placeholder="Searchbar" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}></Input>
+            <Input
+              type="text"
+              placeholder="Searchbar"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            ></Input>
             <Label>
-          Prop category
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option defaultValue="">Please select a category</option>
-            <option value="Instrument">Instrument</option>
-            <option value="Vehicle">Vehicle</option>
-            <option value="Art">Art</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Toys">Toys</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Environment">Environment</option>
-          </select>
-        </Label>
+              Prop category
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option defaultValue="">Please select a category</option>
+                <option value="Instrument">Instrument</option>
+                <option value="Vehicle">Vehicle</option>
+                <option value="Art">Art</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Toys">Toys</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Environment">Environment</option>
+              </select>
+            </Label>
           </form>
         </div>
       </HeaderSection>
