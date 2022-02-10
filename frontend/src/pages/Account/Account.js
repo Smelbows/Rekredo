@@ -13,6 +13,7 @@ import BusinessAccountNav from './Components/BusinessAccNav';
 import Summary from './Summary';
 import MyOrders from './Components/MyOrders';
 import MyProps from './Components/MyProps';
+import Messages from './Components/Messages';
 
 import testAccount from '../../images/test-account.png';
 
@@ -34,9 +35,10 @@ const AccountMain = styled(MiddleContainer)`
 `;
 
 const AccountBigSection = styled(BigSection)`
-  display: flex;
-  padding: 2em;
-  width: 80%;
+  display: block;
+  padding: 0;
+  height: 85%;
+  width: 100vw;
   border-left: solid var(--wintergreen) 0.5px;
   &:nth-child(2n) {
     background-color: var(--white);
@@ -45,11 +47,10 @@ const AccountBigSection = styled(BigSection)`
   & > .background {
     width: 100%;
   }
-  @media (max-width: 768px) {
-    display: flex;
-    width: 100vw;
-    height: 85%;
-    font-size: 10px;
+
+  @media (min-width: 768px) {
+    width: 80%;
+    /* padding: 2em; */
   }
 `;
 const Aside = styled.section`
@@ -138,7 +139,7 @@ const Account = () => {
         {activeSection === 'view props' && <MyProps />}
         {activeSection === 'orders' && <MyOrders />}
         {activeSection === 'cart' && <BusinessProfile />}
-        {activeSection === 'messages' && <h1>my messages here</h1>}
+        {activeSection === 'messages' && <Messages />}
       </AccountBigSection>
     </AccountMain>
   );

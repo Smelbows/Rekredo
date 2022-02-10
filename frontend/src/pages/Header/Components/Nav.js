@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { slide as Menu } from 'react-burger-menu';
 import { useMediaQuery } from 'react-responsive';
 import { NavLink } from 'react-router-dom';
-import { Logout } from 'pages/Footer/Components/Logout';
 import './Nav.css';
 import NavSwitcher from './NavSwitcher';
 
@@ -13,6 +12,7 @@ const Pages = styled(NavLink)`
   display: flex;
   padding: 0.5em;
   color: black;
+  font-family: var(--fontone);
   &.${(props) => props.activeClassName} {
     color: grey;
   }
@@ -39,7 +39,6 @@ const Nav = () => {
             <Pages to="/contact">Contact</Pages>
             <Pages to="/checkout">Checkout</Pages>
           </Menu>
-          
         </>
       )}
       {!isMobile && (

@@ -46,12 +46,12 @@ const TitleBox = styled.div`
   }
 `;
 
-const AccordionSection = ({ accordionData, image }) => {
+const AccordionSection = ({ accordionData, image, text }) => {
   return (
     <Section>
       <TitleBox image={image}>
         <H4 color="white" textDecor="none" backGroundColor="rgb(30,30,30,0.7)">
-          Question about products
+          {text}
         </H4>
       </TitleBox>
       <AccordionBox>

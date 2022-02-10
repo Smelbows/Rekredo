@@ -24,7 +24,7 @@ import {
   H6,
   ProductText,
 } from '../../styledElements/Texts';
-import { SmallButton } from '../../styledElements/Buttons';
+import { Button } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
 
 import AddToCartButton from './AddToCartButton';
@@ -42,16 +42,50 @@ const Input = styled.input`
   box-shadow: inset 1px 0px 10px 0.5px var(--black);
 `;
 
-const H1x = styled(H1)`
-  padding-bottom: 1em;
+const ProdImage = styled.img`
+  max-width: 21rem;
+  max-height: 37rem;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
 `;
-const Px = styled(P)`
-  padding-bottom: 1em;
+
+const ProdTextBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fontone);
+  position: absolute;
+  background-color: rgb(30, 30, 30, 0.5);
+  padding: 1rem;
+  box-shadow: -7px -9px 16px -6px rgb(30, 30, 30, 0.5),
+    10px 7px 17px -6px rgb(30, 30, 30, 0.5);
+
+  &:hover {
+    background-color: rgb(30, 30, 30, 0.7);
+  }
+
+  
 `;
-// const Text = styled.div`
-//   width: 80vw;
-//   border: 2px solid black;
-// `;
+
+const ProductImageCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 1rem;
+  max-height: 37rem;
+  width: 21rem;
+  background-color: var(--saffron);
+  box-shadow: -7px -9px 16px -6px #f7d7a8, 10px 7px 17px -6px grey;
+  align-items: center;
+  position: relative;
+
+  @media (min-width: 768px) {
+  &:hover ${ProdTextBox} {
+    display: none;
+  }
+}
+`;
+
 const Products = () => {
   const [searchValue, setSearchValue] = useState('');
   const [category, setCategory] = useState('');
@@ -79,11 +113,11 @@ const Products = () => {
   return (
     <MiddleContainer>
       <HeaderSection>
-        <H2>Props collection</H2>
-        <H4 color="black">
+        <H2 paddingBottom="0.75em">Props collection</H2>
+        <H5 paddingBottom="0.5em" color="black">
           Choose from our unique assortment of uploaded props from people all
           over Europe
-        </H4>
+        </H5>
         <P>
           Either use our search bar or fine tune your selection through the
           category buttons
@@ -118,38 +152,32 @@ const Products = () => {
       <MiddleContainer>
         {!loading ? (
           allProducts?.map((item) => (
-            <ProductCard key={item._id}>
-              <ProductText>
-                <H5 color="black">{item.name}</H5>
-              </ProductText>
-              <img
-                src={item.image?.imageUrl}
-                className="product-image"
-                alt="website"
-              />
-              <ProductText>
-                <H6 color="black">Category: {item.category}</H6>
-              </ProductText>
+            <ProductImageCard key={item._id}>
+              <ProdImage src={item.image?.imageUrl} alt="website" />
+              <ProdTextBox>
+                <ProductText>
+                  <H5>{item.name}</H5>
+                </ProductText>
+                <ProductText>
+                  <H6>Category: {item.category}</H6>
+                </ProductText>
+              </ProdTextBox>
 
-              <SmallButton onClick={() => navigate(`/products/${item._id}`)}>
+              <Button
+                propWidth="90%"
+                propBorder="none"
+                onClick={() => navigate(`/products/${item._id}`)}
+              >
                 Prop details
-              </SmallButton>
+              </Button>
               {itemIsInCart(item) ? (
                 <P>Item in cart</P>
               ) : (
                 <>
-                  {typeOfUser === 'Business' && (
-                    <AddToCartButton item={item} />
-                    // <Button
-                    //   onClick={() => onAddToCart(item)}
-                    //   disabled={itemIsInCart(item)}
-                    // >
-                    //   Add to cart
-                    // </Button>
-                  )}
+                  {typeOfUser === 'Business' && <AddToCartButton item={item} />}
                 </>
               )}
-            </ProductCard>
+            </ProductImageCard>
           ))
         ) : (
           <H5 color="black">Loading products</H5>

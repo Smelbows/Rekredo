@@ -23,6 +23,7 @@ const ImageCarousel = ({ images, quantity }) => {
   };
 
   return (
+
     <Carousel
       responsive={responsive}
       autoPlaySpeed={2000}
@@ -42,7 +43,7 @@ const ImageCarousel = ({ images, quantity }) => {
         );
       })}
     </Carousel>
-  );
+);
 };
 
 export default ImageCarousel;

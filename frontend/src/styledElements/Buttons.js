@@ -6,10 +6,10 @@ export const Button = styled.button`
   border-radius: 3px;
   padding: 0.5rem;
   margin: 0.5rem 1rem;
-  width: 8rem;
+  width: ${(props) => props.propWidth || '8rem'};
   background: ${(props) => props.background || 'transparent'};
   color: ${(props) => props.propBtnColor || 'var(--white)'};
-  border: 1px solid black;
+  border: ${(props) => props.propBorder || '1px solid black'};
   :disabled {
     opacity: 1;
     color: var(--black);
@@ -18,6 +18,7 @@ export const Button = styled.button`
   :hover {
     box-shadow: 0 0 10px var(--saffron);
     cursor: pointer;
+    color: black;
   }
 `;
 

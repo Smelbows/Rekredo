@@ -15,11 +15,11 @@ import { accordionData1 } from 'pages/Faq/accordionContent';
 
 
 const CarouselContainer = styled.div`
+  display: none;
   @media (min-width: 768px) {
     display: grid;
     padding-bottom: 20px;
     width: 100vw;
-    height: 100vh;
   }
 `;
 
@@ -28,11 +28,11 @@ const MarqueeSection = styled(BigSection)`
 `;
 
 const PropsCarouselContainer = styled(CarouselContainer)`
-  height: 40em;
-  @media (max-width: 800px) {
+  /* height: 40em; */
+  display: grid;
+  @media (max-width: 768px) {
     flex-direction: column;
     padding: 1em;
-    height: 23em;
     width: 95vw;
   }
 `;
@@ -47,7 +47,7 @@ const TextContainer = styled.div`
   height: 30vh;
   width: 70vw;
   @media (max-width: 768px) {
-    background-image: url('${images[0]}');
+    background-image: url('${images[2]}');
     position: relative;
     height: 80vh;
     top: 14%;
@@ -231,7 +231,7 @@ const Home = () => {
         {images && (
           <PropsCarouselContainer>
             <H4 color="var(--black)">Recently upload potential!</H4>
-            <ImageCarousel images={getPropImages()} quantity={4} />
+            <ImageCarousel images={getPropImages()} quantity={3} />
           </PropsCarouselContainer>
         )}
       </BigSection>
@@ -252,7 +252,7 @@ const Home = () => {
         </Marquee>
       </MarqueeSection>
 
-      <AccordionSection image={images[0]}accordionData={accordionData1} />
+      <AccordionSection text='Frequently asked questions' image={images[0]}accordionData={accordionData1} />
     </>
   );
 };

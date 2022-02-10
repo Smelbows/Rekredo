@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 // import { Button } from '../styledElements/Buttons';
 // import { useSelector, useDispatch } from 'react-redux';
-import { Logout } from './Components/Logout';
 import Logo from '../../images/RekRedo.png';
+import { Logout } from 'components/Logout';
 import { P, H3, H4, H6 } from '../../styledElements/Texts';
 
 const Px = styled(P)`
@@ -22,7 +22,7 @@ const activeClassName = 'nav-item-active';
 
 const StyledLink = styled(Link)`
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   &.${activeClassName} {
     color: black;
     text-decoration: none;

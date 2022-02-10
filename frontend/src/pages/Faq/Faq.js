@@ -114,9 +114,21 @@ const Faq = () => {
   // ];
   return (
     <MiddleContainer>
-      <AccordionSection image={images[0]} accordionData={accordionData1} />
-      <AccordionSection image={images[1]} accordionData={accordionData2} />
-      <AccordionSection image={images[2]} accordionData={accordionData3} />
+      <AccordionSection
+        text="Questions Rekredo"
+        image={images[0]}
+        accordionData={accordionData1}
+      />
+      <AccordionSection
+        text="Business users"
+        image={images[1]}
+        accordionData={accordionData2}
+      />
+      <AccordionSection
+        text="Personal Users"
+        image={images[2]}
+        accordionData={accordionData3}
+      />
     </MiddleContainer>
   );
 };

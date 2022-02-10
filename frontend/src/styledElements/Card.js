@@ -25,7 +25,7 @@ export const ProductCard = styled.div`
   max-height: 450px;
   width: 300px;
   background-color: var(--saffron);
-  box-shadow: 2px 2px 2px 3px grey;
+  box-shadow: -7px -9px 16px -6px #f7d7a8, 10px 7px 17px -6px grey;
 `;
 
 export const StyledProfileCard = styled.div`
@@ -63,7 +63,7 @@ export const BigSection = styled.section`
   flex-direction: column;
   padding: 1em;
   justify-content: space-evenly;
-  padding: 8em 0em 8em 0em;
+  /* padding: 8em 0em 8em 0em; */
   width: 100vw;
   &:nth-child(2n) {
     background-color: var(--wintergreen);
@@ -90,4 +90,15 @@ export const HeaderSection = styled.div`
   width: 100vw;
   padding: 4em 0em 8em 0em;
   background-color: white;
+`;
+
+export const AccountPageContainer = styled.div`
+  width: 300px;
+  margin: 0 auto;
+  height: 100%;
+
+  @media (min-width: 768px) {
+    width: 700px;
+    min-height: 70vh;
+  }
 `;

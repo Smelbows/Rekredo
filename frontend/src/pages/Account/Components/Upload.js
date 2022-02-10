@@ -4,8 +4,8 @@ import React from 'react';
 import { UploadImage } from './UploadImage';
 import { UploadProduct } from 'pages/Account/Components/UploadProduct';
 // import { Card } from 'styledElements/Card';
-import { H1 } from '../../../styledElements/Texts';
-import { Card } from 'styledElements/Card';
+import { H1, H2, H3, H4 } from '../../../styledElements/Texts';
+import { AccountPageContainer, Card } from 'styledElements/Card';
 
 // const UploadedProducts = styled.div`
 //   display: flex;
@@ -17,11 +17,14 @@ import { Card } from 'styledElements/Card';
 
 const Upload = () => {
   return (
-    <Card>
-      <H1> UPLAOD A PROP FROM YOUR HOME</H1>
-      <UploadImage />
-      <UploadProduct />
-    </Card>
+    <>
+      <H4 backGroundColor="var(--wintergreen)">Upload a new prop</H4>
+
+      <AccountPageContainer>
+        <UploadImage />
+        <UploadProduct />
+      </AccountPageContainer>
+    </>
   );
 };
 

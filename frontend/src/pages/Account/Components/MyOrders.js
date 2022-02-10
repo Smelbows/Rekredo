@@ -1,11 +1,12 @@
 import React from 'react';
-import { H1, H2, P } from '../../../styledElements/Texts';
+import { H1, H2, P, H4 } from '../../../styledElements/Texts';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { deleteAnOrder } from 'reducers/user';
 
 import styled from 'styled-components';
 import { SmallButton } from '../../../styledElements/Buttons';
+import { AccountPageContainer } from 'styledElements/Card';
 
 const OrderDiv = styled.div`
   display: flex;
@@ -32,8 +33,9 @@ const MyOrders = () => {
 
   return (
     <>
-      <div>
-        <H1>Your orders</H1>
+      <H4 backGroundColor="var(--wintergreen)">Your Orders</H4>
+
+      <AccountPageContainer>
         {orders ? (
           orders.map((item) => (
             <OrderDiv key={item._id}>
@@ -62,7 +64,7 @@ const MyOrders = () => {
         ) : (
           <H2>No orders to display</H2>
         )}
-      </div>
+      </AccountPageContainer>
     </>
   );
 };

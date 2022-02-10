@@ -2,21 +2,18 @@ import React, { useState } from 'react';
 // import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { StyledProfileCard } from 'styledElements/Card';
+import { StyledProfileCard, AccountPageContainer } from 'styledElements/Card';
 import { Button } from '../../../styledElements/Buttons';
 import { H4, P } from 'styledElements/Texts';
 import { Form, Label, StyledInput, TextArea } from 'styledElements/Form';
 import styled from 'styled-components';
-
-const Account = styled.div`
-  width: 100%;
-`;
 
 const GridForm = styled.form`
   margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+  width: 100%;
 
   /* & > button {
     grid-row: 5/6;
@@ -49,66 +46,65 @@ const ProfileCard = () => {
 
   console.log(user);
   return (
-    <Account>
-      <H4 padding="none" color="var(--black)">
-        Account Settings
-      </H4>
-
-      <GridForm>
-        <Label bottom="0" padding="0px" textAlign="left">
-          First name
-          <StyledInput
-            margin="10px 0"
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </Label>
-        <Label bottom="0" padding="0px" textAlign="left">
-          Surname
-          <StyledInput
-            margin="10px 0"
-            type="text"
-            value={surname}
-            onChange={(e) => setSurname(e.target.value)}
-          />
-        </Label>
-        <Label bottom="0" padding="0px" textAlign="left">
-          Username
-          <StyledInput
-            margin="10px 0"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </Label>
-        <Label bottom="0" padding="0px" textAlign="left">
-          Email
-          <StyledInput
-            margin="10px 0"
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Label>
-        <Label bottom="0" padding="0px" textAlign="left">
-          Account type
-          <StyledInput
-            margin="10px 0"
-            type="text"
-            value={accountType}
-            onChange={(e) => setAccountType(e.target.value)}
-          />
-        </Label>
-        <TextArea margin="0" placeholder="Add a bio" />
-        <Button propBtnColor="var(--white)" background="var(--wintergreen)">
-          Update
-        </Button>
-        <Button propBtnColor="var(--white)" background="var(--wintergreen)">
-          Delete my account
-        </Button>
-      </GridForm>
-    </Account>
+    <>
+      <H4 backGroundColor="var(--wintergreen)">Account Settings</H4>
+      <AccountPageContainer>
+        <GridForm>
+          <Label bottom="0" padding="0px" textAlign="left">
+            First name
+            <StyledInput
+              margin="10px 0"
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </Label>
+          <Label bottom="0" padding="0px" textAlign="left">
+            Surname
+            <StyledInput
+              margin="10px 0"
+              type="text"
+              value={surname}
+              onChange={(e) => setSurname(e.target.value)}
+            />
+          </Label>
+          <Label bottom="0" padding="0px" textAlign="left">
+            Username
+            <StyledInput
+              margin="10px 0"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </Label>
+          <Label bottom="0" padding="0px" textAlign="left">
+            Email
+            <StyledInput
+              margin="10px 0"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Label>
+          <Label bottom="0" padding="0px" textAlign="left">
+            Account type
+            <StyledInput
+              margin="10px 0"
+              type="text"
+              value={accountType}
+              onChange={(e) => setAccountType(e.target.value)}
+            />
+          </Label>
+          <TextArea margin="0" placeholder="Add a bio" />
+          <Button propBtnColor="var(--white)" background="var(--wintergreen)">
+            Update
+          </Button>
+          <Button propBtnColor="var(--white)" background="var(--wintergreen)">
+            Delete my account
+          </Button>
+        </GridForm>
+      </AccountPageContainer>
+    </>
   );
 };
 

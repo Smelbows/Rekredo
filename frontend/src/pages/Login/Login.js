@@ -7,68 +7,67 @@ import { FormBox, StyledInput, Form } from '../../styledElements/Form';
 // import { Main } from '../styledElements/Card';
 import { SmallButton } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
+import { H4, P, TextBox } from '../../styledElements/Texts';
 
 const Login = () => {
-    const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
 
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    const token = useSelector((state) => state.user.accessToken);
-    const error = useSelector((state) => state.user.error);
+  const token = useSelector((state) => state.user.accessToken);
+  const error = useSelector((state) => state.user.error);
 
-    const checkError = () => {
-        if (typeof error === 'string') {
-            return error;
-        } else {
-            return 'There was an error in the back end';
-        }
-    };
+  const checkError = () => {
+    if (typeof error === 'string') {
+      return error;
+    } else {
+      return 'There was an error in the back end';
+    }
+  };
 
-    useEffect(() => {
-        if (token) {
-            navigate('/account');
-        }
-    }, [token, navigate]);
+  useEffect(() => {
+    if (token) {
+      navigate('/account');
+    }
+  }, [token, navigate]);
 
-    const onUserSubmit = (event) => {
-        event.preventDefault();
-        dispatch(userLogin(name, password));
-    };
+  const onUserSubmit = (event) => {
+    event.preventDefault();
+    dispatch(userLogin(name, password));
+  };
 
-    return (
-        <MiddleContainer>
-            <FormBox margin='6em auto'>
-                <Form onSubmit={onUserSubmit} className='signin-form'>
-                    <h1>Log in</h1>
-                    <div>
-                        <p>don't have an account?</p>
-                        <Link to='/register'>register here</Link>
-                    </div>
-                    {error && <h1>{checkError()}</h1>}
-                    <StyledInput
-                        type='text'
-                        placeholder='username'
-                        className='input-field'
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
-                    />
-                    <StyledInput
-                        type='password'
-                        placeholder='password'
-                        className='input-field'
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
+  return (
+    <MiddleContainer>
+      <FormBox margin="6em auto">
+        <H4 color="black">Log in</H4>
+        <TextBox>
+          <P>don't have an account?&nbsp;</P>
+          <Link to="/register">register here</Link>
+        </TextBox>
+        {error && <h1>{checkError()}</h1>}
+        <Form onSubmit={onUserSubmit} className="signin-form">
+          <StyledInput
+            type="text"
+            placeholder="username"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+          <StyledInput
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
 
-                    <SmallButton className='submit-button' type='submit'>
-                        Sign in
-                    </SmallButton>
-                </Form>
-            </FormBox>
-        </MiddleContainer>
-    );
+          <SmallButton className="submit-button" type="submit">
+            Sign in
+          </SmallButton>
+        </Form>
+      </FormBox>
+    </MiddleContainer>
+  );
 };
 
 export default Login;

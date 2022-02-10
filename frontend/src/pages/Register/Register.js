@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { P } from '../../styledElements/Texts';
+import { H4, P, TextBox } from '../../styledElements/Texts';
 import { Form, StyledInput, FormBox, Label } from '../../styledElements/Form';
 import { SmallButton } from '../../styledElements/Buttons';
 // import { Main } from '../styledElements/Card';
@@ -13,11 +13,16 @@ import styled from 'styled-components';
 
 const RadioButtonsContainer = styled.div`
   display: flex;
-  width: 50%;
+  flex-direction: column;
   margin: 20px;
   justify-content: space-around;
   text-align: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
+
 const Register = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -75,11 +80,11 @@ const Register = () => {
         </p>
       ) : (
         <FormBox margin="6em auto">
-          <h1>Register</h1>
-          <div style={{marginTop:'10px'}}>
-            <P>already have an account? </P>
+          <H4 color="black">Register</H4>
+          <TextBox>
+            <P>already have an account?&nbsp;</P>
             <Link to="/log-in">sign in here</Link>
-          </div>
+          </TextBox>
           <RadioButtonsContainer>
             <div>
               <Label bottom="0" htmlFor="personal">
@@ -108,36 +113,34 @@ const Register = () => {
               />
             </div>
           </RadioButtonsContainer>
-          <div>
-            {error && <h1>{checkError()}</h1>}
-            <Form onSubmit={onUserSubmit} className="signin-form">
-              <StyledInput
-                type="text"
-                placeholder="username"
-                className="input-field"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-              />
-              <StyledInput
-                type="password"
-                placeholder="password"
-                className="input-field"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              />
-              <StyledInput
-                type="email"
-                placeholder="email address"
-                className="input-field"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
+          {/* <div> */}
+          {error && <h1>{checkError()}</h1>}
+          <Form padding='none' onSubmit={onUserSubmit} className="signin-form">
+            <StyledInput
+              type="text"
+              placeholder="username"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+            <StyledInput
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <StyledInput
+              type="email"
+              placeholder="email address"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
 
-              <SmallButton className="submit-button" type="submit">
-                Register
-              </SmallButton>
-            </Form>
-          </div>
+
+            <SmallButton className="submit-button" type="submit">
+              Register
+            </SmallButton>
+          </Form>
+          {/* </div> */}
         </FormBox>
       )}
     </MiddleContainer>

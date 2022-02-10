@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { H1, H5, H6 } from '../../../styledElements/Texts';
-import { ProductCard } from 'styledElements/Card';
+import { H1, H5, H6, H3, H4 } from '../../../styledElements/Texts';
+import { AccountPageContainer, ProductCard } from 'styledElements/Card';
 import { ProductText, H2 } from 'styledElements/Texts';
 import { SmallButton } from 'styledElements/Buttons';
 import { deleteAProduct } from 'reducers/user';
@@ -27,6 +27,9 @@ const MyProps = () => {
 
   return (
     <>
+          <H4 backGroundColor="var(--wintergreen)">My props</H4>
+
+    <AccountPageContainer>
       <MyUploads>
         {userHasProps ? (
           props.map((item) => (
@@ -49,9 +52,10 @@ const MyProps = () => {
             </ProductCard>
           ))
         ) : (
-          <H1>You haven't added any props yet</H1>
+          <H2 color="black">You haven't added any props yet</H2>
         )}
       </MyUploads>
+    </AccountPageContainer>
     </>
   );
 };

@@ -7,6 +7,12 @@ export const Form = styled.form`
   padding: ${(props) => props.padding || '10px'};
   align-items: center;
   justify-content: center;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 90%;
+    max-width: 400px;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -34,9 +40,7 @@ export const TextArea = styled.textarea`
 
 export const Label = styled.label`
   padding: ${(props) => props.padding || '10px 35px'};
-
-  /* padding: 10px 35px; */
-  font-size: 1.2em;
+  font-size: 1em;
   border-radius: 3px;
   margin-bottom: ${(props) => props.bottom || '20px'};
   display: flex;
@@ -45,6 +49,10 @@ export const Label = styled.label`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+
+  @media (min-width: 768px) {
+    font-size: 1.2em;
+  }
 `;
 
 export const FormBox = styled.div`
@@ -53,11 +61,13 @@ export const FormBox = styled.div`
   margin: ${(props) => props.margin || ' 0 auto'};
   justify-content: center;
   align-items: center;
-  padding: 1em;
   box-shadow: 0 0 40px grey;
+  width: 300px;
 
   @media (min-width: 768px) {
-    /* height: 60vh; */
-    /* width: 60vw; */
+    width: 400px;
+  }
+  @media (min-width: 1024px) {
+    width: 700px;
   }
 `;
