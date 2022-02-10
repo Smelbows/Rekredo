@@ -19,7 +19,8 @@ const AddToCartButton = ({item}) => {
   };
 
   return (
-    <Button propBtnColor="var(--black)" onClick={() => onAddToCart(item)} disabled={itemIsInCart(item)}>
+    <Button propWidth="90%"
+    propBorder="none" onClick={() => onAddToCart(item)} disabled={itemIsInCart(item)}>
       Add to cart
     </Button>
   );

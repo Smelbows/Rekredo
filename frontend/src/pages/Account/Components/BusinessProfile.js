@@ -6,7 +6,7 @@ import { AccountPageContainer } from 'styledElements/Card';
 const BusinessProfile = () => {
   return (
     <>
-      <H4 backGroundColor="var(--wintergreen)">Cart</H4>
+      <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">Cart</H4>
 
       <AccountPageContainer>
         <Cart />

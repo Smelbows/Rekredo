@@ -27,7 +27,7 @@ const MyProps = () => {
 
   return (
     <>
-          <H4 backGroundColor="var(--wintergreen)">My props</H4>
+          <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">My props</H4>
 
     <AccountPageContainer>
       <MyUploads>
@@ -52,7 +52,7 @@ const MyProps = () => {
             </ProductCard>
           ))
         ) : (
-          <H2 color="black">You haven't added any props yet</H2>
+          <H4 color="black">You haven't added any props yet</H4>
         )}
       </MyUploads>
     </AccountPageContainer>

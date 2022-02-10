@@ -31,9 +31,13 @@ export const SmallButton = styled.button`
   width: 5rem;
   background: transparent;
   color: black;
-  border: 2px solid black;
-  box-shadow: 1px 1px 1px 1px black;
+  border: 1px solid black;
+  box-shadow:  1px 1px 0px 2px grey;
   text-align: center;
+  :hover {
+    box-shadow: 0 0 10px var(--saffron);
+    cursor: pointer;
+  }
 `;
 
 export const PropButton = styled.button`

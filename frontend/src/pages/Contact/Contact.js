@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { MiddleContainer } from '../../styledElements/Container';
 import { Form, FormBox, StyledInput, TextArea } from 'styledElements/Form';
 import { Button } from 'styledElements/Buttons';
+import { H6 } from 'styledElements/Texts';
+import styled from 'styled-components';
 
 const FORM_ENDPOINT = ''; // TODO - fill on the later step
+
+const Header = styled.div`
+height: 100%;
+margin: 0 auto;
+padding: 2em 1em 0em 1em;
+`;
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -23,7 +31,10 @@ const Contact = () => {
   }
 
   return (
-    <MiddleContainer>
+    <MiddleContainer direction="column"> 
+      <Header>      
+      <H6 color="black" weight="400">If you hve any questions please hesitate before sending us an email. </H6>
+      </Header>
       <FormBox margin='6em auto'>
         <Form
           action={FORM_ENDPOINT}

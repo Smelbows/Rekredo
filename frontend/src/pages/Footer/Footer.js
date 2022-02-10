@@ -7,17 +7,6 @@ import Logo from '../../images/RekRedo.png';
 import { Logout } from 'components/Logout';
 import { P, H3, H4, H6 } from '../../styledElements/Texts';
 
-const Px = styled(P)`
-  color: white;
-`;
-const H3x = styled(H3)`
-  color: white;
-  margin-bottom: 0.8rem;
-`;
-const H4x = styled(H4)`
-  color: white;
-`;
-
 const activeClassName = 'nav-item-active';
 
 const StyledLink = styled(Link)`
@@ -68,8 +57,6 @@ export const IconDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  padding: 1em;
   font-family: var(--fonttwo);
 `;
 
@@ -100,7 +87,7 @@ export const BottomSection = styled.div`
 `;
 
 const LogoImg = styled.img`
-  height: 175px;
+  height: 150px;
 `;
 
 const SocialIcon = styled.img`
@@ -111,8 +98,6 @@ const SocialIcon = styled.img`
 const ContactIcon = styled.img`
   width: 30px;
   height: 30px;
-  margin: 0.3em;
-  margin-right: 1em;
 `;
 
 const Footer = () => {
@@ -171,10 +156,10 @@ const Footer = () => {
           </TextDiv>
         </TopSection>
         <BottomSection>
-          <Px>
+          <P color="white">
             © REKREDO AB Org. nr: 999999-6666. Stockholmsgatan 99, 199 99
             Stockholm
-          </Px>
+          </P>
           <SmallSection>
             <img
               src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-chatbot-online-shopping-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"

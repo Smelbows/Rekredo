@@ -98,6 +98,11 @@ export const AccountPageContainer = styled.div`
   height: 100%;
 
   @media (min-width: 768px) {
+    width: 560px;
+    min-height: 70vh;
+  }
+
+  @media (min-width: 1024px) {
     width: 700px;
     min-height: 70vh;
   }

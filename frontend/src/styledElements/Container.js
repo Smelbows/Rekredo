@@ -20,5 +20,6 @@ export const MiddleContainer = styled.div`
     justify-content: ${(props) => props.justify || 'center'};
     width: 100vw;
     margin-bottom: ${(props) => props.marginBottom || '0'};
+    flex-direction: ${(props) => props.direction || 'row'}
   }
 `;

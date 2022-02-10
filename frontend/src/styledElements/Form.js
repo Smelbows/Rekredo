@@ -21,8 +21,8 @@ export const StyledInput = styled.input`
   border: 1px solid black;
   margin: ${(props) => props.margin || '5px'};
   padding: ${(props) => props.padding || '5px'};
+  width: ${(props) => props.width};
   border-radius: 3px;
-  width: 100%;
   height: ${(props) => props.height || '50px'};
   /* margin-bottom: 10px; */
 
@@ -35,7 +35,9 @@ export const TextArea = styled.textarea`
   margin: ${(props) => props.margin || '5px'};
   padding: ${(props) => props.padding || '5px'};
   height: 100px;
-  width: 100%;
+  width: ${(props) => props.width || '100%'};
+  @media (min-width: 768px){
+  width: 500px; }
 `;
 
 export const Label = styled.label`
@@ -49,6 +51,7 @@ export const Label = styled.label`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  width: ${(props) => props.width || '100%'};
 
   @media (min-width: 768px) {
     font-size: 1.2em;

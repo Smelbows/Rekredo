@@ -11,13 +11,22 @@ import { AccountPageContainer } from 'styledElements/Card';
 const OrderDiv = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  flex-wrap: nowrap;
+  align-items: left;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 70vw;
-  border: 2px solid black;
-  height: 60px;
+  width: 100%;
+  border: 1px solid black;
   margin: 1em;
+  padding: 0.5em;
+  :hover {
+    box-shadow: inset 0 0 10px var(--wintergreen);
+    cursor: pointer;
+  }
+`;
+
+const Div = styled.div`
+display: flex;
+flex-direction: column;
 `;
 
 const MyOrders = () => {
@@ -33,30 +42,30 @@ const MyOrders = () => {
 
   return (
     <>
-      <H4 backGroundColor="var(--wintergreen)">Your Orders</H4>
+      <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">My Orders</H4>
 
       <AccountPageContainer>
         {orders ? (
           orders.map((item) => (
             <OrderDiv key={item._id}>
-              <div>
-                <P>Orderid</P>
+              <Div>
+                <P>id</P>
                 <P>{orders.indexOf(item) + 1}</P>
-              </div>
-              <div>
+              </Div>
+              <Div>
                 <P>Order#</P>
                 <P>{item._id}</P>
-              </div>
+              </Div>
 
-              <div>
-                <P>Number of products</P>
+              <Div>
+                <P># of products: </P>
                 <P>{item.products?.length}</P>
-              </div>
-              <div>
-                <P>Date</P>
-                <P>{new Date(item.createdAt).toLocaleString()}</P>
-              </div>
-              <SmallButton onClick={() => handleDeleteOrder(item._id)}>
+              </Div>
+              <Div>
+                <P>Date </P>
+                <P>{new Date(item.createdAt).toLocaleDateString()}</P>
+              </Div>
+              <SmallButton  onClick={() => handleDeleteOrder(item._id)}>
                 Delete
               </SmallButton>
             </OrderDiv>

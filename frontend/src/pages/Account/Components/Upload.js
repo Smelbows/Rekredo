@@ -18,7 +18,7 @@ import { AccountPageContainer, Card } from 'styledElements/Card';
 const Upload = () => {
   return (
     <>
-      <H4 backGroundColor="var(--wintergreen)">Upload a new prop</H4>
+      <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">Upload a new prop</H4>
 
       <AccountPageContainer>
         <UploadImage />

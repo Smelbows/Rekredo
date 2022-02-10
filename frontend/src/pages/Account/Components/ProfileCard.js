@@ -33,6 +33,10 @@ const GridForm = styled.form`
       grid-column: 1/3;
     }
   }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const ProfileCard = () => {
@@ -47,7 +51,9 @@ const ProfileCard = () => {
   console.log(user);
   return (
     <>
-      <H4 backGroundColor="var(--wintergreen)">Account Settings</H4>
+      <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">
+        Account Settings
+      </H4>
       <AccountPageContainer>
         <GridForm>
           <Label bottom="0" padding="0px" textAlign="left">

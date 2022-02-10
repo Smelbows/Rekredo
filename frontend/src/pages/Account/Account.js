@@ -26,11 +26,17 @@ const AccountMain = styled(MiddleContainer)`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  width: 90vw;
+  margin: 0 auto;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     max-width: 100vw;
+    margin: 0 auto;
     justify-content: space-between;
+  }
+  @media (max-width: 1024px) {
+    width: 100vw;
   }
 `;
 

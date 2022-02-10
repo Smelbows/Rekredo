@@ -30,6 +30,7 @@ export const H4 = styled.h4`
   font-weight: ${(props) => props.weight};
   background-color: ${(props) => props.backGroundColor};
   padding: ${(props) => props.padding || '1em'};
+  box-shadow: ${(props) => props.shadow};
 
   @media (min-width: 768px) {
     font-size: 2em;
@@ -45,6 +46,7 @@ export const H5 = styled.h5`
   padding-right: ${(props) => props.paddingRight};
   padding-bottom: ${(props) => props.paddingBottom};
 `;
+
 export const H6 = styled.h6`
   font-size: 1.25em;
   font-family: var(--fontone);
@@ -52,6 +54,7 @@ export const H6 = styled.h6`
   padding-bottom: ${(props) => props.paddingBottom};
   line-height: ${(props) => props.height};
   font-weight: ${(props) => props.weight};
+  padding-bottom: ${(props) => props.paddingTop};
 `;
 
 export const P = styled.p`

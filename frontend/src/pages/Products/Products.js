@@ -56,8 +56,7 @@ const ProdTextBox = styled.div`
   position: absolute;
   background-color: rgb(30, 30, 30, 0.5);
   padding: 1rem;
-  box-shadow: -7px -9px 16px -6px rgb(30, 30, 30, 0.5),
-    10px 7px 17px -6px rgb(30, 30, 30, 0.5);
+  box-shadow: -3px -1px 8px 3px rgb(30, 30, 30, 0.5), 3px 1px 8px 3px rgb(30, 30, 30, 0.5);
 
   &:hover {
     background-color: rgb(30, 30, 30, 0.7);
