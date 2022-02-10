@@ -17,7 +17,7 @@ export const StyledInput = styled.input`
   padding: ${(props) => props.padding || '5px'};
   border-radius: 3px;
   width: 100%;
-  height: 50px;
+  height: ${(props) => props.height || '50px'};
   /* margin-bottom: 10px; */
 
   // -webkit-appearance: none;

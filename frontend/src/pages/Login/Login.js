@@ -39,7 +39,7 @@ const Login = () => {
 
     return (
         <MiddleContainer>
-            <FormBox>
+            <FormBox margin='6em auto'>
                 <Form onSubmit={onUserSubmit} className='signin-form'>
                     <h1>Log in</h1>
                     <div>

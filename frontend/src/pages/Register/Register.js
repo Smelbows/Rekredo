@@ -3,13 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { P } from '../../styledElements/Texts';
-import { Form, StyledInput, FormBox } from '../../styledElements/Form';
+import { Form, StyledInput, FormBox, Label } from '../../styledElements/Form';
 import { SmallButton } from '../../styledElements/Buttons';
 // import { Main } from '../styledElements/Card';
 import { userRegister } from '../../reducers/user';
 import { user } from '../../reducers/user';
 import { MiddleContainer } from '../../styledElements/Container';
+import styled from 'styled-components';
 
+const RadioButtonsContainer = styled.div`
+  display: flex;
+  width: 50%;
+  margin: 20px;
+  justify-content: space-around;
+  text-align: center;
+`;
 const Register = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -66,16 +74,20 @@ const Register = () => {
           register a new account
         </p>
       ) : (
-        <FormBox>
+        <FormBox margin="6em auto">
           <h1>Register</h1>
-          <div>
-            <P>already have an account?</P>
+          <div style={{marginTop:'10px'}}>
+            <P>already have an account? </P>
             <Link to="/log-in">sign in here</Link>
           </div>
-          <div>
+          <RadioButtonsContainer>
             <div>
-              <label htmlFor="personal">Personal</label>
+              <Label bottom="0" htmlFor="personal">
+                Personal
+              </Label>
               <StyledInput
+                height={'30px'}
+                margin="0"
                 id="personal"
                 type="radio"
                 checked={accountType === 'Personal'}
@@ -83,15 +95,19 @@ const Register = () => {
               />
             </div>
             <div>
-              <label htmlFor="business">Business</label>
+              <Label bottom="0" htmlFor="business">
+                Business
+              </Label>
               <StyledInput
+                height={'30px'}
+                margin="0"
                 id="business"
                 type="radio"
                 checked={accountType === 'Business'}
                 onChange={() => setAccountType('Business')}
               />
             </div>
-          </div>
+          </RadioButtonsContainer>
           <div>
             {error && <h1>{checkError()}</h1>}
             <Form onSubmit={onUserSubmit} className="signin-form">
