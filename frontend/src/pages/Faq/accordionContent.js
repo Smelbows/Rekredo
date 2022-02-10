@@ -1,7 +1,9 @@
 export const accordionData1 = [
     {
-      title: 'How do I upload a prop?',
-      content: `To be able to upload a prop you need to register for a personal account on our register page. Once you have registered you can upload the prop.`,
+      title: 'How do I register an account?',
+      content: `In the top right corner you can click the register button to take you to the registration form. 
+      After filling in the form you will be redirected to your account page. Here you can adjust your account settings, see your messages and
+      upload products.`,
     },
     {
       title: 'Can I make money on things I have at home?',
@@ -17,50 +19,36 @@ export const accordionData1 = [
 
   export const accordionData2 = [
     {
-      title: 'Section 1',
-      content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
-      laborum cupiditate possimus labore, hic temporibus velit dicta earum
-      suscipit commodi eum enim atque at? Et perspiciatis dolore iure
-      voluptatem.`,
+      title: 'How do I upload a prop?',
+      content: `To be able to upload a prop you need to register for a personal account on our register page. 
+      Once you have registered you can upload the prop.`,
     },
     {
-      title: 'Section 2',
-      content: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia veniam
-      reprehenderit nam assumenda voluptatem ut. Ipsum eius dicta, officiis
-      quaerat iure quos dolorum accusantium ducimus in illum vero commodi
-      pariatur? Impedit autem esse nostrum quasi, fugiat a aut error cumque
-      quidem maiores doloremque est numquam praesentium eos voluptatem amet!
-      Repudiandae, mollitia id reprehenderit a ab odit!`,
+      title: 'What can I upload',
+      content: `Rekredo offers a wide variety of different categories to choose from. After registering an account 
+      you can go to your account page, click on upload new prop you will find the category alternatives`,
     },
     {
-      title: 'Section 3',
-      content: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
-      quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
-      dolor ut sequi minus iste? Quas?`,
+      title: 'Are my props insured?',
+      content: `Rekredo offers a service for insuring your valuables in a smooth way. Once a business and a personal user have come to an 
+      agreement both parties will be asked if they want Rekredo to supply the service during the rental.`,
     },
   ];
 
   export const accordionData3 = [
     {
-      title: 'Section 1',
-      content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
-      laborum cupiditate possimus labore, hic temporibus velit dicta earum
-      suscipit commodi eum enim atque at? Et perspiciatis dolore iure
-      voluptatem.`,
+      title: 'Do I have to ship my stuff?',
+      content: `Rekredo can help with the logistics through a third party. We dont handle the shipments but we can connect 
+      both parties to our provider that will take care of the pickups and returns. Fee's not included in the rental price.`,
     },
     {
-      title: 'Section 2',
-      content: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia veniam
-      reprehenderit nam assumenda voluptatem ut. Ipsum eius dicta, officiis
-      quaerat iure quos dolorum accusantium ducimus in illum vero commodi
-      pariatur? Impedit autem esse nostrum quasi, fugiat a aut error cumque
-      quidem maiores doloremque est numquam praesentium eos voluptatem amet!
-      Repudiandae, mollitia id reprehenderit a ab odit!`,
+      title: 'When will I get paid?',
+      content: `As soon as your prop is returned to you and the production crew and verify the total length of the rental you
+      will receive the amount that is due. Because many rentals turn out to be rented longer than expected we want the total sum to be 
+      paid out at once.`,
     },
     {
-      title: 'Section 3',
-      content: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
-      quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
-      dolor ut sequi minus iste? Quas?`,
+      title: 'What is Rekredo?',
+      content: `Rekredo is a rental platform niched for production companies to source memorab`,
     },
   ];

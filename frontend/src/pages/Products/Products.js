@@ -149,7 +149,7 @@ const Products = () => {
           </form>
         </div>
       </HeaderSection>
-      <MiddleContainer>
+      <MiddleContainer marginBottom="9rem">
         {!loading ? (
           allProducts?.map((item) => (
             <ProductImageCard key={item._id}>

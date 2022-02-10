@@ -19,5 +19,6 @@ export const MiddleContainer = styled.div`
     /* padding-bottom: 8em; */
     justify-content: ${(props) => props.justify || 'center'};
     width: 100vw;
+    margin-bottom: ${(props) => props.marginBottom || '0'};
   }
 `;
