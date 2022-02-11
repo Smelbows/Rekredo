@@ -191,7 +191,7 @@ const Home = () => {
       <BigSection>
         <TextBoxTop>
           <TextHeader>
-            <H2>We are Rekredo</H2>
+            <H2 paddingRight="0.75em">We are Rekredo</H2>
           </TextHeader>
           <TextBoxRight>
             <H6 color="black" weight="400" height="1.75em">
@@ -229,7 +229,7 @@ const Home = () => {
       <BigSection>
         {images && (
           <PropsCarouselContainer>
-            <H4 color="var(--black)">Recently upload potential!</H4>
+            <H4 color="var(--black)">Recently uploaded potential!</H4>
             <ImageCarousel images={getPropImages()} quantity={3} />
           </PropsCarouselContainer>
         )}

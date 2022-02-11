@@ -15,6 +15,7 @@ export const H2 = styled.h2`
   line-height: ${(props) => props.height};
   font-weight: ${(props) => props.weight};
   padding-bottom: ${(props) => props.paddingBottom};
+  padding-right: ${(props) => props.paddingRight};
 `;
 
 export const H3 = styled.h3`
@@ -59,14 +60,13 @@ export const H6 = styled.h6`
 
 export const P = styled.p`
   display: ${(props) => props.mobileDisplay || 'inline'};
-  font-size: 1em
+  font-size: 1em;
   font-family: var(--fonttwo);
   color: ${(props) => props.color || 'var(--black)'};
 
   @media (min-width: 768px) {
     display: inline;
   }
-
 `;
 
 export const ProductText = styled.div`
