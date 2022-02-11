@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { H5, H6, H4 } from '../../../styledElements/Texts';
 import { AccountPageContainer, ProductCard } from 'styledElements/Card';
-import { ProductText, H2 } from 'styledElements/Texts';
+import { ProductText } from 'styledElements/Texts';
 import { SmallButton } from 'styledElements/Buttons';
 import { deleteAProduct } from 'reducers/user';
 import styled from 'styled-components';
