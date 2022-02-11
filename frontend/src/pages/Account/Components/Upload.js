@@ -4,8 +4,8 @@ import React from 'react';
 import { UploadImage } from './UploadImage';
 import { UploadProduct } from 'pages/Account/Components/UploadProduct';
 // import { Card } from 'styledElements/Card';
-import { H1, H2, H3, H4 } from '../../../styledElements/Texts';
-import { AccountPageContainer, Card } from 'styledElements/Card';
+import { H4 } from '../../../styledElements/Texts';
+import { AccountPageContainer } from 'styledElements/Card';
 
 // const UploadedProducts = styled.div`
 //   display: flex;
@@ -18,7 +18,9 @@ import { AccountPageContainer, Card } from 'styledElements/Card';
 const Upload = () => {
   return (
     <>
-      <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">Upload a new prop</H4>
+      <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">
+        Upload a new prop
+      </H4>
 
       <AccountPageContainer>
         <UploadImage />

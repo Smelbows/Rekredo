@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux';
 import Logo from '../../images/RekRedo.png';
 import { Logout } from 'components/Logout';
-import { P, H3, H4, H6 } from '../../styledElements/Texts';
+import { P, H6 } from '../../styledElements/Texts';
 
 const activeClassName = 'nav-item-active';
 

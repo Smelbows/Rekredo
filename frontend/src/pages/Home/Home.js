@@ -5,14 +5,13 @@ import styled from 'styled-components';
 import ImageCarousel from './Components/ImageCarousel';
 import { BigSection } from '../../styledElements/Card';
 import { MiddleContainer } from '../../styledElements/Container';
-import { H2, H1, H3, H5, H4, H6 } from '../../styledElements/Texts';
+import { H2, H3, H5, H4, H6 } from '../../styledElements/Texts';
 // import { products } from 'reducers/products';
 import AccordionSection from '../Faq/Components/AccordionSection';
 import Marquee from 'react-fast-marquee';
 
 import { images, propImages } from './images';
 import { accordionData1 } from 'pages/Faq/accordionContent';
-
 
 const CarouselContainer = styled.div`
   display: none;
@@ -61,7 +60,7 @@ const TextHeader = styled.div`
   width: 50%;
   height: 60vh;
   @media (max-width: 768px) {
-   height: 40vh;
+    height: 40vh;
   }
 `;
 
@@ -74,12 +73,11 @@ const TextBox = styled.div`
   /* padding: 1em; */
   /* max-width:  */
   @media (max-width: 768px) {
-    width: 100%
+    width: 100%;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 0em 0em 0em 2em;
     text-align: right;
-
   }
 `;
 const TextBoxTop = styled.div`
@@ -91,13 +89,13 @@ const TextBoxTop = styled.div`
   /* padding: 1em; */
   /* max-width:  */
   @media (max-width: 768px) {
-    width: 100%
+    width: 100%;
     flex-wrap: wrap;
     text-align: right;
     text-align: left;
   }
   @media (max-width: 670px) {
-    width: 100%
+    width: 100%;
     flex-direction: column;
     flex-wrap: wrap;
     text-align: right;
@@ -106,13 +104,13 @@ const TextBoxTop = styled.div`
   }
 `;
 const TextBoxRight = styled.div`
-display: grid;
-align-content: center;
-width: 50%;
+  display: grid;
+  align-content: center;
+  width: 50%;
   @media (max-width: 768px) {
-width: 90%;
-text-align: left;
-/* padding-top: 1em; */
+    width: 90%;
+    text-align: left;
+    /* padding-top: 1em; */
   }
 `;
 
@@ -121,14 +119,14 @@ const LeftText = styled.div`
   width: 40%;
   align-content: flex-start;
   @media (max-width: 768px) {
-  width: 100%
+    width: 100%;
   }
 `;
 
 const Seperator = styled.div`
   display: grid;
   place-items: center;
-  width:20%;
+  width: 20%;
   height: 80vh;
   padding-right: 0.25em;
   color: white;
@@ -143,11 +141,11 @@ const Seperator = styled.div`
   }
 `;
 const RightText = styled.div`
-display: grid;
-align-content: flex-end;
-width: 40%;
+  display: grid;
+  align-content: flex-end;
+  width: 40%;
   @media (max-width: 768px) {
-width: 100%;
+    width: 100%;
   }
 `;
 
@@ -184,23 +182,24 @@ const Home = () => {
       <MiddleContainer>
         <TextContainer>
           <Header> REKREDO </Header>
-          <H3 color='white'> REKVISITA - ON DEMAND </H3>
+          <H3 color="white"> REKVISITA - ON DEMAND </H3>
         </TextContainer>
         <CarouselContainer>
           <ImageCarousel images={images} quantity={1} />
         </CarouselContainer>
       </MiddleContainer>
       <BigSection>
-      <TextBoxTop>
-        <TextHeader>
-          <H2>We are Rekredo</H2>
-        </TextHeader>
+        <TextBoxTop>
+          <TextHeader>
+            <H2>We are Rekredo</H2>
+          </TextHeader>
           <TextBoxRight>
-          <H6 color="black" weight="400" height="1.75em">
-            Bridging the gap between individuals who may have a unique cherished
-            item sitting at home gathering dust, and production crews who are on
-            the hunt for the perfect prop to make their scenes oscar-worthy.
-          </H6>
+            <H6 color="black" weight="400" height="1.75em">
+              Bridging the gap between individuals who may have a unique
+              cherished item sitting at home gathering dust, and production
+              crews who are on the hunt for the perfect prop to make their
+              scenes oscar-worthy.
+            </H6>
           </TextBoxRight>
         </TextBoxTop>
       </BigSection>
@@ -208,20 +207,20 @@ const Home = () => {
         <TextBox>
           <LeftText>
             <H5 height="1.5em" weight="400">
-              <span>Production Companies</span> it's finally here. A simplified way for you to
-              find what you need for you next production. We have created a
-              platform where you easily can connect with people all across
-              europe to find unique props what will make the difference in your
-              next production! Register and rent away!
+              <span>Production Companies</span> it's finally here. A simplified
+              way for you to find what you need for you next production. We have
+              created a platform where you easily can connect with people all
+              across europe to find unique props what will make the difference
+              in your next production! Register and rent away!
             </H5>
           </LeftText>
           <Seperator>/</Seperator>
           <RightText>
             <H5 height="1.5em" weight="400">
               <span>Individuals</span> we got you too. REKREDO is a platform for
-              all those things that you kept in your home for ages. We have created a
-              space where you can upload, rent and get paid. What are you
-              waiting for register now and
+              all those things that you kept in your home for ages. We have
+              created a space where you can upload, rent and get paid. What are
+              you waiting for register now and
               <span>get paid</span>!
             </H5>
           </RightText>
@@ -237,22 +236,61 @@ const Home = () => {
       </BigSection>
       <MarqueeSection>
         <Marquee play={true} speed={100} gradient={false}>
-          <H5 height="1.75em" paddingRight="2em" weight="400">Cars </H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> Motorbikes</H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> Artwork </H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> Spaces </H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> Furniture </H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> House </H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> Watches </H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> 1970's</H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> 1960's </H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> Clothing </H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> Electronics </H5>
-          <H5 height="1.75em" paddingRight="2em" weight="400"> More... </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            Cars{' '}
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            Motorbikes
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            Artwork{' '}
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            Spaces{' '}
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            Furniture{' '}
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            House{' '}
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            Watches{' '}
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            1970's
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            1960's{' '}
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            Clothing{' '}
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            Electronics{' '}
+          </H5>
+          <H5 height="1.75em" paddingRight="2em" weight="400">
+            {' '}
+            More...{' '}
+          </H5>
         </Marquee>
       </MarqueeSection>
 
-      <AccordionSection text='Frequently asked questions' image={images[0]}accordionData={accordionData1} />
+      <AccordionSection
+        text="Frequently asked questions"
+        image={images[0]}
+        accordionData={accordionData1}
+      />
     </>
   );
 };

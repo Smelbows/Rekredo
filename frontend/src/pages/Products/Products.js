@@ -9,21 +9,8 @@ import { Label } from 'styledElements/Form';
 
 import { showProduct } from '../../reducers/products';
 // import styled from 'styled-components';
-import {
-  ProductCard,
-  HeaderSection,
-  BigSection,
-} from '../../styledElements/Card';
-import {
-  H1,
-  H2,
-  H3,
-  P,
-  H4,
-  H5,
-  H6,
-  ProductText,
-} from '../../styledElements/Texts';
+import { HeaderSection, BigSection } from '../../styledElements/Card';
+import { H2, P, H5, H6, ProductText } from '../../styledElements/Texts';
 import { Button } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
 
@@ -56,13 +43,12 @@ const ProdTextBox = styled.div`
   position: absolute;
   background-color: rgb(30, 30, 30, 0.5);
   padding: 1rem;
-  box-shadow: -3px -1px 8px 3px rgb(30, 30, 30, 0.5), 3px 1px 8px 3px rgb(30, 30, 30, 0.5);
+  box-shadow: -3px -1px 8px 3px rgb(30, 30, 30, 0.5),
+    3px 1px 8px 3px rgb(30, 30, 30, 0.5);
 
   &:hover {
     background-color: rgb(30, 30, 30, 0.7);
   }
-
-  
 `;
 
 const ProductImageCard = styled.div`
@@ -79,10 +65,10 @@ const ProductImageCard = styled.div`
   position: relative;
 
   @media (min-width: 768px) {
-  &:hover ${ProdTextBox} {
-    display: none;
+    &:hover ${ProdTextBox} {
+      display: none;
+    }
   }
-}
 `;
 
 const Products = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, H2, P, H4 } from '../../../styledElements/Texts';
+import { H2, P, H4 } from '../../../styledElements/Texts';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { deleteAnOrder } from 'reducers/user';
@@ -25,8 +25,8 @@ const OrderDiv = styled.div`
 `;
 
 const Div = styled.div`
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const MyOrders = () => {
@@ -42,7 +42,9 @@ const MyOrders = () => {
 
   return (
     <>
-      <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">My Orders</H4>
+      <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">
+        My Orders
+      </H4>
 
       <AccountPageContainer>
         {orders ? (
@@ -65,7 +67,7 @@ const MyOrders = () => {
                 <P>Date </P>
                 <P>{new Date(item.createdAt).toLocaleDateString()}</P>
               </Div>
-              <SmallButton  onClick={() => handleDeleteOrder(item._id)}>
+              <SmallButton onClick={() => handleDeleteOrder(item._id)}>
                 Delete
               </SmallButton>
             </OrderDiv>

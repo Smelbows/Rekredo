@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-// import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { StyledProfileCard, AccountPageContainer } from 'styledElements/Card';
+import { AccountPageContainer } from 'styledElements/Card';
 import { Button } from '../../../styledElements/Buttons';
-import { H4, P } from 'styledElements/Texts';
-import { Form, Label, StyledInput, TextArea } from 'styledElements/Form';
+import { H4 } from 'styledElements/Texts';
+import { Label, StyledInput, TextArea } from 'styledElements/Form';
 import styled from 'styled-components';
 
 const GridForm = styled.form`
@@ -40,7 +38,6 @@ const GridForm = styled.form`
 `;
 
 const ProfileCard = () => {
-  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const [username, setUsername] = useState([user.username]);
   const [email, setEmail] = useState([user.email]);

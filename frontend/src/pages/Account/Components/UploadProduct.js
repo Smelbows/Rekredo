@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 
 import { uploadProduct } from 'reducers/upload';
 import { PropButton, Button } from '../../../styledElements/Buttons';

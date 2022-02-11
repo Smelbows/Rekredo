@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { BigSection } from 'styledElements/Card';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { MiddleContainer } from 'styledElements/Container';
@@ -30,7 +29,6 @@ const PropBox = styled.div`
   flex-direction: column;
   align-items: center;
 
-
   @media (min-width: 768px) {
     height: 70vh;
     background-image: url('${(props) => props.backImage}');
@@ -54,17 +52,17 @@ const PropLink = styled(Link)`
   align-self: self-start;
   margin: 1em;
   z-index: 5;
-`
+`;
 
 const Overlay = styled.div`
   @media (min-width: 768px) {
-  position: absolute;
-  width: 100vw;
-  height: 70vh;
-  background-color: rgb(30, 30, 30, 0.5);
-  z-index: 1;
+    position: absolute;
+    width: 100vw;
+    height: 70vh;
+    background-color: rgb(30, 30, 30, 0.5);
+    z-index: 1;
   }
-`
+`;
 
 const ContentBox = styled.div`
   @media (min-width: 768px) {
@@ -72,7 +70,7 @@ const ContentBox = styled.div`
     flex-direction: row;
     z-index: 5;
   }
-`
+`;
 
 const PropDetails = () => {
   const myCart = useSelector((state) => state.cart.cartList);
@@ -94,22 +92,26 @@ const PropDetails = () => {
     <MiddleContainer>
       <Overlay></Overlay>
       <PropBox backImage={prop.image?.imageUrl}>
-      <PropLink to="/products"> &#8678; Back to all props</PropLink>
+        <PropLink to="/products"> &#8678; Back to all props</PropLink>
         <ContentBox>
-        <PropImage src={prop.image?.imageUrl} alt={prop.name}></PropImage>
+          <PropImage src={prop.image?.imageUrl} alt={prop.name}></PropImage>
           <TextBox>
             <H3 color="var(--white)">{prop.name}</H3>
             <P color="var(--white)">{prop.description}</P>
             <P color="var(--white)">{prop.category}</P>
-            <div>{prop.tags.map((item) => <P color="var(--white)">#{item}</P>)}</div>
+            <div>
+              {prop.tags.map((item) => (
+                <P color="var(--white)">#{item}</P>
+              ))}
+            </div>
             {itemIsInCart(prop) ? (
               <P>Item in cart</P>
             ) : (
-              <>{typeOfUser === 'Business' && <AddToCartButton item={prop} />}</>
+              <>
+                {typeOfUser === 'Business' && <AddToCartButton item={prop} />}
+              </>
             )}
-            
           </TextBox>
-          
         </ContentBox>
       </PropBox>
     </MiddleContainer>
