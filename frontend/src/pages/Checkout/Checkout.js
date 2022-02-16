@@ -10,7 +10,7 @@ import Cart from './Components/Cart';
 import { BigSection } from '../../styledElements/Card';
 import { Button } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
-import { P } from 'styledElements/Texts';
+import { P, H6 } from 'styledElements/Texts';
 
 import { getUserDetails } from 'reducers/user';
 
@@ -23,7 +23,9 @@ const ConfirmButton = styled(Button)`
 
 const CheckoutContainer = styled(BigSection)`
   flex-direction: row;
+  align-items: center;
   flex-wrap: wrap;
+  min-height: 20em;
 `;
 
 const Checkout = () => {
@@ -64,22 +66,25 @@ const Checkout = () => {
     <MiddleContainer>
       <CheckoutContainer>
         <Cart />
+        <div>
+          {/* Text is white right now but the button works */}
+          {myCart.length === 0 ? (
+            <H6 color="black">
+              Your cart is empty right now. Head over to the products page to
+              add a prop to your cart.
+            </H6>
+          ) : (
+            <div>
+              <P>
+                Great choices, click the confirm button to complete your order
+              </P>
+              <ConfirmButton onClick={onOrderConfirm}>
+                Confirm Order
+              </ConfirmButton>
+            </div>
+          )}
+        </div>
       </CheckoutContainer>
-      {/* Text is white right now but the button works */}
-      {myCart.length === 0 ? (
-        <P>Your cart is empty right now</P>
-      ) : (
-        <>
-          <div>
-            <P>
-              Great choices, click the confirm button to complete your order
-            </P>
-            <ConfirmButton onClick={onOrderConfirm}>
-              Confirm Order
-            </ConfirmButton>
-          </div>
-        </>
-      )}
     </MiddleContainer>
   );
 };

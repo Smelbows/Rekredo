@@ -14,13 +14,18 @@ const OrderDiv = styled.div`
   align-items: left;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 100%;
+  width: 95%;
   border: 1px solid black;
   margin: 1em;
-  padding: 0.5em;
+  padding: 1em;
   :hover {
     box-shadow: inset 0 0 10px var(--wintergreen);
     cursor: pointer;
+  }
+  @media (max-width: 420px) {
+    flex-direction: column;
+    width: 70%;
+    font-size: 12px;
   }
 `;
 

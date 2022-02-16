@@ -14,11 +14,11 @@ const BusinessAccountNav = ({ activeSection, setActiveSection }) => {
       </AsideButton>
       <AsideButton onClick={() => setActiveSection('update account')}>
         Account Settings
-      </AsideButton>
-      <AsideButton onClick={() => setActiveSection('cart')}>Cart</AsideButton>
+      </AsideButton>{' '}
       <AsideButton onClick={() => setActiveSection('messages')}>
         Messages
       </AsideButton>
+      <AsideButton onClick={() => setActiveSection('cart')}>Cart</AsideButton>
     </>
   );
 };

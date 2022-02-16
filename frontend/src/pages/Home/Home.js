@@ -50,7 +50,7 @@ const TextContainer = styled.div`
     position: relative;
     height: 80vh;
     top: 14%;
-    width: 90vw;
+    width: 100vw;
   }
 `;
 
@@ -61,6 +61,7 @@ const TextHeader = styled.div`
   height: 60vh;
   @media (max-width: 768px) {
     height: 40vh;
+    font-size: 0.5em;
   }
 `;
 
@@ -206,23 +207,23 @@ const Home = () => {
       <BigSection>
         <TextBox>
           <LeftText>
-            <H5 height="1.5em" weight="400">
+            <H6 height="1.5em" weight="400">
               <span>Production Companies</span> it's finally here. A simplified
               way for you to find what you need for you next production. We have
               created a platform where you easily can connect with people all
               across europe to find unique props what will make the difference
               in your next production! Register and rent away!
-            </H5>
+            </H6>
           </LeftText>
           <Seperator>/</Seperator>
           <RightText>
-            <H5 height="1.5em" weight="400">
+            <H6 height="1.5em" weight="400">
               <span>Individuals</span> we got you too. REKREDO is a platform for
               all those things that you kept in your home for ages. We have
               created a space where you can upload, rent and get paid. What are
               you waiting for register now and
               <span>get paid</span>!
-            </H5>
+            </H6>
           </RightText>
         </TextBox>
       </BigSection>

@@ -141,7 +141,7 @@ const Footer = () => {
           </TextDiv>
           <TextDiv>
             <H6 paddingBottom="0.75em">REKREDO</H6>
-            <StyledLink to="/about">About us</StyledLink>
+            <StyledLink to="/">About us</StyledLink>
             <StyledLink to="/faq">FAQ</StyledLink>
           </TextDiv>
           <TextDiv>

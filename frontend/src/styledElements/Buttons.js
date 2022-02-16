@@ -32,7 +32,7 @@ export const SmallButton = styled.button`
   background: transparent;
   color: black;
   border: 1px solid black;
-  box-shadow:  1px 1px 0px 2px grey;
+  box-shadow: 1px 1px 0px 2px grey;
   text-align: center;
   :hover {
     box-shadow: 0 0 10px var(--saffron);

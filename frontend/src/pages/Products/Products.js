@@ -18,7 +18,6 @@ import AddToCartButton from './AddToCartButton';
 
 const Input = styled.input`
   border-radius: 20px;
-  width: 20vw;
   padding: 0.4em;
   margin-top: 3em;
   text-align: center;
@@ -168,9 +167,6 @@ const Products = () => {
           <H5 color="black">Loading products</H5>
         )}
       </MiddleContainer>
-      <BigSection>
-        <P>Text holder for something like pagination</P>
-      </BigSection>
     </MiddleContainer>
   );
 };

@@ -2,16 +2,18 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { H4 } from 'styledElements/Texts';
+import { H4, P } from 'styledElements/Texts';
 import { AccountPageContainer } from 'styledElements/Card';
 
 import bin from '../../../images/bin.png';
 
 const MessageContainer = styled.div`
-  display: grid;
-  grid-template-columns: 50px auto 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   align-items: center;
-  border: 2px solid black;
+  border: 1px solid black;
   margin: 1em;
   padding: 1em;
 
@@ -25,7 +27,6 @@ const MessageContainer = styled.div`
   }
 
   & > p {
-    width: 400px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -42,15 +43,12 @@ const Messages = () => {
       <AccountPageContainer>
         <MessageContainer>
           <input type="checkbox" />
-          <p>This is a sample message</p>
+          <P>This is a sample message</P>
           <img src={bin} alt="delete bin"></img>
         </MessageContainer>
         <MessageContainer>
           <input type="checkbox" />
-          <p>
-            This is a sample message with a really super uper long message in it
-            to see what happens let's see
-          </p>
+          <P>This is a sample message.</P>
           <img src={bin} alt="delete bin"></img>
         </MessageContainer>
       </AccountPageContainer>

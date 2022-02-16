@@ -19,7 +19,7 @@ export const H2 = styled.h2`
 `;
 
 export const H3 = styled.h3`
-  font-size: 3em;
+  font-size: 3rem;
   font-family: var(--fontone);
   color: ${(props) => props.color || 'var(--white)'};
 `;

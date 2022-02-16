@@ -19,9 +19,9 @@ export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 1.2em 1em 1.2em 1em;
-  margin: 1rem;
+  margin: 0.75rem;
   max-height: 450px;
   width: 300px;
   background-color: var(--saffron);
@@ -88,12 +88,16 @@ export const HeaderSection = styled.div`
   align-items: center;
   /* margin: 0 auto; */
   width: 100vw;
-  padding: 4em 0em 8em 0em;
+  padding: 4em 1em 8em 1em;
   background-color: white;
 `;
 
 export const AccountPageContainer = styled.div`
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0.5em;
+  width: 95vw;
   margin: 0 auto;
   height: 100%;
 

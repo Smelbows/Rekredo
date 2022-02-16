@@ -37,9 +37,6 @@ export const TextArea = styled.textarea`
   padding: ${(props) => props.padding || '5px'};
   height: 100px;
   width: ${(props) => props.width || '100%'};
-  @media (min-width: 768px) {
-    width: 500px;
-  }
 `;
 
 export const Label = styled.label`

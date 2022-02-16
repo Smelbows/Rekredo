@@ -24,7 +24,7 @@ const HeaderSection = styled.div`
 
   padding-right: 1em;
   font-family: var(--fonttwo);
-  width: 70vw;
+  /* width: 70vw; */
   @media (max-width: 400px) {
     flex-direction: column;
     margin: 0 auto;
@@ -44,8 +44,8 @@ const HeaderLogo = styled.div`
 const LogoImg = styled.img`
   width: 8rem;
   @media (min-width: 768px) {
-    height: 12rem;
-    width: 20rem;
+    /* height: 12rem;
+    width: 20rem; */
     object-fit: cover;
   }
 `;
