@@ -7,12 +7,15 @@ import { MiddleContainer } from 'styledElements/Container';
 import { H3, P } from 'styledElements/Texts';
 
 import AddToCartButton from 'pages/Products/AddToCartButton';
+
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 300px;
   justify-content: center;
   position: absolute;
-  top: 75vh;
+  top: 20vh;
 
   @media (min-width: 768px) {
     position: initial;
@@ -23,7 +26,6 @@ const TextBox = styled.div`
 
 const PropBox = styled.div`
   position: relative;
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
