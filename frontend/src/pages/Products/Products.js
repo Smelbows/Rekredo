@@ -9,7 +9,7 @@ import { Label } from 'styledElements/Form';
 
 import { showProduct } from '../../reducers/products';
 // import styled from 'styled-components';
-import { HeaderSection, BigSection } from '../../styledElements/Card';
+import { HeaderSection } from '../../styledElements/Card';
 import { H2, P, H5, H6, ProductText } from '../../styledElements/Texts';
 import { Button } from '../../styledElements/Buttons';
 import { MiddleContainer } from '../../styledElements/Container';
