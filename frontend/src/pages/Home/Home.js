@@ -183,7 +183,7 @@ const Home = () => {
       <MiddleContainer>
         <TextContainer>
           <Header> REKREDO </Header>
-          <H3 color="white"> REKVISITA - ON DEMAND </H3>
+          <H2 color="white"> REKVISITA - ON DEMAND </H2>
         </TextContainer>
         <CarouselContainer>
           <ImageCarousel images={images} quantity={1} />
