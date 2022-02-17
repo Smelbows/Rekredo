@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import ImageCarousel from './Components/ImageCarousel';
 import { BigSection } from '../../styledElements/Card';
 import { MiddleContainer } from '../../styledElements/Container';
-import { H2, H3, H5, H4, H6 } from '../../styledElements/Texts';
+import { H2, H5, H4, H6 } from '../../styledElements/Texts';
 // import { products } from 'reducers/products';
 import AccordionSection from '../Faq/Components/AccordionSection';
 import Marquee from 'react-fast-marquee';
