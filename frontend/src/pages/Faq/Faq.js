@@ -12,14 +12,6 @@ import {
   accordionData2,
   accordionData3,
 } from './accordionContent';
-// const AccordionDiv = styled.div`
-//   max-width: 600px;
-//   margin: 2rem auto;
-//   display: flex;
-//   flex-direction: column;
-//   width: 400px;
-//   border: 1px solid black;
-// `;
 
 export const Section = styled.section`
   display: flex;
