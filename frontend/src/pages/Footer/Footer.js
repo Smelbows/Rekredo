@@ -160,7 +160,7 @@ const Footer = () => {
             © REKREDO is a application built by{' '}
             <a href="https://github.com/jakobxlindstrom">Jakob Lindström</a>,{' '}
             <a href="https://github.com/smelbows">Sarah Mottram</a> and{' '}
-            <a href="https://github.com/loulunds">Lousanne Lundström</a>,
+            <a href="https://github.com/loulunds">Lousanne Lundström</a>
           </P>
           <SmallSection>
             <img
