@@ -158,9 +158,17 @@ const Footer = () => {
         <BottomSection>
           <P color="white">
             © REKREDO is a application built by{' '}
-            <a href="https://github.com/jakobxlindstrom">Jakob Lindström</a>,{' '}
-            <a href="https://github.com/smelbows">Sarah Mottram</a> and{' '}
-            <a href="https://github.com/loulunds">Lousanne Lundström</a>
+            <a href="https://github.com/jakobxlindstrom" className="names">
+              Jakob Lindström
+            </a>
+            ,{' '}
+            <a href="https://github.com/smelbows" className="names">
+              Sarah Mottram
+            </a>{' '}
+            and{' '}
+            <a href="https://github.com/loulunds" className="names">
+              Lousanne Lundström
+            </a>
           </P>
           <SmallSection>
             <img

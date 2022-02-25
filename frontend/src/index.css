@@ -37,3 +37,13 @@ span {
   font-weight: 900;
   text-transform: uppercase;
 }
+
+.names {
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+a:visited {
+  color: var(--white);
+}
