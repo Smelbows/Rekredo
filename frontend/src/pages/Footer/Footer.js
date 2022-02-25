@@ -157,8 +157,10 @@ const Footer = () => {
         </TopSection>
         <BottomSection>
           <P color="white">
-            © REKREDO AB Org. nr: 999999-6666. Stockholmsgatan 99, 199 99
-            Stockholm
+            © REKREDO is a application built by{' '}
+            <a href="https://github.com/jakobxlindstrom">Jakob Lindström</a>,{' '}
+            <a href="https://github.com/smelbows">Sarah Mottram</a> and{' '}
+            <a href="https://github.com/loulunds">Lousanne Lundström</a>,
           </P>
           <SmallSection>
             <img
