@@ -36,7 +36,7 @@ const Div = styled.div`
 
 const MyOrders = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
   const orders = useSelector((state) => state.user.business.orders);
 
   const handleDeleteOrder = (id) => {
