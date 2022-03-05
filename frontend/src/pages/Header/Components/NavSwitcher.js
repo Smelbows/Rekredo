@@ -28,13 +28,10 @@ const NavSwitcher = () => {
     <>
       {!accessToken ? (
         <NavButton>
-          <Button
-            propBtnColor="dark-grey"
-            onClick={() => navigate('/register')}
-          >
+          <Button propBtnColor="black" onClick={() => navigate('/register')}>
             Register
           </Button>
-          <Button propBtnColor="dark-grey" onClick={() => navigate('/log-in')}>
+          <Button propBtnColor="black" onClick={() => navigate('/log-in')}>
             Log in
           </Button>
         </NavButton>

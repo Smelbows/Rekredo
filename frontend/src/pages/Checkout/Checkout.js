@@ -61,7 +61,6 @@ const Checkout = () => {
     dispatch(sendOrder(myCart, accessToken));
   };
 
-  console.log(myCart);
   return (
     <MiddleContainer>
       <CheckoutContainer>

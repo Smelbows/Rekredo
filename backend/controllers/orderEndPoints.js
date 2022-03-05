@@ -13,7 +13,6 @@ export const createOrder = async (req, res) => {
     const propIds = cart.map((prop) => {
       return prop._id;
     });
-    console.log(propIds);
 
     const newOrder = await new Order({
       products: propIds,
@@ -34,7 +33,6 @@ export const createOrder = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error, 'cart error');
     if (error.code === 11000) {
       res.status(401).json({ success: false, response: 'cart is empty' });
     } else {
@@ -44,10 +42,8 @@ export const createOrder = async (req, res) => {
 };
 
 export const deleteOrder = async (req, res) => {
-  console.log(req.body, "body in backend")
   const { _id } = req.body;
 
-  console.log(_id, "deleteOrder endpoint")
   try {
     if (!_id) {
       throw 'Order id needed to delete order';
@@ -58,7 +54,6 @@ export const deleteOrder = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error, 'delete error');
     res.status(400).json({ response: 'Order id not found', success: false });
   }
 };

@@ -38,8 +38,6 @@ const MyOrders = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const orders = useSelector((state) => state.user.business.orders);
-  console.log(orders, 'orders');
-  console.log(user, 'user');
 
   const handleDeleteOrder = (id) => {
     dispatch(deleteAnOrder(id));

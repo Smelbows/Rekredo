@@ -84,7 +84,6 @@ const PropDetails = () => {
 
   //match prop._id from db
   const prop = products.find((prop) => prop._id === propid);
-  console.log(prop);
 
   const itemIsInCart = (item) => {
     return myCart.filter((prop) => prop._id === item._id).length > 0;

@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
 import { BASE_URL } from '../utils/config';
-console.log(BASE_URL);
 // const BASE_URL = 'http://localhost:8080';
 
 export const upload = createSlice({
@@ -28,7 +27,6 @@ export const upload = createSlice({
       }
     },
     setProduct: (store, action) => {
-      console.log('setProduct', action.payload);
       store.product = action.payload.response;
       store.productSuccess = action.payload.success;
     },
@@ -48,7 +46,6 @@ export const uploadImage = (formData) => {
           dispatch(upload.actions.setImage(json));
           dispatch(upload.actions.setImageError(null));
         } else {
-          console.log('fail', json);
           dispatch(upload.actions.setImageError(json.response));
         }
       })
@@ -79,13 +76,11 @@ export const uploadProduct = (
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
-          console.log('success', json);
           dispatch(upload.actions.setProductError(null));
           dispatch(upload.actions.setProduct(json));
           dispatch(upload.actions.clearImageState());
           clearForm();
         } else {
-          console.log('fail', json);
           dispatch(upload.actions.setProductError(json.response));
         }
       })

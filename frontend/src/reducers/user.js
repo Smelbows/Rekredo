@@ -91,7 +91,6 @@ export const userLogin = (username, password) => {
           dispatch(user.actions.setError(null));
         } else {
           dispatch(user.actions.setError(json.response));
-          console.log(json.response);
           dispatch(user.actions.setUserToLoggedOut());
         }
       })
@@ -162,7 +161,6 @@ export const getUserDetails = (accessToken) => {
 };
 
 export const deleteAnOrder = (id) => {
-  // console.log(id, "order id at thunk")
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch(BASE_URL + '/delete-order', {
@@ -178,7 +176,6 @@ export const deleteAnOrder = (id) => {
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
-          console.log(json.response.message);
           dispatch(user.actions.setOrders(json.response));
         } else {
           dispatch(user.actions.setError(json.response));
@@ -204,7 +201,6 @@ export const deleteAProduct = (id) => {
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
-          console.log(json.response.message);
           dispatch(user.actions.setProducts(json.response));
         } else {
           dispatch(user.actions.setError(json.response));

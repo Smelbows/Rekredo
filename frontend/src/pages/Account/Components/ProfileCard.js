@@ -45,7 +45,6 @@ const ProfileCard = () => {
   const [firstName, setFirstName] = useState('');
   const [surname, setSurname] = useState('');
 
-  console.log(user);
   return (
     <>
       <H4 shadow="0 2px 2px black" backGroundColor="var(--wintergreen)">

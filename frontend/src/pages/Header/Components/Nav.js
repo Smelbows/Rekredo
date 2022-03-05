@@ -14,7 +14,7 @@ const Pages = styled(NavLink)`
   color: black;
   font-family: var(--fontone);
   &.${(props) => props.activeClassName} {
-    color: grey;
+    color: black;
   }
 `;
 

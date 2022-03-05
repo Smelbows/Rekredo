@@ -47,7 +47,6 @@ export const sendOrder = (myCart, accessToken) => {
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
-          console.log('success', json);
           dispatch(cart.actions.emptyCart());
           dispatch(cart.actions.setOrderSuccess(true));
 
@@ -57,8 +56,6 @@ export const sendOrder = (myCart, accessToken) => {
           // clearForm();
         } else {
           dispatch(cart.actions.setOrderSuccess(false));
-
-          // console.log('fail', json);
           // dispatch(upload.actions.setProductError(json.response));
         }
       })

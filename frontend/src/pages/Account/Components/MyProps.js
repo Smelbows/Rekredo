@@ -18,7 +18,6 @@ const MyProps = () => {
   // const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const props = useSelector((state) => state.user.personal.ownedProducts);
-  console.log(props);
   const userHasProps = props.length > 0;
 
   const handleDeleteProduct = (id) => {

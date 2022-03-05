@@ -5,15 +5,14 @@ export const getProducts = async (req, res) => {
 
   const query = {
     description: new RegExp(description, 'i'),
-    availability: true
-  }  
+    availability: true,
+  };
 
-  if (category){
-    query.category = category
+  if (category) {
+    query.category = category;
   }
 
   try {
-    console.log(query)
     const allProducts = await Product.find(query)
       .populate('image')
       .sort({ createdAt: 'desc' });
@@ -41,10 +40,7 @@ export const getProductById = async (req, res) => {
 };
 
 export const deleteProduct = async (req, res) => {
-  console.log(req.body, 'body in backend');
   const { _id } = req.body;
-
-  // console.log(_id, "deleteProduct endpoint")
   try {
     if (!_id) {
       throw 'Product id needed to delete';
@@ -55,7 +51,6 @@ export const deleteProduct = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error, 'delete error');
     res.status(400).json({ response: 'Prouct id not found', success: false });
   }
 };

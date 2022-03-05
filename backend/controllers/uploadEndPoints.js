@@ -2,7 +2,6 @@ const { User, Product, Image } = require('../models/models.js');
 
 export const productUpload = async (req, res) => {
   const { name, description, category, tags, image } = req.body;
-  console.log(image, 'image received in backend in product upload');
   try {
     if (!name) {
       throw 'Your product has to have a name';
