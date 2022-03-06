@@ -95,7 +95,7 @@ export const UploadProduct = () => {
           />
         </Label>
 
-        <Button disabled={!image} type="submit">
+        <Button color="black" disabled={!image} type="submit">
           Upload Product
         </Button>
       </Form>
