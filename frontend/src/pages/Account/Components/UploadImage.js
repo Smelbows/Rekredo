@@ -50,8 +50,19 @@ export const UploadImage = () => {
     <FormBox>
       <Form onSubmit={handleFormSubmit}>
         <Label>Prop Image</Label>
+        <p>
+          Please upload an image first, click on the upload image button and
+          wait until you see your chosen image.
+        </p>
+        <p>
+          {' '}
+          After this add the details below to be able to fully upload your
+          product{' '}
+        </p>
         <Input type="file" ref={fileInput} required />
-        <Button background="grey" type="submit">Upload Image</Button>
+        <Button background="grey" type="submit">
+          Upload Image
+        </Button>
       </Form>
       {image && (
         <img

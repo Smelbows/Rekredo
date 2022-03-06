@@ -8,7 +8,7 @@ export const Button = styled.button`
   margin: 0.5rem 1rem;
   width: ${(props) => props.propWidth || '8rem'};
   background: ${(props) => props.background || 'transparent'};
-  color: ${(props) => props.propBtnColor || 'var(--white)'};
+  color: ${(props) => props.propBtnColor || 'var(--black)'};
   border: ${(props) => props.propBorder || '1px solid black'};
   :disabled {
     opacity: 1;
