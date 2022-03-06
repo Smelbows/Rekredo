@@ -18,7 +18,6 @@ export const Button = styled.button`
   :hover {
     box-shadow: 0 0 10px var(--saffron);
     cursor: pointer;
-    color: black;
   }
 `;
 
