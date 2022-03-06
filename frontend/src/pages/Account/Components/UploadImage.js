@@ -51,7 +51,7 @@ export const UploadImage = () => {
       <Form onSubmit={handleFormSubmit}>
         <Label>Prop Image</Label>
         <Input type="file" ref={fileInput} required />
-        <Button color="black" type="submit">Upload Image</Button>
+        <Button background="grey" type="submit">Upload Image</Button>
       </Form>
       {image && (
         <img
